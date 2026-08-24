@@ -3,6 +3,7 @@
 Definitions (all on annual figures):
 
 * EBITDA            = operating income + depreciation & amortization
+                      + non-cash impairment charges (a standard covenant add-back)
 * Total debt        = short-term borrowings + current portion of LTD + long-term debt
 * Debt / EBITDA     = total debt / EBITDA
 * Net leverage      = (total debt - cash) / EBITDA
@@ -57,7 +58,7 @@ def _coverage(num: float, den: float) -> float:
 
 
 def compute_ratios(y: dict[str, float]) -> dict[str, float]:
-    ebitda = y["operating_income"] + y["depreciation_amortization"]
+    ebitda = y["operating_income"] + y["depreciation_amortization"] + y.get("impairments", 0.0)
     total_debt = y["short_term_borrowings"] + y["current_portion_ltd"] + y["long_term_debt"]
     net_debt = total_debt - y["cash"]
     interest, cpltd, lease = y["interest_expense"], y["current_portion_ltd"], y["operating_lease_cost"]

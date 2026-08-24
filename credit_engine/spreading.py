@@ -84,6 +84,12 @@ LINE_ITEMS: dict[str, tuple[str, str, list, float | None]] = {
                 "Depreciation + AmortizationOfIntangibleAssets"),
         "Depreciation",
     ], None),
+    "impairments": ("IS", FLOW, [
+        "GoodwillAndIntangibleAssetImpairment",
+        "GoodwillImpairmentLoss",
+        "AssetImpairmentCharges",
+        "ImpairmentOfIntangibleAssetsExcludingGoodwill",
+    ], 0.0),
     "interest_expense": ("IS", FLOW, [
         "InterestExpense",
         "InterestExpenseNonoperating",

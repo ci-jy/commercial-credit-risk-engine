@@ -33,7 +33,7 @@ SCENARIOS = {
 
 def apply_scenario(y: dict[str, float], scenario: str, s: float, floating_share: float) -> dict[str, float]:
     z = dict(y)
-    base_ebitda = y["operating_income"] + y["depreciation_amortization"]
+    base_ebitda = y["operating_income"] + y["depreciation_amortization"] + y.get("impairments", 0.0)
     if scenario == "ebitda_shock":
         z["operating_income"] = y["operating_income"] - s * base_ebitda
     elif scenario == "rate_shock":
