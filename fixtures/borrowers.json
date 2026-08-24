@@ -1,0 +1,19 @@
+{
+  "sample_borrower": {
+    "name": "Northwind Industrial Supply Co. (illustrative private borrower)",
+    "cik": null,
+    "ticker": null,
+    "floating_rate_share": 0.6,
+    "covenants": [
+      {"name": "Max total leverage", "metric": "debt_to_ebitda", "op": "<=", "threshold": 3.5},
+      {"name": "Min interest coverage", "metric": "interest_coverage", "op": ">=", "threshold": 3.0},
+      {"name": "Min fixed-charge coverage", "metric": "fccr", "op": ">=", "threshold": 1.25},
+      {"name": "Min current ratio", "metric": "current_ratio", "op": ">=", "threshold": 1.2}
+    ]
+  },
+  "hasbro": {"name": "Hasbro, Inc.", "cik": 46080, "ticker": "HAS", "floating_rate_share": 0.1},
+  "whirlpool": {"name": "Whirlpool Corp.", "cik": 106640, "ticker": "WHR", "floating_rate_share": 0.15},
+  "kohls": {"name": "Kohl's Corp.", "cik": 885639, "ticker": "KSS", "floating_rate_share": 0.2},
+  "mattel": {"name": "Mattel, Inc.", "cik": 63276, "ticker": "MAT", "floating_rate_share": 0.1},
+  "macys": {"name": "Macy's, Inc.", "cik": 794367, "ticker": "M", "floating_rate_share": 0.1}
+}

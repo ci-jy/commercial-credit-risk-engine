@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "commercial-credit-risk-engine"
+version = "0.1.0"
+description = "XBRL financial spreading, covenant stress tests, bankruptcy PD scorecard vs Altman Z'', and Merton distance-to-default"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "scipy>=1.10",
+    "scikit-learn>=1.3",
+    "openpyxl>=3.1",
+    "matplotlib>=3.7",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[project.scripts]
+credit-engine = "credit_engine.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["credit_engine*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
