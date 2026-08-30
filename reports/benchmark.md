@@ -103,4 +103,4 @@ Higher is better for AUC and KS; lower is better for Brier and ECE (expected cal
 | Attr50 | current assets / total liabilities | 0.285 | 8 | no |
 | Attr9 | sales / total assets | 0.090 | 4 | yes |
 
-Models: the scorecard uses only the 17 ratios that can also be computed from a US GAAP spread; Altman Z'' uses its four published ratios and fixed weights, with a logistic map from Z'' to PD fitted on the training split; gradient boosting (scikit-learn HistGradientBoostingClassifier) is fitted twice, on all 64 ratios and on the scorecard's 17, to separate the effect of the model from the effect of the feature set.
+Models: the scorecard selects its features from the 17 ratios that can also be computed from a US GAAP spread (IV >= 0.02, WoE correlation <= 0.8, coefficient signs checked); Altman Z'' uses its four published ratios and fixed weights, with a logistic map from Z'' to PD fitted on the training split; gradient boosting (scikit-learn HistGradientBoostingClassifier) is fitted twice, on all 64 ratios and on the scorecard's 17, to separate the effect of the model from the effect of the feature set.

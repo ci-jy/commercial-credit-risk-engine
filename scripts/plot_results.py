@@ -11,7 +11,7 @@ import pandas as pd  # noqa: E402
 ROOT = Path(__file__).resolve().parents[1]
 REPORTS = ROOT / "reports"
 NAMES = {
-    "scorecard": "WoE scorecard\n(17 spread ratios)",
+    "scorecard": "WoE scorecard\n(from 17 spread ratios)",
     "altman_z": "Altman Z''\n(4 ratios)",
     "gbm_spread": "Grad. boosting\n(17 spread ratios)",
     "gbm": "Grad. boosting\n(all 64 ratios)",

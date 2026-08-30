@@ -141,7 +141,8 @@ def render_report(metrics: pd.DataFrame, calib: pd.DataFrame, iv: pd.DataFrame, 
             "| Feature | Definition | IV | Bins | Selected |", "|---|---|---|---|---|"]
     out += [f"| {r.feature} | {r.description} | {r.iv:.3f} | {r.bins} | {'yes' if r.selected else 'no'} |"
             for r in iv.itertuples()]
-    out += ["", "Models: the scorecard uses only the 17 ratios that can also be computed from a US GAAP spread; "
+    out += ["", "Models: the scorecard selects its features from the 17 ratios that can also be computed from a US GAAP "
+            "spread (IV >= 0.02, WoE correlation <= 0.8, coefficient signs checked); "
             "Altman Z'' uses its four published ratios and fixed weights, with a logistic map from Z'' to PD fitted on "
             "the training split; gradient boosting (scikit-learn HistGradientBoostingClassifier) is fitted twice, on all 64 "
             "ratios and on the scorecard's 17, to separate the effect of the model from the effect of the feature set.", ""]
