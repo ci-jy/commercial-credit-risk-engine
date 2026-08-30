@@ -192,7 +192,7 @@ def render_memo(a: Analysis, xlsx_name: str) -> str:
           f"- Covenants: {len(a.covenants) - n_breach} of {len(a.covenants)} pass at FY{fy}"
           + (f"; **{n_breach} breached**." if n_breach else ".")]
     for scen, x in tightest.items():
-        L.append(f"- Stress, {SCENARIOS[scen]['label'].lower()}: first covenant to break is *{x.covenant}* {x.status.replace('breaks ', '')}.")
+        L.append(f"- Stress ({SCENARIOS[scen]['label']}): first covenant to break is *{x.covenant}* {x.status.replace('breaks ', '')}.")
     L.append(f"- Altman Z'' = {a.altman_z:.2f} ({zone(a.altman_z)} zone); scorecard PD {a.scorecard_pd:.2%}"
              + (f"; Merton PD {a.merton.pd:.2%} (distance-to-default {a.merton.distance_to_default:.2f})." if a.merton
                 else "; no traded equity, so no Merton estimate."))
