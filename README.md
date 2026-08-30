@@ -85,3 +85,5 @@ The suite checks:
 - **Stress simplifications.** Stress holds cash taxes, capex and the balance sheet at base values. The floating-rate share of debt is an input, not something read from filings.
 - **Spreading coverage.** Spreading covers common commercial and industrial filers. Banks, insurers and REITs use different statement structures and are out of scope.
 - **Illustrative scale.** The 10-grade master scale and default covenant thresholds are illustrative and are not any institution's methodology.
+
+Project period: 2026-08-24 to 2026-08-30.
