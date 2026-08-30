@@ -10,26 +10,24 @@ Set CREDIT_ENGINE_USER_AGENT="Your Name your@email" for EDGAR, as the SEC reques
 from __future__ import annotations
 
 import argparse
-import csv
 import gzip
 import io
 import json
 import sys
 import urllib.request
 import zipfile
-from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from credit_engine.edgar import fetch_companyfacts, load_borrowers, trim_companyfacts  # noqa: E402
+from credit_engine.prices import download_prices, write_prices  # noqa: E402
 from credit_engine.polish import ARFF_FILES, POLISH_URL, read_arff  # noqa: E402
 from credit_engine.spreading import ALL_TAGS  # noqa: E402
 
 DATA = ROOT / "data"
 FIX = ROOT / "fixtures"
-PRICE_URL = "https://query1.finance.yahoo.com/v8/finance/chart/{ticker}?range={range}&interval=1d"
 
 
 def download_polish() -> Path:
@@ -42,27 +40,6 @@ def download_polish() -> Path:
     for name in ARFF_FILES:
         (target / name).write_bytes(z.read(name))
     return target
-
-
-def download_prices(ticker: str, rng: str = "3y") -> list[tuple[str, float]]:
-    req = urllib.request.Request(PRICE_URL.format(ticker=ticker, range=rng), headers={"User-Agent": "Mozilla/5.0"})
-    with urllib.request.urlopen(req, timeout=60) as resp:
-        payload = json.load(resp)
-    res = payload["chart"]["result"][0]
-    closes = res["indicators"].get("adjclose", [{}])[0].get("adjclose") or res["indicators"]["quote"][0]["close"]
-    rows = []
-    for ts, c in zip(res["timestamp"], closes):
-        if c is not None:
-            rows.append((datetime.fromtimestamp(ts, tz=timezone.utc).date().isoformat(), round(float(c), 4)))
-    return rows
-
-
-def write_prices(rows, path: Path) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("w", newline="") as fh:
-        w = csv.writer(fh)
-        w.writerow(["date", "adj_close"])
-        w.writerows(rows)
 
 
 def record_polish_fixture(polish_dir: Path, n: int = 8000, seed: int = 7) -> None:

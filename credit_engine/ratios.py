@@ -7,7 +7,7 @@ Definitions (all on annual figures):
 * Total debt        = short-term borrowings + current portion of LTD + long-term debt
 * Debt / EBITDA     = total debt / EBITDA
 * Net leverage      = (total debt - cash) / EBITDA
-* Interest coverage = EBIT / interest expense
+* Interest coverage = EBIT (with the same impairment add-back) / interest expense
 * DSCR              = EBITDA / (interest + current portion of LTD)
 * FCCR              = (EBITDA + lease cost - capex - cash taxes)
                       / (interest + lease cost + current portion of LTD)
@@ -69,7 +69,7 @@ def compute_ratios(y: dict[str, float]) -> dict[str, float]:
         "ebitda_margin": ebitda / y["revenue"] if y["revenue"] else math.nan,
         "debt_to_ebitda": _leverage(total_debt, ebitda),
         "net_leverage": _leverage(net_debt, ebitda),
-        "interest_coverage": _coverage(y["operating_income"], interest),
+        "interest_coverage": _coverage(y["operating_income"] + y.get("impairments", 0.0), interest),
         "dscr": _coverage(ebitda, interest + cpltd),
         "fccr": _coverage(ebitda + lease - y["capex"] - y["cash_taxes"], interest + lease + cpltd),
         "current_ratio": _coverage(y["current_assets"], y["current_liabilities"]),

@@ -10,8 +10,12 @@ For each feature:
 3. WoE = ln(%goods / %bads) per bin, with 0.5 Laplace smoothing; information
    value (IV) is summed over bins.
 
-Features with IV below ``min_iv`` are dropped, and a logistic regression is
-fitted on the WoE-transformed features. Points use the usual scaling:
+Features with IV below ``min_iv`` are dropped. Then, in order of IV, a feature
+is skipped if its WoE correlates above ``max_corr`` with one already kept
+(e.g. equity/assets vs liabilities/assets). A logistic regression is fitted on
+the WoE features, and any feature whose coefficient has the wrong sign (higher
+WoE must mean lower risk) is removed and the model refitted, so every
+feature's points move in the intuitive direction. Points use the usual scaling:
 600 points at 50:1 good:bad odds, 20 points to double the odds.
 """
 
@@ -107,8 +111,10 @@ def bin_feature(x: np.ndarray, y: np.ndarray, name: str = "x", max_bins: int = 1
 
 
 class WoEScorecard:
-    def __init__(self, max_bins: int = 10, min_bin_frac: float = 0.05, min_iv: float = 0.02, C: float = 1.0):
+    def __init__(self, max_bins: int = 10, min_bin_frac: float = 0.05, min_iv: float = 0.02,
+                 max_corr: float = 0.8, C: float = 1.0):
         self.max_bins, self.min_bin_frac, self.min_iv, self.C = max_bins, min_bin_frac, min_iv, C
+        self.max_corr = max_corr
         self.bins: dict[str, BinnedFeature] = {}
         self.features: list[str] = []
         self.coef_: np.ndarray | None = None
@@ -117,11 +123,21 @@ class WoEScorecard:
     def fit(self, X: pd.DataFrame, y) -> "WoEScorecard":
         y = np.asarray(y, dtype=int)
         self.bins = {c: bin_feature(X[c].to_numpy(), y, c, self.max_bins, self.min_bin_frac) for c in X.columns}
-        self.features = [c for c in X.columns if self.bins[c].iv >= self.min_iv]
-        W = self._woe(X)
-        lr = LogisticRegression(C=self.C, max_iter=2000)
-        lr.fit(W, y)
-        self.coef_, self.intercept_ = lr.coef_[0], float(lr.intercept_[0])
+        ranked = sorted((c for c in X.columns if self.bins[c].iv >= self.min_iv),
+                        key=lambda c: self.bins[c].iv, reverse=True)
+        woe = {c: self.bins[c].transform(X[c].to_numpy()) for c in ranked}
+        kept: list[str] = []
+        for c in ranked:
+            if all(abs(np.corrcoef(woe[c], woe[k])[0, 1]) <= self.max_corr for k in kept):
+                kept.append(c)
+        while kept:
+            self.features = kept
+            lr = LogisticRegression(C=self.C, max_iter=2000).fit(self._woe(X), y)
+            coef = lr.coef_[0]
+            if np.all(coef < 0):
+                break
+            kept = [c for c, b in zip(kept, coef) if c != kept[int(np.argmax(coef))]]
+        self.coef_, self.intercept_ = coef, float(lr.intercept_[0])
         return self
 
     def _woe(self, X: pd.DataFrame) -> np.ndarray:

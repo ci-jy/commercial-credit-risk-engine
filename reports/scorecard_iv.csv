@@ -1,0 +1,18 @@
+feature,iv,bins,selected,description
+Attr26,0.6839903333797194,8,True,(net profit + depreciation) / total liabilities
+Attr16,0.6748670072329943,8,False,(pretax profit + depreciation) / total liabilities
+Attr46,0.5620672873563971,7,True,(current assets - inventory) / short-term liabilities
+Attr23,0.5057394166975683,8,False,net profit / sales
+Attr1,0.4799734103259888,7,False,net profit / total assets
+Attr18,0.4723692064124788,7,False,pretax profit / total assets
+Attr7,0.4723668415004411,7,False,EBIT / total assets
+Attr6,0.4568325856870634,6,True,retained earnings / total assets
+Attr42,0.40434950855268553,5,True,operating profit / sales
+Attr8,0.3851731713328713,8,False,book value of equity / total liabilities
+Attr10,0.37961037137876874,8,False,equity / total assets
+Attr2,0.37225080498232455,8,False,total liabilities / total assets
+Attr4,0.36556018470661333,8,False,current assets / short-term liabilities
+Attr51,0.3472604354009837,7,True,short-term liabilities / total assets
+Attr3,0.33082344766106775,7,False,working capital / total assets
+Attr50,0.28518262958889606,8,False,current assets / total liabilities
+Attr9,0.08961923135450216,4,True,sales / total assets

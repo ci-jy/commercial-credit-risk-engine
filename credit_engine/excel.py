@@ -40,7 +40,7 @@ RATIO_FORMULAS = {
     "ebitda_margin": "IF({revenue}=0,\"n/m\",{EBITDA}/{revenue})",
     "debt_to_ebitda": "IF({EBITDA}<=0,\"n/m\",{TOTAL_DEBT}/{EBITDA})",
     "net_leverage": "IF({EBITDA}<=0,\"n/m\",{NET_DEBT}/{EBITDA})",
-    "interest_coverage": "IF({interest_expense}=0,\"n/m\",{operating_income}/{interest_expense})",
+    "interest_coverage": "IF({interest_expense}=0,\"n/m\",({operating_income}+{impairments})/{interest_expense})",
     "dscr": "IF(({interest_expense}+{current_portion_ltd})=0,\"n/m\",{EBITDA}/({interest_expense}+{current_portion_ltd}))",
     "fccr": "IF(({interest_expense}+{operating_lease_cost}+{current_portion_ltd})=0,\"n/m\","
             "({EBITDA}+{operating_lease_cost}-{capex}-{cash_taxes})"
