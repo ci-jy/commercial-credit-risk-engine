@@ -77,7 +77,7 @@ def test_exceptions_workbook_links_resolve(tmp_path):
     wb, internal = _check_links(path)
     assert internal == 2 * len(RULE_IDS)  # summary -> rule sheet, rule sheet -> summary
     ws = wb["DQC_0015"]
-    assert ws["A3"].value == "PLANTED CO" and ws["D3"].value == ADSH and ws["K3"].value == 3_000_000
+    assert ws["A3"].value == "PLANTED CO" and ws["D3"].value == ADSH and ws["L3"].value == 3_000_000
     summary = {r[0]: r[2] for r in wb["Summary"].iter_rows(min_row=5, values_only=True)}
     assert summary["DQC_0015"] == 1 and summary["DQC_0014"] == 1
 

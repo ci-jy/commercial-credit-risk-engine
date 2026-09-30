@@ -69,16 +69,22 @@ def cmd_dqc(args) -> int:
     from credit_engine.dqc import RULE_IDS, rule_module, run_screen
     from credit_engine.dqc.compare import DQC_FIXTURES
     from credit_engine.dqc.excel_report import build_exceptions_workbook
-    from credit_engine.dqc.fsds import load_quarter, quarter_path
+    from credit_engine.dqc.fsds import download_quarter, load_quarter, quarter_path
 
     if args.fixture:
         source, label = DQC_FIXTURES / "fsds_sample", "sample filings (offline fixture)"
     else:
-        source = Path(args.path) if args.path else quarter_path(args.quarter)
+        if args.path:
+            source = Path(args.path)
+            if not source.exists():
+                print(f"{source} not found", file=sys.stderr)
+                return 2
+        else:
+            source = quarter_path(args.quarter)
+            if not source.exists():
+                print(f"downloading SEC Financial Statement Data Set {args.quarter} ...")
+                source = download_quarter(args.quarter)
         label = source.stem
-        if not source.exists():
-            print(f"{source} not found; run scripts/download_data.py --fsds {args.quarter}", file=sys.stderr)
-            return 2
     t0 = time.perf_counter()
     q = load_quarter(source)
     t_load = time.perf_counter() - t0
@@ -94,7 +100,7 @@ def cmd_dqc(args) -> int:
         print(f"  {rid}  {rule_module(rid).TITLE:<58} {len(f):>7,} findings in {f.adsh.nunique():>5,} filings")
     if not args.no_excel:
         xlsx = build_exceptions_workbook(findings, q.sub, out / f"dqc_exceptions_{label.split()[0]}.xlsx",
-                                         f"DQC exceptions - {label}")
+                                         f"DQC exceptions - {label}", pre=q.pre)
         print(f"excel -> {xlsx}")
     print(f"csv   -> {out / f'dqc_findings_{label.split()[0]}.csv'}")
     return 0
@@ -126,7 +132,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     d = sub.add_parser("dqc", help="XBRL US DQC data-quality screen over an SEC Financial Statement Data Set quarter")
     dsrc = d.add_mutually_exclusive_group()
-    dsrc.add_argument("--quarter", default="2026q2", help="quarter zip in data/fsds/ (e.g. 2026q2)")
+    dsrc.add_argument("--quarter", default="2026q2", help="data-set quarter, e.g. 2026q2 (downloaded to data/fsds/ if missing)")
     dsrc.add_argument("--path", help="path to a quarter zip or a directory of sub/num/pre files")
     dsrc.add_argument("--fixture", action="store_true", help="the committed sample filings (offline)")
     d.add_argument("--out", default="out/dqc", help="output directory")

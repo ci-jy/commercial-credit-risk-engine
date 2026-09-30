@@ -3,8 +3,10 @@
 Sheets:
 * Summary   - findings and filings flagged per rule; each rule ID links to its sheet
 * DQC_XXXX  - one sheet per rule: filer, CIK, form, accession (linked to EDGAR),
-              concept, period, dimensions, reported value, suggested correction and
-              the rule message; cell A1 links back to the summary
+              concept, the statement it is presented on (from the ``pre`` table:
+              BS, IS, CF, EQ, CI or UN for notes), period, dimensions, reported
+              value, suggested correction and the rule message; cell A1 links
+              back to the summary
 """
 
 from __future__ import annotations
@@ -22,9 +24,9 @@ HEADER_FONT = Font(bold=True, color="FFFFFF")
 HEADER_FILL = PatternFill("solid", fgColor="1F3864")
 LINK_FONT = Font(color="0563C1", underline="single")
 EDGAR_INDEX = "https://www.sec.gov/Archives/edgar/data/{cik}/{nodash}/{adsh}-index.htm"
-COLUMNS = ["Filer", "CIK", "Form", "Accession", "Concept", "Period end", "Quarters", "Dimensions", "Unit",
+COLUMNS = ["Filer", "CIK", "Form", "Accession", "Concept", "Statement", "Period end", "Quarters", "Dimensions", "Unit",
            "Reported value", "Suggested correction", "Rule message"]
-WIDTHS = [34, 10, 7, 22, 46, 11, 9, 40, 8, 18, 20, 90]
+WIDTHS = [34, 10, 7, 22, 46, 10, 11, 9, 40, 8, 18, 20, 90]
 
 
 def _header(ws, values):
@@ -33,8 +35,17 @@ def _header(ws, values):
         cell.font, cell.fill = HEADER_FONT, HEADER_FILL
 
 
-def build_exceptions_workbook(findings: pd.DataFrame, sub: pd.DataFrame, path: Path, title: str) -> Path:
+def _statements(pre: pd.DataFrame | None) -> dict[tuple[str, str], str]:
+    if pre is None or pre.empty:
+        return {}
+    p = pre[["adsh", "tag", "stmt"]].astype(str).drop_duplicates(["adsh", "tag"])
+    return dict(zip(zip(p.adsh, p.tag), p.stmt))
+
+
+def build_exceptions_workbook(findings: pd.DataFrame, sub: pd.DataFrame, path: Path, title: str,
+                              pre: pd.DataFrame | None = None) -> Path:
     path = Path(path)
+    stmts = _statements(pre)
     path.parent.mkdir(parents=True, exist_ok=True)
     meta = sub.set_index("adsh")
     wb = Workbook()
@@ -67,15 +78,16 @@ def build_exceptions_workbook(findings: pd.DataFrame, sub: pd.DataFrame, path: P
             cik = int(m.cik) if m is not None else 0
             rs.append([
                 m["name"] if m is not None else "", cik, m.form if m is not None else "", r.adsh,
-                r.concept, pd.Timestamp(str(r.ddate)).date(), int(r.qtrs), r.segments or "", r.uom,
+                r.concept, stmts.get((r.adsh, r.concept), ""),
+                pd.Timestamp(str(r.ddate)).date() if r.ddate else None, int(r.qtrs), r.segments or "", r.uom,
                 float(r.value), None if pd.isna(r.suggested) else float(r.suggested), r.message,
             ])
             acc = rs.cell(row=rs.max_row, column=4)
             acc.hyperlink = EDGAR_INDEX.format(cik=cik, nodash=r.adsh.replace("-", ""), adsh=r.adsh)
             acc.font = LINK_FONT
-            rs.cell(row=rs.max_row, column=6).number_format = "yyyy-mm-dd"
-            rs.cell(row=rs.max_row, column=10).number_format = "#,##0.####"
+            rs.cell(row=rs.max_row, column=7).number_format = "yyyy-mm-dd"
             rs.cell(row=rs.max_row, column=11).number_format = "#,##0.####"
+            rs.cell(row=rs.max_row, column=12).number_format = "#,##0.####"
         for i, w in enumerate(WIDTHS, start=1):
             rs.column_dimensions[get_column_letter(i)].width = w
         rs.freeze_panes = "A3"

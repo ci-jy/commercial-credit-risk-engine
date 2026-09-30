@@ -54,7 +54,7 @@ def full_quarter(quarter: str) -> dict:
     t_screen = sum(timings.values())
     impact = ratio_impact(findings, q.num, q.sub)
     xlsx = build_exceptions_workbook(findings, q.sub, REPORTS / f"dqc_exceptions_{quarter}.xlsx",
-                                     f"DQC exceptions - SEC Financial Statement Data Set {quarter}")
+                                     f"DQC exceptions - SEC Financial Statement Data Set {quarter}", pre=q.pre)
     counts = pd.DataFrame([{"rule": r, "title": rule_module(r).TITLE,
                             "findings": int((findings.rule == r).sum()),
                             "filings_flagged": int(findings[findings.rule == r].adsh.nunique()),

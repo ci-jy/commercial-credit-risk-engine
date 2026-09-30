@@ -24,6 +24,7 @@ with a full XBRL processor and are documented in ``reports/dqc_results.md``.
 from __future__ import annotations
 
 import io
+import urllib.request
 import zipfile
 from dataclasses import dataclass
 from pathlib import Path
@@ -49,8 +50,27 @@ class Quarter:
     tag: pd.DataFrame | None = None
 
 
+FSDS_URL = "https://www.sec.gov/files/dera/data/financial-statement-data-sets/{quarter}.zip"
+
+
 def quarter_path(quarter: str) -> Path:
     return REPO_ROOT / "data" / "fsds" / f"{quarter}.zip"
+
+
+def download_quarter(quarter: str) -> Path:
+    """Fetch one data-set quarter (~50-100 MB) into data/fsds/, with the SEC-requested User-Agent."""
+    from credit_engine.edgar import user_agent
+
+    target = quarter_path(quarter)
+    if target.exists():
+        return target
+    target.parent.mkdir(parents=True, exist_ok=True)
+    req = urllib.request.Request(FSDS_URL.format(quarter=quarter), headers={"User-Agent": user_agent()})
+    tmp = target.with_suffix(".part")
+    with urllib.request.urlopen(req, timeout=600) as resp:
+        tmp.write_bytes(resp.read())
+    tmp.rename(target)
+    return target
 
 
 def _open(source: Path, name: str):
