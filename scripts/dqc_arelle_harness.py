@@ -125,6 +125,7 @@ def run_one(row: dict) -> str:
     log_path = REPO / "data" / "arelle" / f"{adsh}.log.json"
     env = dict(os.environ, XDG_CONFIG_HOME=str(REPO / "data" / "arelle" / "config"))
     for _attempt in range(2):
+        log_path.unlink(missing_ok=True)  # Arelle appends to an existing log file
         t0 = time.perf_counter()
         proc = subprocess.run([str(ARELLE), "--plugins", "validate/DQC|EDGAR/transform", "-f", str(zpath), "-v",
                                "--xule-rule-set", str(ruleset), "--logFile", str(log_path)],
@@ -152,8 +153,14 @@ def cmd_run(args) -> None:
         versions = json.loads(vpath.read_text())
     rows = [dict(r, gaap_version=versions.get(r["adsh"], "")) for r in sample.to_dict("records")]
     OUT.mkdir(parents=True, exist_ok=True)
+    def safe(row):
+        try:
+            return run_one(row)
+        except Exception as err:  # keep going; the filing is retried on the next run
+            return f"{row['adsh']} FAILED: {err!r}"
+
     with ThreadPoolExecutor(args.workers) as ex:
-        for msg in ex.map(run_one, rows):
+        for msg in ex.map(safe, rows):
             print(msg, flush=True)
 
 
