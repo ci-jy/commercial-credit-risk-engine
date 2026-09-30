@@ -1,10 +1,11 @@
-"""Command-line interface: ``credit-engine memo`` and ``credit-engine benchmark``."""
+"""Command-line interface: ``credit-engine memo``, ``credit-engine benchmark`` and ``credit-engine dqc``."""
 
 from __future__ import annotations
 
 import argparse
 import json
 import sys
+import time
 from pathlib import Path
 
 from credit_engine.benchmark import metrics_table, run_benchmark
@@ -64,6 +65,41 @@ def cmd_benchmark(args) -> int:
     return 0
 
 
+def cmd_dqc(args) -> int:
+    from credit_engine.dqc import RULE_IDS, rule_module, run_screen
+    from credit_engine.dqc.compare import DQC_FIXTURES
+    from credit_engine.dqc.excel_report import build_exceptions_workbook
+    from credit_engine.dqc.fsds import load_quarter, quarter_path
+
+    if args.fixture:
+        source, label = DQC_FIXTURES / "fsds_sample", "sample filings (offline fixture)"
+    else:
+        source = Path(args.path) if args.path else quarter_path(args.quarter)
+        label = source.stem
+        if not source.exists():
+            print(f"{source} not found; run scripts/download_data.py --fsds {args.quarter}", file=sys.stderr)
+            return 2
+    t0 = time.perf_counter()
+    q = load_quarter(source)
+    t_load = time.perf_counter() - t0
+    timings: dict[str, float] = {}
+    findings = run_screen(q, timings=timings)
+    t_screen = sum(timings.values())
+    out = Path(args.out)
+    out.mkdir(parents=True, exist_ok=True)
+    findings.to_csv(out / f"dqc_findings_{label.split()[0]}.csv", index=False)
+    print(f"{label}: {len(q.sub):,} filings, {len(q.num):,} facts; load {t_load:.1f}s, screen {t_screen:.1f}s")
+    for rid in RULE_IDS:
+        f = findings[findings.rule == rid]
+        print(f"  {rid}  {rule_module(rid).TITLE:<58} {len(f):>7,} findings in {f.adsh.nunique():>5,} filings")
+    if not args.no_excel:
+        xlsx = build_exceptions_workbook(findings, q.sub, out / f"dqc_exceptions_{label.split()[0]}.xlsx",
+                                         f"DQC exceptions - {label}")
+        print(f"excel -> {xlsx}")
+    print(f"csv   -> {out / f'dqc_findings_{label.split()[0]}.csv'}")
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(prog="credit-engine", description=__doc__)
     sub = p.add_subparsers(dest="command", required=True)
@@ -87,6 +123,15 @@ def build_parser() -> argparse.ArgumentParser:
     b.add_argument("--quick", action="store_true", help="200 bootstraps and a smaller boosting model")
     b.add_argument("--out", help="output directory (default reports/, or out/benchmark offline)")
     b.set_defaults(func=cmd_benchmark)
+
+    d = sub.add_parser("dqc", help="XBRL US DQC data-quality screen over an SEC Financial Statement Data Set quarter")
+    dsrc = d.add_mutually_exclusive_group()
+    dsrc.add_argument("--quarter", default="2026q2", help="quarter zip in data/fsds/ (e.g. 2026q2)")
+    dsrc.add_argument("--path", help="path to a quarter zip or a directory of sub/num/pre files")
+    dsrc.add_argument("--fixture", action="store_true", help="the committed sample filings (offline)")
+    d.add_argument("--out", default="out/dqc", help="output directory")
+    d.add_argument("--no-excel", action="store_true", help="skip the Excel exceptions workbook")
+    d.set_defaults(func=cmd_dqc)
     return p
 
 

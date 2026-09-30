@@ -3,6 +3,7 @@
 Usage:
     python scripts/download_data.py            # everything into data/
     python scripts/download_data.py --record   # also refresh the trimmed fixtures/ copies
+    python scripts/download_data.py --fsds 2026q2   # only an SEC Financial Statement Data Set quarter
 
 Set CREDIT_ENGINE_USER_AGENT="Your Name your@email" for EDGAR, as the SEC requests.
 """
@@ -21,7 +22,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from credit_engine.edgar import fetch_companyfacts, load_borrowers, trim_companyfacts  # noqa: E402
+from credit_engine.edgar import fetch_companyfacts, load_borrowers, trim_companyfacts, user_agent  # noqa: E402
 from credit_engine.prices import download_prices, write_prices  # noqa: E402
 from credit_engine.polish import ARFF_FILES, POLISH_URL, read_arff  # noqa: E402
 from credit_engine.spreading import ALL_TAGS  # noqa: E402
@@ -52,11 +53,30 @@ def record_polish_fixture(polish_dir: Path, n: int = 8000, seed: int = 7) -> Non
     sample.to_csv(out, index=False, float_format="%.6g", compression={"method": "gzip", "mtime": 0})
 
 
+FSDS_URL = "https://www.sec.gov/files/dera/data/financial-statement-data-sets/{quarter}.zip"
+
+
+def download_fsds(quarter: str) -> Path:
+    """One SEC Financial Statement Data Set quarter (sub/num/pre/tag, ~50-100 MB zipped)."""
+    target = DATA / "fsds" / f"{quarter}.zip"
+    if target.exists():
+        return target
+    target.parent.mkdir(parents=True, exist_ok=True)
+    req = urllib.request.Request(FSDS_URL.format(quarter=quarter), headers={"User-Agent": user_agent()})
+    with urllib.request.urlopen(req, timeout=600) as resp:
+        target.write_bytes(resp.read())
+    return target
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--record", action="store_true", help="refresh trimmed fixtures under fixtures/")
     ap.add_argument("--min-year", type=int, default=2019)
+    ap.add_argument("--fsds", metavar="QUARTER", help="download only this Financial Statement Data Set quarter")
     args = ap.parse_args()
+    if args.fsds:
+        print(f"SEC Financial Statement Data Set -> {download_fsds(args.fsds)}")
+        return 0
 
     polish_dir = download_polish()
     print(f"UCI Polish bankruptcy data -> {polish_dir}")
