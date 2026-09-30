@@ -1,0 +1,22 @@
+[
+ {
+  "match": {"adsh": "0000737758-26-000018", "rule": "DQC_0001", "side": "bulk", "concept": "ConsolidationItems=OtherActivities"},
+  "category": "flattening limitation",
+  "root_cause": "The filer's definition linkbase places ttc:OtherActivitiesMember under us-gaap:MaterialReconcilingItemsMember. DQC_0001.70 allows extension members there. The data sets do not carry the definition linkbase, so the bulk screen cannot see the member hierarchy."
+ },
+ {
+  "match": {"adsh": "0001213900-26-058993", "rule": "DQC_0009", "side": "bulk", "concept": "CommonStockSharesOutstanding"},
+  "category": "flattening limitation",
+  "root_cause": "CommonStockSharesIssued is 1,921,809 at 2026-03-31 (context c2). A second fact of 1.358 shares, from a preferred conversion dated 2026-04-06 (context c54), rounds to the same month end. The data set keeps only the 1.358 value, so outstanding appears to exceed issued."
+ },
+ {
+  "match": {"adsh": "0000712537-26-000022", "rule": "DQC_0015", "side": "arelle", "concept": "TransferOfLoansHeldForSaleToPortfolioLoans1"},
+  "category": "flattening limitation",
+  "root_cause": "Arelle flags a negative -25,170,000 for this cash-flow supplemental fact. The fact is missing from the data set's num table for this filing, so the bulk screen never sees it."
+ },
+ {
+  "match": {"adsh": "0001663577-26-000107", "rule": "DQC_0015", "side": "arelle", "concept": "Capital"},
+  "category": "flattening limitation",
+  "root_cause": "Arelle flags us-gaap:Capital = -1,600,000 (a broker-dealer regulatory capital fact). The fact is missing from the data set's num table for this filing, so the bulk screen never sees it."
+ }
+]

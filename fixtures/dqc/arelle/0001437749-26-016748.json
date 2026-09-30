@@ -1,0 +1,44 @@
+{
+ "adsh": "0001437749-26-016748",
+ "ruleset": "dqc-us-2026-V30-ruleset.zip",
+ "runtime_s": 24.19,
+ "load_s": 0.43,
+ "findings": [
+  {
+   "code": "DQC.US.0237.10935",
+   "rule": "DQC_0237",
+   "element_id": "10935",
+   "concept": "DocumentType",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "10-Q",
+   "decimals": "None",
+   "message": "[DQC.US.0237.10935] The filer has used the StatementOfIncomeLocationBalanceAxis with a value of us-gaap_ResearchAndDevelopmentExpenseMember in the filing. This member is used to identify the location of the line item in the income statement. However, the concept us-gaap_ResearchAndDevelopmentExpenseMember does not appear in the face financial statements.\n\nRule Element Id:10935\nRule version: 30.0.5 - acrx20260331_10q.htm 173"
+  },
+  {
+   "code": "DQC.US.0237.10935",
+   "rule": "DQC_0237",
+   "element_id": "10935",
+   "concept": "DocumentType",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "10-Q",
+   "decimals": "None",
+   "message": "[DQC.US.0237.10935] The filer has used the StatementOfIncomeLocationBalanceAxis with a value of us-gaap_SellingGeneralAndAdministrativeExpensesMember in the filing. This member is used to identify the location of the line item in the income statement. However, the concept us-gaap_SellingGeneralAndAdministrativeExpensesMember does not appear in the face financial statements.\n\nRule Element Id:10935\nRule version: 30.0.5 - acrx20260331_10q.htm 173"
+  },
+  {
+   "code": "DQC.US.0238.10937",
+   "rule": "DQC_0238",
+   "element_id": "10937",
+   "concept": "DocumentType",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "10-Q",
+   "decimals": "None",
+   "message": "[DQC.US.0238.10937] The filer has used the table text block ScheduleOfSegmentReportingInformationBySegmentTextBlock in the filing, but has not reported any facts with the StatementBusinessSegmentsAxis. A segment member is required to be reported with the StatementBusinessSegmentsAxis even if there is only one reportable segment. (see FASB Taxonomy Implementation guide at https://www.fasb.org/projects/fasb-taxonomies/resources/taxonomy-implementation-guides ) The filer should report facts with the StatementBusinessSegmentsAxis if using the ScheduleOfSegmentReportingInformationBySegmentTextBlock"
+  }
+ ]
+}

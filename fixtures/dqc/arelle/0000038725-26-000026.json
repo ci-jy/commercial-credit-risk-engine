@@ -1,0 +1,214 @@
+{
+ "adsh": "0000038725-26-000026",
+ "ruleset": "dqc-us-2026-V30-ruleset.zip",
+ "runtime_s": 26.67,
+ "load_s": 0.45,
+ "findings": [
+  {
+   "code": "DQC.US.0001.70",
+   "rule": "DQC_0001",
+   "element_id": "70",
+   "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "start": "2025-01-01",
+   "end": "2025-03-31",
+   "dims": {
+    "srt:ConsolidationItemsAxis": "fele:ConsolidatedMember"
+   },
+   "value": "-40,800,000",
+   "decimals": "-5",
+   "message": "[DQC.US.0001.70] The concept RevenueFromContractWithCustomerExcludingAssessedTax with a value of -40,800,000 is dimensionally qualified with the ConsolidationItemsAxis and the unallowable member ConsolidatedMember. \nThe properties of the fact for RevenueFromContractWithCustomerExcludingAssessedTax are:\nPeriod: 2025-01-01 to 2025-03-31\nDimensions: srt:ConsolidationItemsAxis=fele:ConsolidatedMember \nUnit: USD\n\nRule Element Id:70\nRule version: 30.0.5 - fele-20260331.htm 8"
+  },
+  {
+   "code": "DQC.US.0001.70",
+   "rule": "DQC_0001",
+   "element_id": "70",
+   "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {
+    "srt:ConsolidationItemsAxis": "fele:ConsolidatedMember"
+   },
+   "value": "-40,300,000",
+   "decimals": "-5",
+   "message": "[DQC.US.0001.70] The concept RevenueFromContractWithCustomerExcludingAssessedTax with a value of -40,300,000 is dimensionally qualified with the ConsolidationItemsAxis and the unallowable member ConsolidatedMember. \nThe properties of the fact for RevenueFromContractWithCustomerExcludingAssessedTax are:\nPeriod: 2026-01-01 to 2026-03-31\nDimensions: srt:ConsolidationItemsAxis=fele:ConsolidatedMember \nUnit: USD\n\nRule Element Id:70\nRule version: 30.0.5 - fele-20260331.htm 8"
+  },
+  {
+   "code": "DQC.US.0001.70",
+   "rule": "DQC_0001",
+   "element_id": "70",
+   "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "start": "2025-01-01",
+   "end": "2025-03-31",
+   "dims": {
+    "srt:ConsolidationItemsAxis": "fele:OperatingSegmentsExcludingIntercompanyMember",
+    "us-gaap:StatementBusinessSegmentsAxis": "fele:WaterSystemsMember"
+   },
+   "value": "246,500,000",
+   "decimals": "-5",
+   "message": "[DQC.US.0001.70] The concept RevenueFromContractWithCustomerExcludingAssessedTax with a value of 246,500,000 is dimensionally qualified with the ConsolidationItemsAxis and the unallowable member OperatingSegmentsExcludingIntercompanyMember. \nThe properties of the fact for RevenueFromContractWithCustomerExcludingAssessedTax are:\nPeriod: 2025-01-01 to 2025-03-31\nDimensions: us-gaap:StatementBusinessSegmentsAxis=fele:WaterSystemsMember, srt:ConsolidationItemsAxis=fele:OperatingSegmentsExcludingIntercompanyMember \nUnit: USD\n\nRule Element Id:70\nRule version: 30.0.5 - fele-20260331.htm 8"
+  },
+  {
+   "code": "DQC.US.0001.70",
+   "rule": "DQC_0001",
+   "element_id": "70",
+   "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {
+    "srt:ConsolidationItemsAxis": "fele:OperatingSegmentsExcludingIntercompanyMember",
+    "us-gaap:StatementBusinessSegmentsAxis": "fele:EnergySystemsMember"
+   },
+   "value": "71,800,000",
+   "decimals": "-5",
+   "message": "[DQC.US.0001.70] The concept RevenueFromContractWithCustomerExcludingAssessedTax with a value of 71,800,000 is dimensionally qualified with the ConsolidationItemsAxis and the unallowable member OperatingSegmentsExcludingIntercompanyMember. \nThe properties of the fact for RevenueFromContractWithCustomerExcludingAssessedTax are:\nPeriod: 2026-01-01 to 2026-03-31\nDimensions: srt:ConsolidationItemsAxis=fele:OperatingSegmentsExcludingIntercompanyMember, us-gaap:StatementBusinessSegmentsAxis=fele:EnergySystemsMember \nUnit: USD\n\nRule Element Id:70\nRule version: 30.0.5 - fele-20260331.htm 8"
+  },
+  {
+   "code": "DQC.US.0001.70",
+   "rule": "DQC_0001",
+   "element_id": "70",
+   "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "start": "2025-01-01",
+   "end": "2025-03-31",
+   "dims": {
+    "srt:ConsolidationItemsAxis": "fele:OperatingSegmentsExcludingIntercompanyMember"
+   },
+   "value": "455,200,000",
+   "decimals": "-5",
+   "message": "[DQC.US.0001.70] The concept RevenueFromContractWithCustomerExcludingAssessedTax with a value of 455,200,000 is dimensionally qualified with the ConsolidationItemsAxis and the unallowable member OperatingSegmentsExcludingIntercompanyMember. \nThe properties of the fact for RevenueFromContractWithCustomerExcludingAssessedTax are:\nPeriod: 2025-01-01 to 2025-03-31\nDimensions: srt:ConsolidationItemsAxis=fele:OperatingSegmentsExcludingIntercompanyMember \nUnit: USD\n\nRule Element Id:70\nRule version: 30.0.5 - fele-20260331.htm 8"
+  },
+  {
+   "code": "DQC.US.0001.70",
+   "rule": "DQC_0001",
+   "element_id": "70",
+   "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {
+    "srt:ConsolidationItemsAxis": "fele:OperatingSegmentsExcludingIntercompanyMember",
+    "us-gaap:StatementBusinessSegmentsAxis": "fele:WaterSystemsMember"
+   },
+   "value": "277,700,000",
+   "decimals": "-5",
+   "message": "[DQC.US.0001.70] The concept RevenueFromContractWithCustomerExcludingAssessedTax with a value of 277,700,000 is dimensionally qualified with the ConsolidationItemsAxis and the unallowable member OperatingSegmentsExcludingIntercompanyMember. \nThe properties of the fact for RevenueFromContractWithCustomerExcludingAssessedTax are:\nPeriod: 2026-01-01 to 2026-03-31\nDimensions: srt:ConsolidationItemsAxis=fele:OperatingSegmentsExcludingIntercompanyMember, us-gaap:StatementBusinessSegmentsAxis=fele:WaterSystemsMember \nUnit: USD\n\nRule Element Id:70\nRule version: 30.0.5 - fele-20260331.htm 8"
+  },
+  {
+   "code": "DQC.US.0001.70",
+   "rule": "DQC_0001",
+   "element_id": "70",
+   "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "start": "2025-01-01",
+   "end": "2025-03-31",
+   "dims": {
+    "srt:ConsolidationItemsAxis": "fele:OperatingSegmentsExcludingIntercompanyMember",
+    "us-gaap:StatementBusinessSegmentsAxis": "fele:DistributionMember"
+   },
+   "value": "141,900,000",
+   "decimals": "-5",
+   "message": "[DQC.US.0001.70] The concept RevenueFromContractWithCustomerExcludingAssessedTax with a value of 141,900,000 is dimensionally qualified with the ConsolidationItemsAxis and the unallowable member OperatingSegmentsExcludingIntercompanyMember. \nThe properties of the fact for RevenueFromContractWithCustomerExcludingAssessedTax are:\nPeriod: 2025-01-01 to 2025-03-31\nDimensions: srt:ConsolidationItemsAxis=fele:OperatingSegmentsExcludingIntercompanyMember, us-gaap:StatementBusinessSegmentsAxis=fele:DistributionMember \nUnit: USD\n\nRule Element Id:70\nRule version: 30.0.5 - fele-20260331.htm 8"
+  },
+  {
+   "code": "DQC.US.0001.70",
+   "rule": "DQC_0001",
+   "element_id": "70",
+   "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {
+    "srt:ConsolidationItemsAxis": "fele:OperatingSegmentsExcludingIntercompanyMember"
+   },
+   "value": "500,400,000",
+   "decimals": "-5",
+   "message": "[DQC.US.0001.70] The concept RevenueFromContractWithCustomerExcludingAssessedTax with a value of 500,400,000 is dimensionally qualified with the ConsolidationItemsAxis and the unallowable member OperatingSegmentsExcludingIntercompanyMember. \nThe properties of the fact for RevenueFromContractWithCustomerExcludingAssessedTax are:\nPeriod: 2026-01-01 to 2026-03-31\nDimensions: srt:ConsolidationItemsAxis=fele:OperatingSegmentsExcludingIntercompanyMember \nUnit: USD\n\nRule Element Id:70\nRule version: 30.0.5 - fele-20260331.htm 8"
+  },
+  {
+   "code": "DQC.US.0001.70",
+   "rule": "DQC_0001",
+   "element_id": "70",
+   "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {
+    "srt:ConsolidationItemsAxis": "fele:OperatingSegmentsExcludingIntercompanyMember",
+    "us-gaap:StatementBusinessSegmentsAxis": "fele:DistributionMember"
+   },
+   "value": "150,900,000",
+   "decimals": "-5",
+   "message": "[DQC.US.0001.70] The concept RevenueFromContractWithCustomerExcludingAssessedTax with a value of 150,900,000 is dimensionally qualified with the ConsolidationItemsAxis and the unallowable member OperatingSegmentsExcludingIntercompanyMember. \nThe properties of the fact for RevenueFromContractWithCustomerExcludingAssessedTax are:\nPeriod: 2026-01-01 to 2026-03-31\nDimensions: srt:ConsolidationItemsAxis=fele:OperatingSegmentsExcludingIntercompanyMember, us-gaap:StatementBusinessSegmentsAxis=fele:DistributionMember \nUnit: USD\n\nRule Element Id:70\nRule version: 30.0.5 - fele-20260331.htm 8"
+  },
+  {
+   "code": "DQC.US.0001.70",
+   "rule": "DQC_0001",
+   "element_id": "70",
+   "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "start": "2025-01-01",
+   "end": "2025-03-31",
+   "dims": {
+    "srt:ConsolidationItemsAxis": "fele:OperatingSegmentsExcludingIntercompanyMember",
+    "us-gaap:StatementBusinessSegmentsAxis": "fele:EnergySystemsMember"
+   },
+   "value": "66,800,000",
+   "decimals": "-5",
+   "message": "[DQC.US.0001.70] The concept RevenueFromContractWithCustomerExcludingAssessedTax with a value of 66,800,000 is dimensionally qualified with the ConsolidationItemsAxis and the unallowable member OperatingSegmentsExcludingIntercompanyMember. \nThe properties of the fact for RevenueFromContractWithCustomerExcludingAssessedTax are:\nPeriod: 2025-01-01 to 2025-03-31\nDimensions: us-gaap:StatementBusinessSegmentsAxis=fele:EnergySystemsMember, srt:ConsolidationItemsAxis=fele:OperatingSegmentsExcludingIntercompanyMember \nUnit: USD\n\nRule Element Id:70\nRule version: 30.0.5 - fele-20260331.htm 8"
+  },
+  {
+   "code": "DQC.US.0189.10184",
+   "rule": "DQC_0189",
+   "element_id": "10184",
+   "concept": "DocumentType",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "10-Q",
+   "decimals": "None",
+   "message": "[DQC.US.0189.10184] The filing has  reported a value for the element us-gaap:DebtInstrumentBasisSpreadOnVariableRate1 with a value of 0.01 using the axis VariableRateAxis in the role 9955531 - Disclosure - DEBT (Details) on the table us-gaap:DebtInstrumentTable. However, the only member used to disaggregate the total for us-gaap:DebtInstrumentBasisSpreadOnVariableRate1 was the member fele:EuroInterbankOfferRateEURIBORMember. If only one member is used on this axis then the filer should either:\n\n1. Retag the filing using the element InvestmentVariableInterestRateTypeExtensibleEnumeration or Deb"
+  },
+  {
+   "code": "DQC.US.0189.10184",
+   "rule": "DQC_0189",
+   "element_id": "10184",
+   "concept": "DocumentType",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "10-Q",
+   "decimals": "None",
+   "message": "[DQC.US.0189.10184] The filing has  reported a value for the element us-gaap:DebtInstrumentBasisSpreadOnVariableRate1 with a value of 0.0175 using the axis VariableRateAxis in the role 9955531 - Disclosure - DEBT (Details) on the table us-gaap:DebtInstrumentTable. However, the only member used to disaggregate the total for us-gaap:DebtInstrumentBasisSpreadOnVariableRate1 was the member fele:EuroInterbankOfferRateEURIBORMember. If only one member is used on this axis then the filer should either:\n\n1. Retag the filing using the element InvestmentVariableInterestRateTypeExtensibleEnumeration or D"
+  },
+  {
+   "code": "DQC.US.0212.10736",
+   "rule": "DQC_0212",
+   "element_id": "10736",
+   "concept": "CommonStockSharesOutstanding",
+   "start": "",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "44,162,000",
+   "decimals": "-3",
+   "message": "[DQC.US.0212.10736] A value was reported for us-gaap:CommonStockSharesOutstanding with a value of 44,162,000. A value was not reported to represent shares issued. If shares outstanding and shares issued are the same, then the value should be tagged with the concept us-gaap:CommonStockSharesOutstanding and the concept CommonStockSharesIssued. \n\nIf it is not reported use the extension boolean concept called CommonStockSharesIssuedNotDisclosed with value true in any context. \n\nThe properties of this us-gaap:CommonStockSharesOutstanding fact are:\n\nPeriod: 2026-03-31\nUnit: shares\nRule version: 30.0"
+  },
+  {
+   "code": "DQC.US.0220.10748",
+   "rule": "DQC_0220",
+   "element_id": "10748",
+   "concept": "DocumentType",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "10-Q",
+   "decimals": "None",
+   "message": "[DQC.US.0220.10748] The filing has used the StatementTable in the notes in the role 9955533 - Disclosure - EQUITY ROLL FORWARD (Details). The StatementTable is not intended to be used in the notes, it is intended to be used in the face financial statements. The filer should use the appropriate table name for the notes disclosure. If no table is appropriate for the note disclosure, the filer should create an extension table with a name that describes the information in the table.\n\nRule Element Id:10748\nRule version: 30.0.5 - fele-20260331.htm 8"
+  },
+  {
+   "code": "DQC.US.0221.10749",
+   "rule": "DQC_0221",
+   "element_id": "10749",
+   "concept": "DocumentType",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "10-Q",
+   "decimals": "None",
+   "message": "[DQC.US.0221.10749] The filing has reported values for segment facts, but has not reported a value for NumberOfReportableSegments. The filer should report a value for NumberOfReportableSegments even if it only has one segment. If the value is not reported the error can be removed by tagging a value to an extension concept called NumberOfReportableSegmentsNotDisclosedFlag or NumberOfReportableSegmentsDisclosedByDefinitionFlag with any value in any context.\n\nRule Element Id:10749\nRule version: 30.0.5 - fele-20260331.htm 8"
+  }
+ ]
+}

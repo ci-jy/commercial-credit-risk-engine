@@ -1,0 +1,56 @@
+{
+ "adsh": "0000779152-26-000025",
+ "ruleset": "dqc-us-2026-V30-ruleset.zip",
+ "runtime_s": 26.15,
+ "load_s": 0.44,
+ "findings": [
+  {
+   "code": "DQC.US.0004.9280",
+   "rule": "DQC_0004",
+   "element_id": "9280",
+   "concept": "Assets",
+   "start": "",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "3,050,557,000",
+   "decimals": "-3",
+   "message": "[DQC.US.0004.9280] Assets with a value of 3,050,557,000 is not equal to the combined total of Current Assets and Noncurrent assets ( 594,839,000 + 2,241,713,000 ) with a value of 2,836,552,000. These values should be equal.\nThe properties of this us-gaap:Assets fact are:\nPeriod :2026-03-31\nDimensions :  \nUnit : USD\nDecimals of Assets : -3\nDecimals of Current Assets : -3\nDecimals of Non Current Assets : -3\n\nRule Element Id:9280\nRule version: 30.0.5 - jkhy-20260331.htm 8"
+  },
+  {
+   "code": "DQC.US.0004.9280",
+   "rule": "DQC_0004",
+   "element_id": "9280",
+   "concept": "Assets",
+   "start": "",
+   "end": "2025-06-30",
+   "dims": {},
+   "value": "3,043,970,000",
+   "decimals": "-3",
+   "message": "[DQC.US.0004.9280] Assets with a value of 3,043,970,000 is not equal to the combined total of Current Assets and Noncurrent assets ( 681,464,000 + 2,141,542,000 ) with a value of 2,823,006,000. These values should be equal.\nThe properties of this us-gaap:Assets fact are:\nPeriod :2025-06-30\nDimensions :  \nUnit : USD\nDecimals of Assets : -3\nDecimals of Current Assets : -3\nDecimals of Non Current Assets : -3\n\nRule Element Id:9280\nRule version: 30.0.5 - jkhy-20260331.htm 8"
+  },
+  {
+   "code": "DQC.US.0081.9278",
+   "rule": "DQC_0081",
+   "element_id": "9278",
+   "concept": "PropertyPlantAndEquipmentNet",
+   "start": "",
+   "end": "2025-06-30",
+   "dims": {},
+   "value": "220,964,000",
+   "decimals": "-3",
+   "message": "[DQC.US.0081.9278] The line item concept us-gaap:PropertyPlantAndEquipmentNet with a value of 220,964,000 and a calculation parent of us-gaap:Assets is represented as a sibling of us-gaap:AssetsNoncurrent with a value of 2,141,542,000 in the extension taxonomy role 9952151 - Statement - CONDENSED CONSOLIDATED BALANCE SHEETS, but us-gaap:PropertyPlantAndEquipmentNet is represented as a descendent of us-gaap:AssetsNoncurrent in the calculation relationships defined in the US GAAP taxonomies. Please review the element selection to determine that an appropriate element has been used for these two "
+  },
+  {
+   "code": "DQC.US.0081.9278",
+   "rule": "DQC_0081",
+   "element_id": "9278",
+   "concept": "PropertyPlantAndEquipmentNet",
+   "start": "",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "214,005,000",
+   "decimals": "-3",
+   "message": "[DQC.US.0081.9278] The line item concept us-gaap:PropertyPlantAndEquipmentNet with a value of 214,005,000 and a calculation parent of us-gaap:Assets is represented as a sibling of us-gaap:AssetsNoncurrent with a value of 2,241,713,000 in the extension taxonomy role 9952151 - Statement - CONDENSED CONSOLIDATED BALANCE SHEETS, but us-gaap:PropertyPlantAndEquipmentNet is represented as a descendent of us-gaap:AssetsNoncurrent in the calculation relationships defined in the US GAAP taxonomies. Please review the element selection to determine that an appropriate element has been used for these two "
+  }
+ ]
+}

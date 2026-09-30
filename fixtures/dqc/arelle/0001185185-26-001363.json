@@ -1,0 +1,68 @@
+{
+ "adsh": "0001185185-26-001363",
+ "ruleset": "dqc-us-2025-V30-ruleset.zip",
+ "runtime_s": 41.44,
+ "load_s": 1.55,
+ "findings": [
+  {
+   "code": "DQC.US.0168.10097",
+   "rule": "DQC_0168",
+   "element_id": "10097",
+   "concept": "IncomeTaxReconciliationIncomeTaxExpenseBenefitAtFederalStatutoryIncomeTaxRate",
+   "start": "2024-01-01",
+   "end": "2024-12-31",
+   "dims": {},
+   "value": "-5,413,000",
+   "decimals": "-3",
+   "message": "[DQC.US.0168.10097] The concept us-gaap:IncomeTaxReconciliationIncomeTaxExpenseBenefitAtFederalStatutoryIncomeTaxRate is used in the filing with a value of -5,413,000.  This element is reported but is not included in a calculation relationship with the element  us-gaap:IncomeTaxExpenseBenefit with a value of 390,000.  The filer should add a calculation relationship between these two elements to capture the details of the effective tax rate reconciliation. If no calculation is required to be disclosed then add an extension element called TaxReconciliationNotRequired.\n\nRule Element Id:10097\nRule"
+  },
+  {
+   "code": "DQC.US.0168.10097",
+   "rule": "DQC_0168",
+   "element_id": "10097",
+   "concept": "IncomeTaxReconciliationIncomeTaxExpenseBenefitAtFederalStatutoryIncomeTaxRate",
+   "start": "2025-01-01",
+   "end": "2025-12-31",
+   "dims": {},
+   "value": "-3,492,000",
+   "decimals": "-3",
+   "message": "[DQC.US.0168.10097] The concept us-gaap:IncomeTaxReconciliationIncomeTaxExpenseBenefitAtFederalStatutoryIncomeTaxRate is used in the filing with a value of -3,492,000.  This element is reported but is not included in a calculation relationship with the element  us-gaap:IncomeTaxExpenseBenefit with a value of 318,000.  The filer should add a calculation relationship between these two elements to capture the details of the effective tax rate reconciliation. If no calculation is required to be disclosed then add an extension element called TaxReconciliationNotRequired.\n\nRule Element Id:10097\nRule"
+  },
+  {
+   "code": "DQC.US.0198.10652",
+   "rule": "DQC_0198",
+   "element_id": "10652",
+   "concept": "EffectiveIncomeTaxRateReconciliationAtFederalStatutoryIncomeTaxRate",
+   "start": "2025-01-01",
+   "end": "2025-12-31",
+   "dims": {},
+   "value": "0.21",
+   "decimals": "2",
+   "message": "[DQC.US.0198.10652] The filer has reported a value for the concept EffectiveIncomeTaxRateReconciliationAtFederalStatutoryIncomeTaxRate with a value of 0.21. This value should be calculated by taking the value of IncomeTaxReconciliationIncomeTaxExpenseBenefitAtFederalStatutoryIncomeTaxRate with a value of -3,492,000 divided by the value of net income before tax of -15,736,000. This equals 0.2219 (rounded 4d). Please provide the equivalent percentage amount for this concept of 0.21. \n\n\n\nThe properties of this us-gaap:EffectiveIncomeTaxRateReconciliationAtFederalStatutoryIncomeTaxRate fact are:\nP"
+  },
+  {
+   "code": "DQC.US.0234.10930",
+   "rule": "DQC_0234",
+   "element_id": "10930",
+   "concept": "IncomeTaxReconciliationIncomeTaxExpenseBenefitAtFederalStatutoryIncomeTaxRate",
+   "start": "2024-01-01",
+   "end": "2024-12-31",
+   "dims": {},
+   "value": "-5,413,000",
+   "decimals": "-3",
+   "message": "[DQC.US.0234.10930] The filing is missing a value for the concept TaxJurisdictionOfDomicileExtensibleEnumeration.  When reporting a tax reconcilation, with a value reported for the concept IncomeTaxReconciliationIncomeTaxExpenseBenefitAtFederalStatutoryIncomeTaxRate (with a value of -5,413,000), then a value for TaxJurisdictionOfDomicileExtensibleEnumeration must also be provided to indicate the domestic tax jurisdiction. - rvyl10k123125.htm 9975"
+  },
+  {
+   "code": "DQC.US.0234.10930",
+   "rule": "DQC_0234",
+   "element_id": "10930",
+   "concept": "IncomeTaxReconciliationIncomeTaxExpenseBenefitAtFederalStatutoryIncomeTaxRate",
+   "start": "2025-01-01",
+   "end": "2025-12-31",
+   "dims": {},
+   "value": "-3,492,000",
+   "decimals": "-3",
+   "message": "[DQC.US.0234.10930] The filing is missing a value for the concept TaxJurisdictionOfDomicileExtensibleEnumeration.  When reporting a tax reconcilation, with a value reported for the concept IncomeTaxReconciliationIncomeTaxExpenseBenefitAtFederalStatutoryIncomeTaxRate (with a value of -3,492,000), then a value for TaxJurisdictionOfDomicileExtensibleEnumeration must also be provided to indicate the domestic tax jurisdiction. - rvyl10k123125.htm 9974"
+  }
+ ]
+}

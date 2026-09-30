@@ -1,0 +1,204 @@
+{
+ "adsh": "0001096906-26-000615",
+ "ruleset": "dqc-us-2024-V30-ruleset.zip",
+ "runtime_s": 97.9,
+ "load_s": 2.25,
+ "findings": [
+  {
+   "code": "DQC.US.0145.9867",
+   "rule": "DQC_0145",
+   "element_id": "9867",
+   "concept": "IncreaseDecreaseInNotesPayableRelatedParties",
+   "start": "",
+   "end": "",
+   "dims": {},
+   "value": "",
+   "decimals": "",
+   "message": "[DQC.US.0145.9867] The company has reported the concept us-gaap:IncreaseDecreaseInNotesPayableRelatedParties as a descendant of the presentation concept NetCashProvidedByUsedInFinancingActivitiesAbstract.  This concept is not a component of financing activities and should be presented outside of this group in the presentation linkbase.\n\nRule Element Id:9867\nRule version: 30.0.5 - https://xbrl.fasb.org/us-gaap/2024/elts/us-gaap-2024.xsd 2320"
+  },
+  {
+   "code": "DQC.US.0156.10074",
+   "rule": "DQC_0156",
+   "element_id": "10074",
+   "concept": "WeightedAverageCommonSharesOutstandingBasicAndDiluted",
+   "start": "2024-02-01",
+   "end": "2025-01-31",
+   "dims": {},
+   "value": "66,599,350",
+   "decimals": "INF",
+   "message": "[DQC.US.0156.10074] The filer has reported a value of 66,599,350  using the extension concept fil:WeightedAverageCommonSharesOutstandingBasicAndDiluted. This value should be tagged with separate  US GAAP elements for the Basic amount and the diluted amount.  This means the same fact needs to be tagged with separate elements.  An extension element should not be used to tag this fact.\n\nThe properties of this fil:WeightedAverageCommonSharesOutstandingBasicAndDiluted fact are:\n\nPeriod :2024-02-01 to 2025-01-31\nDimensions : \nUnit : shares\n\nRule Element Id:10074\nRule version: 30.0.5 - gdlg-20260131_"
+  },
+  {
+   "code": "DQC.US.0156.10074",
+   "rule": "DQC_0156",
+   "element_id": "10074",
+   "concept": "WeightedAverageCommonSharesOutstandingBasicAndDiluted",
+   "start": "2025-02-01",
+   "end": "2026-01-31",
+   "dims": {},
+   "value": "66,599,350",
+   "decimals": "INF",
+   "message": "[DQC.US.0156.10074] The filer has reported a value of 66,599,350  using the extension concept fil:WeightedAverageCommonSharesOutstandingBasicAndDiluted. This value should be tagged with separate  US GAAP elements for the Basic amount and the diluted amount.  This means the same fact needs to be tagged with separate elements.  An extension element should not be used to tag this fact.\n\nThe properties of this fil:WeightedAverageCommonSharesOutstandingBasicAndDiluted fact are:\n\nPeriod :2025-02-01 to 2026-01-31\nDimensions : \nUnit : shares\n\nRule Element Id:10074\nRule version: 30.0.5 - gdlg-20260131_"
+  },
+  {
+   "code": "DQC.US.0156.10074",
+   "rule": "DQC_0156",
+   "element_id": "10074",
+   "concept": "NetLossBasicAndDiluted",
+   "start": "2025-02-01",
+   "end": "2026-01-31",
+   "dims": {},
+   "value": "-0",
+   "decimals": "INF",
+   "message": "[DQC.US.0156.10074] The filer has reported a value of -0  using the extension concept fil:NetLossBasicAndDiluted. This value should be tagged with separate  US GAAP elements for the Basic amount and the diluted amount.  This means the same fact needs to be tagged with separate elements.  An extension element should not be used to tag this fact.\n\nThe properties of this fil:NetLossBasicAndDiluted fact are:\n\nPeriod :2025-02-01 to 2026-01-31\nDimensions : \nUnit : USD/shares\n\nRule Element Id:10074\nRule version: 30.0.5 - gdlg-20260131_10k.htm 2044"
+  },
+  {
+   "code": "DQC.US.0156.10074",
+   "rule": "DQC_0156",
+   "element_id": "10074",
+   "concept": "NetLossBasicAndDiluted",
+   "start": "2024-02-01",
+   "end": "2025-01-31",
+   "dims": {},
+   "value": "-0",
+   "decimals": "INF",
+   "message": "[DQC.US.0156.10074] The filer has reported a value of -0  using the extension concept fil:NetLossBasicAndDiluted. This value should be tagged with separate  US GAAP elements for the Basic amount and the diluted amount.  This means the same fact needs to be tagged with separate elements.  An extension element should not be used to tag this fact.\n\nThe properties of this fil:NetLossBasicAndDiluted fact are:\n\nPeriod :2024-02-01 to 2025-01-31\nDimensions : \nUnit : USD/shares\n\nRule Element Id:10074\nRule version: 30.0.5 - gdlg-20260131_10k.htm 2046"
+  },
+  {
+   "code": "DQC.US.0168.10097",
+   "rule": "DQC_0168",
+   "element_id": "10097",
+   "concept": "IncomeTaxReconciliationIncomeTaxExpenseBenefitAtFederalStatutoryIncomeTaxRate",
+   "start": "2025-02-01",
+   "end": "2026-01-31",
+   "dims": {},
+   "value": "-19,614",
+   "decimals": "INF",
+   "message": "[DQC.US.0168.10097] The concept us-gaap:IncomeTaxReconciliationIncomeTaxExpenseBenefitAtFederalStatutoryIncomeTaxRate is used in the filing with a value of -19,614.  This element is reported but is not included in a calculation relationship with the element  us-gaap:IncomeTaxExpenseBenefit with a value of 0.  The filer should add a calculation relationship between these two elements to capture the details of the effective tax rate reconciliation. If no calculation is required to be disclosed then add an extension element called TaxReconciliationNotRequired.\n\nRule Element Id:10097\nRule version:"
+  },
+  {
+   "code": "DQC.US.0168.10097",
+   "rule": "DQC_0168",
+   "element_id": "10097",
+   "concept": "IncomeTaxReconciliationIncomeTaxExpenseBenefitAtFederalStatutoryIncomeTaxRate",
+   "start": "2024-02-01",
+   "end": "2025-01-31",
+   "dims": {},
+   "value": "-5,762",
+   "decimals": "INF",
+   "message": "[DQC.US.0168.10097] The concept us-gaap:IncomeTaxReconciliationIncomeTaxExpenseBenefitAtFederalStatutoryIncomeTaxRate is used in the filing with a value of -5,762.  This element is reported but is not included in a calculation relationship with the element  us-gaap:IncomeTaxExpenseBenefit with a value of 0.  The filer should add a calculation relationship between these two elements to capture the details of the effective tax rate reconciliation. If no calculation is required to be disclosed then add an extension element called TaxReconciliationNotRequired.\n\nRule Element Id:10097\nRule version: "
+  },
+  {
+   "code": "DQC.US.0170.10103",
+   "rule": "DQC_0170",
+   "element_id": "10103",
+   "concept": "DocumentType",
+   "start": "2025-02-01",
+   "end": "2026-01-31",
+   "dims": {},
+   "value": "10-K",
+   "decimals": "None",
+   "message": "[DQC.US.0170.10103] The filing does not include a value of true for one of the following elements ecd:Rule10b51ArrAdoptedFlag, ecd:NonRule10b51ArrAdoptedFlag, ecd:Rule10b51ArrTrmntdFlag, ecd:NonRule10b51ArrTrmntdFlag or a value of false for all 4 elements. This is a required disclosure after 12/31/2023. Please report the boolean flag value of true for one of these elements or false for all of them.  If there is no insider trading disclosure in the filing create an extension boolean element called 'NoInsiderTradingFlag' with a value of true. \n\nRule Element Id:10103\nRule version: 30.0.5 - gdlg-2"
+  },
+  {
+   "code": "DQC.US.0194.10621",
+   "rule": "DQC_0194",
+   "element_id": "10621",
+   "concept": "StockIssuedDuringPeriodValueShareBasedCompensation",
+   "start": "2024-02-01",
+   "end": "2025-01-31",
+   "dims": {
+    "us-gaap:StatementEquityComponentsAxis": "us-gaap:CommonStockMember"
+   },
+   "value": "-6",
+   "decimals": "INF",
+   "message": "[DQC.US.0194.10621] us-gaap:StockIssuedDuringPeriodValueShareBasedCompensation has a value of -6 which is less than zero. This element should not have a negative value when used with the common stock [Member]. The preparer should consider if the value is input correctly for this assertion and, after considering the appropriateness of the input, if incorrect, input the amount as a positive (i.e., absolute) value and provide a negated label.\n\nThe properties of this us-gaap:StockIssuedDuringPeriodValueShareBasedCompensation fact are:\nPeriod :2024-02-01 to 2025-01-31\nDimensions : us-gaap:Statement"
+  },
+  {
+   "code": "DQC.US.0194.10621",
+   "rule": "DQC_0194",
+   "element_id": "10621",
+   "concept": "StockIssuedDuringPeriodSharesShareBasedCompensation",
+   "start": "2024-02-01",
+   "end": "2025-01-31",
+   "dims": {
+    "us-gaap:StatementEquityComponentsAxis": "us-gaap:CommonStockMember"
+   },
+   "value": "-5,600",
+   "decimals": "INF",
+   "message": "[DQC.US.0194.10621] us-gaap:StockIssuedDuringPeriodSharesShareBasedCompensation has a value of -5,600 which is less than zero. This element should not have a negative value when used with the common stock [Member]. The preparer should consider if the value is input correctly for this assertion and, after considering the appropriateness of the input, if incorrect, input the amount as a positive (i.e., absolute) value and provide a negated label.\n\nThe properties of this us-gaap:StockIssuedDuringPeriodSharesShareBasedCompensation fact are:\nPeriod :2024-02-01 to 2025-01-31\nDimensions : us-gaap:Sta"
+  },
+  {
+   "code": "DQC.US.0202.10702",
+   "rule": "DQC_0202",
+   "element_id": "10702",
+   "concept": "DocumentType",
+   "start": "2025-02-01",
+   "end": "2026-01-31",
+   "dims": {},
+   "value": "10-K",
+   "decimals": "None",
+   "message": "[DQC.US.0202.10702] The filing has not made any cyber security disclosures. At least one element related to cyber security should be used to report the cyber security disclosures in the filing. Please  add cyber security disclosures to the filing.  The following elements are available for cyber security disclosures:\n\n\nRule Element Id:10702\nRule version: 30.0.5 - gdlg-20260131_10k.htm 1057"
+  },
+  {
+   "code": "DQC.US.0220.10748",
+   "rule": "DQC_0220",
+   "element_id": "10748",
+   "concept": "DocumentType",
+   "start": "2025-02-01",
+   "end": "2026-01-31",
+   "dims": {},
+   "value": "10-K",
+   "decimals": "None",
+   "message": "[DQC.US.0220.10748] The filing has used the StatementTable in the notes in the role 000420 - Disclosure - 6. RELATED PARTY TRANSACTIONS: Schedule Of Star Success Business, LLC Loan (Details). The StatementTable is not intended to be used in the notes, it is intended to be used in the face financial statements. The filer should use the appropriate table name for the notes disclosure. If no table is appropriate for the note disclosure, the filer should create an extension table with a name that describes the information in the table.\n\nRule Element Id:10748\nRule version: 30.0.5 - gdlg-20260131_10"
+  },
+  {
+   "code": "DQC.US.0220.10748",
+   "rule": "DQC_0220",
+   "element_id": "10748",
+   "concept": "DocumentType",
+   "start": "2025-02-01",
+   "end": "2026-01-31",
+   "dims": {},
+   "value": "10-K",
+   "decimals": "None",
+   "message": "[DQC.US.0220.10748] The filing has used the StatementTable in the notes in the role 000400 - Disclosure - 6. RELATED PARTY TRANSACTIONS: Schedule of Mr Dapeng Ma Loan (Details). The StatementTable is not intended to be used in the notes, it is intended to be used in the face financial statements. The filer should use the appropriate table name for the notes disclosure. If no table is appropriate for the note disclosure, the filer should create an extension table with a name that describes the information in the table.\n\nRule Element Id:10748\nRule version: 30.0.5 - gdlg-20260131_10k.htm 1057"
+  },
+  {
+   "code": "DQC.US.0220.10748",
+   "rule": "DQC_0220",
+   "element_id": "10748",
+   "concept": "DocumentType",
+   "start": "2025-02-01",
+   "end": "2026-01-31",
+   "dims": {},
+   "value": "10-K",
+   "decimals": "None",
+   "message": "[DQC.US.0220.10748] The filing has used the StatementTable in the notes in the role 000410 - Disclosure - 6. RELATED PARTY TRANSACTIONS: Schedule of Yitian Xue Loan (Details). The StatementTable is not intended to be used in the notes, it is intended to be used in the face financial statements. The filer should use the appropriate table name for the notes disclosure. If no table is appropriate for the note disclosure, the filer should create an extension table with a name that describes the information in the table.\n\nRule Element Id:10748\nRule version: 30.0.5 - gdlg-20260131_10k.htm 1057"
+  },
+  {
+   "code": "DQC.US.0220.10748",
+   "rule": "DQC_0220",
+   "element_id": "10748",
+   "concept": "DocumentType",
+   "start": "2025-02-01",
+   "end": "2026-01-31",
+   "dims": {},
+   "value": "10-K",
+   "decimals": "None",
+   "message": "[DQC.US.0220.10748] The filing has used the StatementTable in the notes in the role 000370 - Disclosure - 5. FIXED ASSETS: Schedule of Fixed Assets (Details). The StatementTable is not intended to be used in the notes, it is intended to be used in the face financial statements. The filer should use the appropriate table name for the notes disclosure. If no table is appropriate for the note disclosure, the filer should create an extension table with a name that describes the information in the table.\n\nRule Element Id:10748\nRule version: 30.0.5 - gdlg-20260131_10k.htm 1057"
+  },
+  {
+   "code": "DQC.US.0220.10748",
+   "rule": "DQC_0220",
+   "element_id": "10748",
+   "concept": "DocumentType",
+   "start": "2025-02-01",
+   "end": "2026-01-31",
+   "dims": {},
+   "value": "10-K",
+   "decimals": "None",
+   "message": "[DQC.US.0220.10748] The filing has used the StatementTable in the notes in the role 000380 - Disclosure - 6. RELATED PARTY TRANSACTIONS: Schedule of Streamline USA, Inc Loan (Details). The StatementTable is not intended to be used in the notes, it is intended to be used in the face financial statements. The filer should use the appropriate table name for the notes disclosure. If no table is appropriate for the note disclosure, the filer should create an extension table with a name that describes the information in the table.\n\nRule Element Id:10748\nRule version: 30.0.5 - gdlg-20260131_10k.htm 1"
+  }
+ ]
+}

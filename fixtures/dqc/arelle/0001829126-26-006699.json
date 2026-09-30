@@ -1,0 +1,56 @@
+{
+ "adsh": "0001829126-26-006699",
+ "ruleset": "dqc-us-2025-V30-ruleset.zip",
+ "runtime_s": 24.27,
+ "load_s": 0.4,
+ "findings": [
+  {
+   "code": "DQC.US.0220.10748",
+   "rule": "DQC_0220",
+   "element_id": "10748",
+   "concept": "DocumentType",
+   "start": "2025-01-01",
+   "end": "2025-12-31",
+   "dims": {},
+   "value": "10-K",
+   "decimals": "None",
+   "message": "[DQC.US.0220.10748] The filing has used the StatementTable in the notes in the role 999033 - Disclosure - INITIAL PUBLIC OFFERING (Details Narrative). The StatementTable is not intended to be used in the notes, it is intended to be used in the face financial statements. The filer should use the appropriate table name for the notes disclosure. If no table is appropriate for the note disclosure, the filer should create an extension table with a name that describes the information in the table.\n\nRule Element Id:10748\nRule version: 30.0.5 - libity_10k.htm 1604"
+  },
+  {
+   "code": "DQC.US.0220.10748",
+   "rule": "DQC_0220",
+   "element_id": "10748",
+   "concept": "DocumentType",
+   "start": "2025-01-01",
+   "end": "2025-12-31",
+   "dims": {},
+   "value": "10-K",
+   "decimals": "None",
+   "message": "[DQC.US.0220.10748] The filing has used the StatementTable in the notes in the role 999029 - Disclosure - DESCRIPTION OF ORGANIZATION AND BUSINESS OPERATIONS (Details Narrative). The StatementTable is not intended to be used in the notes, it is intended to be used in the face financial statements. The filer should use the appropriate table name for the notes disclosure. If no table is appropriate for the note disclosure, the filer should create an extension table with a name that describes the information in the table.\n\nRule Element Id:10748\nRule version: 30.0.5 - libity_10k.htm 1604"
+  },
+  {
+   "code": "DQC.US.0220.10748",
+   "rule": "DQC_0220",
+   "element_id": "10748",
+   "concept": "DocumentType",
+   "start": "2025-01-01",
+   "end": "2025-12-31",
+   "dims": {},
+   "value": "10-K",
+   "decimals": "None",
+   "message": "[DQC.US.0220.10748] The filing has used the StatementTable in the notes in the role 999031 - Disclosure - SUMMARY OF SIGNIFICANT ACCOUNTING POLICIES (Details 1). The StatementTable is not intended to be used in the notes, it is intended to be used in the face financial statements. The filer should use the appropriate table name for the notes disclosure. If no table is appropriate for the note disclosure, the filer should create an extension table with a name that describes the information in the table.\n\nRule Element Id:10748\nRule version: 30.0.5 - libity_10k.htm 1604"
+  },
+  {
+   "code": "DQC.US.0238.10937",
+   "rule": "DQC_0238",
+   "element_id": "10937",
+   "concept": "DocumentType",
+   "start": "2025-01-01",
+   "end": "2025-12-31",
+   "dims": {},
+   "value": "10-K",
+   "decimals": "None",
+   "message": "[DQC.US.0238.10937] The filer has used the table text block ScheduleOfSegmentReportingInformationBySegmentTextBlock in the filing, but has not reported any facts with the StatementBusinessSegmentsAxis. A segment member is required to be reported with the StatementBusinessSegmentsAxis even if there is only one reportable segment. (see FASB Taxonomy Implementation guide at https://www.fasb.org/projects/fasb-taxonomies/resources/taxonomy-implementation-guides ) The filer should report facts with the StatementBusinessSegmentsAxis if using the ScheduleOfSegmentReportingInformationBySegmentTextBlock"
+  }
+ ]
+}

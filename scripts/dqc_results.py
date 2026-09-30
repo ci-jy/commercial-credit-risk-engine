@@ -30,6 +30,26 @@ from credit_engine.dqc.impact import ratio_impact, summarise_impact  # noqa: E40
 
 REPORTS = ROOT / "reports"
 
+# Disagreements found by earlier differential runs and fixed in the bulk rules,
+# so they no longer appear in the tables below.
+FIXED_BUGS = [
+    ("DQC_0004", "Missing components were counted as zero, so Assets = AssetsCurrent + AssetsNoncurrent fired for "
+                 "every filer that does not tag AssetsNoncurrent. XULE binds every factset in the assertion, so a "
+                 "check runs only when all its components are reported (Arelle never fired on these)."),
+    ("DQC_0005", "Subsequent-event facts dated in the first two weeks after the period end (e.g. 2026-04-03 to "
+                 "2026-04-08 for a 2026-03-31 10-Q) were rounded onto the period end and flagged. 48 and 49 now fire "
+                 "only for dates clearly before the period end."),
+    ("DQC_0194", "Any member containing 'NoncontrollingInterest' was treated as an NCI member, including a filer's "
+                 "own lng:RedeemableNoncontrollingInterestMember; the DQC list holds US GAAP members only."),
+    ("DQC_0009 and others", "When month-end rounding merged two contexts with different values (e.g. 2026-03-31 and "
+                 "2026-04-06), the pivot compared whichever came first. Such ambiguous context/concept pairs are "
+                 "now left out of the comparison."),
+    ("harness", "DQC_0001 was aligned per fact, while the bulk rule reports one finding per (axis, member). "
+                "Arelle's findings are now grouped by the member named in their message."),
+    ("harness", "Arelle nests context dimensions under a 'dimensions' property; the first parser dropped them, "
+                "so dimensional findings could not be aligned."),
+]
+
 
 def sample_comparison() -> dict:
     sample = pd.read_csv(DQC_FIXTURES / "sample_filings.csv", dtype=str)
@@ -109,6 +129,10 @@ def write_report(cmp: dict, full: dict | None, quarter: str) -> None:
             lines.append(f"| {r.rule} | {'bulk only' if r.side == 'bulk' else 'Arelle only'} | {r.n} | "
                          f"{r.category} | {r.root_cause} |")
         lines += ["", f"Every disagreement, with filing and concept: [dqc_disagreements.csv](dqc_disagreements.csv).", ""]
+    lines += ["## Bugs found by the differential runs (fixed)", "",
+              "| Where | What was wrong and how it was fixed |", "|---|---|"]
+    lines += [f"| {w} | {t} |" for w, t in FIXED_BUGS]
+    lines += [""]
     lines += ["## Runtime", ""]
     rt = runs.runtime_s
     lines += [f"- Arelle + XULE + DQC ruleset: **median {rt.median():.1f} s per filing** "

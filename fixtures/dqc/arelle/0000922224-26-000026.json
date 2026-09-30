@@ -1,0 +1,164 @@
+{
+ "adsh": "0000922224-26-000026",
+ "ruleset": "dqc-us-2026-V30-ruleset.zip",
+ "runtime_s": 43.87,
+ "load_s": 0.93,
+ "findings": [
+  {
+   "code": "DQC.US.0004.9280",
+   "rule": "DQC_0004",
+   "element_id": "9280",
+   "concept": "Assets",
+   "start": "",
+   "end": "2025-12-31",
+   "dims": {
+    "dei:LegalEntityAxis": "ppl:LouisvilleGasAndElectricCoMember"
+   },
+   "value": "8,818,000,000",
+   "decimals": "-6",
+   "message": "[DQC.US.0004.9280] Assets with a value of 8,818,000,000 is not equal to the combined total of Current Assets and Noncurrent assets ( 713,000,000 + 988,000,000 ) with a value of 1,701,000,000. These values should be equal.\nThe properties of this us-gaap:Assets fact are:\nPeriod :2025-12-31\nDimensions :  dei:LegalEntityAxis=ppl:LouisvilleGasAndElectricCoMember\nUnit : USD\nDecimals of Assets : -6\nDecimals of Current Assets : -6\nDecimals of Non Current Assets : -6\n\nRule Element Id:9280\nRule version: 30.0.5 - ppl-20260331.htm 8"
+  },
+  {
+   "code": "DQC.US.0004.9280",
+   "rule": "DQC_0004",
+   "element_id": "9280",
+   "concept": "Assets",
+   "start": "",
+   "end": "2025-12-31",
+   "dims": {
+    "dei:LegalEntityAxis": "ppl:KentuckyUtilitiesCoMember"
+   },
+   "value": "10,758,000,000",
+   "decimals": "-6",
+   "message": "[DQC.US.0004.9280] Assets with a value of 10,758,000,000 is not equal to the combined total of Current Assets and Noncurrent assets ( 525,000,000 + 1,286,000,000 ) with a value of 1,811,000,000. These values should be equal.\nThe properties of this us-gaap:Assets fact are:\nPeriod :2025-12-31\nDimensions :  dei:LegalEntityAxis=ppl:KentuckyUtilitiesCoMember\nUnit : USD\nDecimals of Assets : -6\nDecimals of Current Assets : -6\nDecimals of Non Current Assets : -6\n\nRule Element Id:9280\nRule version: 30.0.5 - ppl-20260331.htm 8"
+  },
+  {
+   "code": "DQC.US.0004.9280",
+   "rule": "DQC_0004",
+   "element_id": "9280",
+   "concept": "Assets",
+   "start": "",
+   "end": "2026-03-31",
+   "dims": {
+    "dei:LegalEntityAxis": "ppl:KentuckyUtilitiesCoMember"
+   },
+   "value": "10,907,000,000",
+   "decimals": "-6",
+   "message": "[DQC.US.0004.9280] Assets with a value of 10,907,000,000 is not equal to the combined total of Current Assets and Noncurrent assets ( 548,000,000 + 1,299,000,000 ) with a value of 1,847,000,000. These values should be equal.\nThe properties of this us-gaap:Assets fact are:\nPeriod :2026-03-31\nDimensions :  dei:LegalEntityAxis=ppl:KentuckyUtilitiesCoMember\nUnit : USD\nDecimals of Assets : -6\nDecimals of Current Assets : -6\nDecimals of Non Current Assets : -6\n\nRule Element Id:9280\nRule version: 30.0.5 - ppl-20260331.htm 8"
+  },
+  {
+   "code": "DQC.US.0004.9280",
+   "rule": "DQC_0004",
+   "element_id": "9280",
+   "concept": "Assets",
+   "start": "",
+   "end": "2026-03-31",
+   "dims": {
+    "dei:LegalEntityAxis": "ppl:PplElectricUtilitiesCorpMember"
+   },
+   "value": "17,216,000,000",
+   "decimals": "-6",
+   "message": "[DQC.US.0004.9280] Assets with a value of 17,216,000,000 is not equal to the combined total of Current Assets and Noncurrent assets ( 1,244,000,000 + 1,126,000,000 ) with a value of 2,370,000,000. These values should be equal.\nThe properties of this us-gaap:Assets fact are:\nPeriod :2026-03-31\nDimensions :  dei:LegalEntityAxis=ppl:PplElectricUtilitiesCorpMember\nUnit : USD\nDecimals of Assets : -6\nDecimals of Current Assets : -6\nDecimals of Non Current Assets : -6\n\nRule Element Id:9280\nRule version: 30.0.5 - ppl-20260331.htm 8"
+  },
+  {
+   "code": "DQC.US.0004.9280",
+   "rule": "DQC_0004",
+   "element_id": "9280",
+   "concept": "Assets",
+   "start": "",
+   "end": "2025-12-31",
+   "dims": {},
+   "value": "45,244,000,000",
+   "decimals": "-6",
+   "message": "[DQC.US.0004.9280] Assets with a value of 45,244,000,000 is not equal to the combined total of Current Assets and Noncurrent assets ( 3,931,000,000 + 5,181,000,000 ) with a value of 9,112,000,000. These values should be equal.\nThe properties of this us-gaap:Assets fact are:\nPeriod :2025-12-31\nDimensions :  \nUnit : USD\nDecimals of Assets : -6\nDecimals of Current Assets : -6\nDecimals of Non Current Assets : -6\n\nRule Element Id:9280\nRule version: 30.0.5 - ppl-20260331.htm 8"
+  },
+  {
+   "code": "DQC.US.0004.9280",
+   "rule": "DQC_0004",
+   "element_id": "9280",
+   "concept": "Assets",
+   "start": "",
+   "end": "2026-03-31",
+   "dims": {
+    "dei:LegalEntityAxis": "ppl:LouisvilleGasAndElectricCoMember"
+   },
+   "value": "8,804,000,000",
+   "decimals": "-6",
+   "message": "[DQC.US.0004.9280] Assets with a value of 8,804,000,000 is not equal to the combined total of Current Assets and Noncurrent assets ( 577,000,000 + 1,003,000,000 ) with a value of 1,580,000,000. These values should be equal.\nThe properties of this us-gaap:Assets fact are:\nPeriod :2026-03-31\nDimensions :  dei:LegalEntityAxis=ppl:LouisvilleGasAndElectricCoMember\nUnit : USD\nDecimals of Assets : -6\nDecimals of Current Assets : -6\nDecimals of Non Current Assets : -6\n\nRule Element Id:9280\nRule version: 30.0.5 - ppl-20260331.htm 8"
+  },
+  {
+   "code": "DQC.US.0004.9280",
+   "rule": "DQC_0004",
+   "element_id": "9280",
+   "concept": "Assets",
+   "start": "",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "46,304,000,000",
+   "decimals": "-6",
+   "message": "[DQC.US.0004.9280] Assets with a value of 46,304,000,000 is not equal to the combined total of Current Assets and Noncurrent assets ( 4,321,000,000 + 5,246,000,000 ) with a value of 9,567,000,000. These values should be equal.\nThe properties of this us-gaap:Assets fact are:\nPeriod :2026-03-31\nDimensions :  \nUnit : USD\nDecimals of Assets : -6\nDecimals of Current Assets : -6\nDecimals of Non Current Assets : -6\n\nRule Element Id:9280\nRule version: 30.0.5 - ppl-20260331.htm 8"
+  },
+  {
+   "code": "DQC.US.0004.9280",
+   "rule": "DQC_0004",
+   "element_id": "9280",
+   "concept": "Assets",
+   "start": "",
+   "end": "2025-12-31",
+   "dims": {
+    "dei:LegalEntityAxis": "ppl:PplElectricUtilitiesCorpMember"
+   },
+   "value": "16,886,000,000",
+   "decimals": "-6",
+   "message": "[DQC.US.0004.9280] Assets with a value of 16,886,000,000 is not equal to the combined total of Current Assets and Noncurrent assets ( 1,215,000,000 + 1,103,000,000 ) with a value of 2,318,000,000. These values should be equal.\nThe properties of this us-gaap:Assets fact are:\nPeriod :2025-12-31\nDimensions :  dei:LegalEntityAxis=ppl:PplElectricUtilitiesCorpMember\nUnit : USD\nDecimals of Assets : -6\nDecimals of Current Assets : -6\nDecimals of Non Current Assets : -6\n\nRule Element Id:9280\nRule version: 30.0.5 - ppl-20260331.htm 8"
+  },
+  {
+   "code": "DQC.US.0081.9278",
+   "rule": "DQC_0081",
+   "element_id": "9278",
+   "concept": "PropertyPlantAndEquipmentNet",
+   "start": "",
+   "end": "2025-12-31",
+   "dims": {},
+   "value": "36,132,000,000",
+   "decimals": "-6",
+   "message": "[DQC.US.0081.9278] The line item concept us-gaap:PropertyPlantAndEquipmentNet with a value of 36,132,000,000 and a calculation parent of us-gaap:Assets is represented as a sibling of us-gaap:AssetsNoncurrent with a value of 5,181,000,000 in the extension taxonomy role 9952155 - Statement - CONDENSED CONSOLIDATED BALANCE SHEETS (Unaudited), but us-gaap:PropertyPlantAndEquipmentNet is represented as a descendent of us-gaap:AssetsNoncurrent in the calculation relationships defined in the US GAAP taxonomies. Please review the element selection to determine that an appropriate element has been used"
+  },
+  {
+   "code": "DQC.US.0081.9278",
+   "rule": "DQC_0081",
+   "element_id": "9278",
+   "concept": "PropertyPlantAndEquipmentNet",
+   "start": "",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "36,737,000,000",
+   "decimals": "-6",
+   "message": "[DQC.US.0081.9278] The line item concept us-gaap:PropertyPlantAndEquipmentNet with a value of 36,737,000,000 and a calculation parent of us-gaap:Assets is represented as a sibling of us-gaap:AssetsNoncurrent with a value of 5,246,000,000 in the extension taxonomy role 9952155 - Statement - CONDENSED CONSOLIDATED BALANCE SHEETS (Unaudited), but us-gaap:PropertyPlantAndEquipmentNet is represented as a descendent of us-gaap:AssetsNoncurrent in the calculation relationships defined in the US GAAP taxonomies. Please review the element selection to determine that an appropriate element has been used"
+  },
+  {
+   "code": "DQC.US.0234.10930",
+   "rule": "DQC_0234",
+   "element_id": "10930",
+   "concept": "IncomeTaxReconciliationIncomeTaxExpenseBenefitAtFederalStatutoryIncomeTaxRate",
+   "start": "2025-01-01",
+   "end": "2025-03-31",
+   "dims": {},
+   "value": "108,000,000",
+   "decimals": "-6",
+   "message": "[DQC.US.0234.10930] The filing is missing a value for the concept TaxJurisdictionOfDomicileExtensibleEnumeration.  When reporting a tax reconcilation, with a value reported for the concept IncomeTaxReconciliationIncomeTaxExpenseBenefitAtFederalStatutoryIncomeTaxRate (with a value of 108,000,000), then a value for TaxJurisdictionOfDomicileExtensibleEnumeration must also be provided to indicate the domestic tax jurisdiction. - ppl-20260331.htm 8"
+  },
+  {
+   "code": "DQC.US.0234.10930",
+   "rule": "DQC_0234",
+   "element_id": "10930",
+   "concept": "IncomeTaxReconciliationIncomeTaxExpenseBenefitAtFederalStatutoryIncomeTaxRate",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "118,000,000",
+   "decimals": "-6",
+   "message": "[DQC.US.0234.10930] The filing is missing a value for the concept TaxJurisdictionOfDomicileExtensibleEnumeration.  When reporting a tax reconcilation, with a value reported for the concept IncomeTaxReconciliationIncomeTaxExpenseBenefitAtFederalStatutoryIncomeTaxRate (with a value of 118,000,000), then a value for TaxJurisdictionOfDomicileExtensibleEnumeration must also be provided to indicate the domestic tax jurisdiction. - ppl-20260331.htm 8"
+  }
+ ]
+}

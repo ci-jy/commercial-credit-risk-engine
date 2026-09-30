@@ -1,0 +1,7 @@
+{
+ "adsh": "0000022701-26-000007",
+ "ruleset": "dqc-us-2025-V30-ruleset.zip",
+ "runtime_s": 26.28,
+ "load_s": 0.47,
+ "findings": []
+}

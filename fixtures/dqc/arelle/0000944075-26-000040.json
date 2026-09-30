@@ -1,0 +1,384 @@
+{
+ "adsh": "0000944075-26-000040",
+ "ruleset": "dqc-us-2026-V30-ruleset.zip",
+ "runtime_s": 23.83,
+ "load_s": 0.35,
+ "findings": [
+  {
+   "code": "DQC.US.0008.6819",
+   "rule": "DQC_0008",
+   "element_id": "6819",
+   "concept": "DocumentType",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "10-Q",
+   "decimals": "None",
+   "message": "[DQC.US.0008.6819] The calculation in the extension taxonomy from OperatingLeaseLiability to OperatingLeaseLiabilityNoncurrent in 999042 - Disclosure - Future minimum lease payments under the operating lease in effect as of March 31, 2026 (Details) is the opposite of a calculation defined in the base US GAAP taxonomy. Check that the calculation is correct or that you have used the correct tag for the two elements identified in the calculation It is possible that the calculation is correct in the case of a reconciliation calculation.\nOperatingLeaseLiabilityNoncurrent\n\nRule version: 30.0.5 - q1_"
+  },
+  {
+   "code": "DQC.US.0018.34",
+   "rule": "DQC_0018",
+   "element_id": "34",
+   "concept": "DocumentType",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "10-Q",
+   "decimals": "None",
+   "message": "[DQC.US.0018.34] The element us-gaap:OperatingLeasesFutureMinimumPaymentsDueCurrent is a deprecated item.\nRule version: 30.0.5 - q1_2026.htm 980"
+  },
+  {
+   "code": "DQC.US.0018.34",
+   "rule": "DQC_0018",
+   "element_id": "34",
+   "concept": "DocumentType",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "10-Q",
+   "decimals": "None",
+   "message": "[DQC.US.0018.34] The element us-gaap:ScheduleOfFutureMinimumRentalPaymentsForOperatingLeasesTableTextBlock is a deprecated item.\nRule version: 30.0.5 - q1_2026.htm 980"
+  },
+  {
+   "code": "DQC.US.0018.34",
+   "rule": "DQC_0018",
+   "element_id": "34",
+   "concept": "DocumentType",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "10-Q",
+   "decimals": "None",
+   "message": "[DQC.US.0018.34] The element us-gaap:OperatingLeasesFutureMinimumPaymentsDue is a deprecated item.\nRule version: 30.0.5 - q1_2026.htm 980"
+  },
+  {
+   "code": "DQC.US.0018.34",
+   "rule": "DQC_0018",
+   "element_id": "34",
+   "concept": "DocumentType",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "10-Q",
+   "decimals": "None",
+   "message": "[DQC.US.0018.34] The element us-gaap:OperatingLeasesFutureMinimumPaymentsDueInThreeYears is a deprecated item.\nRule version: 30.0.5 - q1_2026.htm 980"
+  },
+  {
+   "code": "DQC.US.0018.34",
+   "rule": "DQC_0018",
+   "element_id": "34",
+   "concept": "DocumentType",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "10-Q",
+   "decimals": "None",
+   "message": "[DQC.US.0018.34] The element us-gaap:OperatingLeasesFutureMinimumPaymentsDueAbstract is a deprecated item.\nRule version: 30.0.5 - q1_2026.htm 980"
+  },
+  {
+   "code": "DQC.US.0018.34",
+   "rule": "DQC_0018",
+   "element_id": "34",
+   "concept": "DocumentType",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "10-Q",
+   "decimals": "None",
+   "message": "[DQC.US.0018.34] The element us-gaap:OperatingLeasesFutureMinimumPaymentsDueInFourYears is a deprecated item.\nRule version: 30.0.5 - q1_2026.htm 980"
+  },
+  {
+   "code": "DQC.US.0018.34",
+   "rule": "DQC_0018",
+   "element_id": "34",
+   "concept": "DocumentType",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "10-Q",
+   "decimals": "None",
+   "message": "[DQC.US.0018.34] The element us-gaap:OperatingLeasesFutureMinimumPaymentsDueInTwoYears is a deprecated item.\nRule version: 30.0.5 - q1_2026.htm 980"
+  },
+  {
+   "code": "DQC.US.0048.7482",
+   "rule": "DQC_0048",
+   "element_id": "7482",
+   "concept": "StatementOfCashFlowsAbstract",
+   "start": "",
+   "end": "",
+   "dims": {},
+   "value": "",
+   "decimals": "",
+   "message": "[DQC.US.0048.7482] The filing should include in the cash flow statement calculation linkbase(s) http://socketmobile.com/role/StatementsOfCashFlows one of the following elements as the root(first element) of the calculation tree to represent the aggregate change in cash for the period:\n\nCashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsPeriodIncreaseDecreaseIncludingExchangeRateEffect,\nCashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsPeriodIncreaseDecreaseExcludingExchangeRateEffect,\nCashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsPeriodIncreaseDecreaseInclud"
+  },
+  {
+   "code": "DQC.US.0057.9728",
+   "rule": "DQC_0057",
+   "element_id": "9728",
+   "concept": "DocumentType",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "10-Q",
+   "decimals": "None",
+   "message": "[DQC.US.0057.9728] One of the following elements CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsIncludingDisposalGroupAndDiscontinuedOperations, CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents should appear as the opening and closing balance in the cash flow statement using the group http://socketmobile.com/role/StatementsOfCashFlows.\n Instead the following balance items have been used in this statement CashAndCashEquivalentsAtCarryingValue. Due to the implementaion of ASU-2016-18 at least one of the opening and closing balance items listed must be used in the cash "
+  },
+  {
+   "code": "DQC.US.0099.9533",
+   "rule": "DQC_0099",
+   "element_id": "9533",
+   "concept": "DocumentType",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "10-Q",
+   "decimals": "None",
+   "message": "[DQC.US.0099.9533] \nThe following elements are in the presentation linkbase of 00000003 - Statement - Condensed Balance Sheets but are not included in any calculation relationship in the filing.\nus-gaap:CommonStockValue, \nSCKT:DeferredServiceRevenueCurrent\nAll elements appearing in the face of the financial statements should be included in a calculation relationship somewhere in the filing. Items not included in the financial statement calculations but included in the presentation are referred to as parenthetical items. These usually appear as a referenced item, or as a value in parenthesis de"
+  },
+  {
+   "code": "DQC.US.0099.9533",
+   "rule": "DQC_0099",
+   "element_id": "9533",
+   "concept": "DocumentType",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "10-Q",
+   "decimals": "None",
+   "message": "[DQC.US.0099.9533] \nThe following elements are in the presentation linkbase of 00000006 - Statement - Condensed Statements of Cash Flows but are not included in any calculation relationship in the filing.\nSCKT:IncreaseDecreasePrepaidExpensesAndOtherCurrentAssets, \nus-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsPeriodIncreaseDecreaseExcludingExchangeRateEffect, \nSCKT:IncreaseDecreaseInDeferredIncomeOnShipmentsToDistributors\nAll elements appearing in the face of the financial statements should be included in a calculation relationship somewhere in the filing. Items not incl"
+  },
+  {
+   "code": "DQC.US.0109.9567",
+   "rule": "DQC_0109",
+   "element_id": "9567",
+   "concept": "ConcentrationRiskPercentage1",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {
+    "us-gaap:ConcentrationRiskByTypeAxis": "us-gaap:SupplierConcentrationRiskMember"
+   },
+   "value": "0.51",
+   "decimals": "INF",
+   "message": "[DQC.US.0109.9567] The concept us-gaap:ConcentrationRiskPercentage1 with value 0.51 should always be used with both the ConcentrationRiskByTypeAxis and the ConcentrationRiskByBenchmarkAxis.  This element has no meaning without both these axis at a minimum.  This fact only contains the numerator of ConcentrationRiskByTypeAxis, and not the member used on the ConcentrationRiskByBenchmarkAxis which represents the benchmark denominator. If this value represents the Concentration Risk, Threshold Percentage then use the extension element ConcentrationRiskThresholdPercentage. \n\nThe properties of this "
+  },
+  {
+   "code": "DQC.US.0109.9567",
+   "rule": "DQC_0109",
+   "element_id": "9567",
+   "concept": "ConcentrationRiskPercentage1",
+   "start": "2025-01-01",
+   "end": "2025-03-31",
+   "dims": {
+    "us-gaap:ConcentrationRiskByTypeAxis": "us-gaap:SupplierConcentrationRiskMember"
+   },
+   "value": "0.42",
+   "decimals": "INF",
+   "message": "[DQC.US.0109.9567] The concept us-gaap:ConcentrationRiskPercentage1 with value 0.42 should always be used with both the ConcentrationRiskByTypeAxis and the ConcentrationRiskByBenchmarkAxis.  This element has no meaning without both these axis at a minimum.  This fact only contains the numerator of ConcentrationRiskByTypeAxis, and not the member used on the ConcentrationRiskByBenchmarkAxis which represents the benchmark denominator. If this value represents the Concentration Risk, Threshold Percentage then use the extension element ConcentrationRiskThresholdPercentage. \n\nThe properties of this "
+  },
+  {
+   "code": "DQC.US.0126.9590",
+   "rule": "DQC_0126",
+   "element_id": "9590",
+   "concept": "NetCashProvidedByUsedInOperatingActivities",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "-768,856",
+   "decimals": "0",
+   "message": "[DQC.US.0126.9590] The statement 00000006 - Statement - Condensed Statements of Cash Flows includes an inconsistent calculation. The value of the concept us-gaap:NetCashProvidedByUsedInOperatingActivities of -768,856  should be equal to the sum of its child components defined in the calculation linkbase. The sum of these child components is -753,288. The values of the addends is determined by adding the values of the child concepts.  The values reported in the financial statement in the current reporting period of 2026-01-01 to 2026-03-31 should be complete if the financial statement is to be "
+  },
+  {
+   "code": "DQC.US.0126.9590",
+   "rule": "DQC_0126",
+   "element_id": "9590",
+   "concept": "NetIncomeLoss",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "-899,576",
+   "decimals": "0",
+   "message": "[DQC.US.0126.9590] The statement 00000002 - Statement - Condensed Statements of Operations includes an inconsistent calculation. The value of the concept us-gaap:NetIncomeLoss of -899,576  should be equal to the sum of its child components defined in the calculation linkbase. The sum of these child components is -619,758. The values of the addends is determined by adding the values of the child concepts.  The values reported in the financial statement in the current reporting period of 2026-01-01 to 2026-03-31 should be complete if the financial statement is to be mathematically accurate and c"
+  },
+  {
+   "code": "DQC.US.0126.9590",
+   "rule": "DQC_0126",
+   "element_id": "9590",
+   "concept": "StockholdersEquity",
+   "start": "",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "3,549,091",
+   "decimals": "0",
+   "message": "[DQC.US.0126.9590] The statement 00000003 - Statement - Condensed Balance Sheets includes an inconsistent calculation. The value of the concept us-gaap:StockholdersEquity of 3,549,091  should be equal to the sum of its child components defined in the calculation linkbase. The sum of these child components is 3,540,868. The values of the addends is determined by adding the values of the child concepts.  The values reported in the financial statement in the current reporting period of 2026-03-31 should be complete if the financial statement is to be mathematically accurate and complete. The comp"
+  },
+  {
+   "code": "DQC.US.0126.9590",
+   "rule": "DQC_0126",
+   "element_id": "9590",
+   "concept": "LiabilitiesCurrent",
+   "start": "",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "8,778,204",
+   "decimals": "0",
+   "message": "[DQC.US.0126.9590] The statement 00000003 - Statement - Condensed Balance Sheets includes an inconsistent calculation. The value of the concept us-gaap:LiabilitiesCurrent of 8,778,204  should be equal to the sum of its child components defined in the calculation linkbase. The sum of these child components is 8,761,123. The values of the addends is determined by adding the values of the child concepts.  The values reported in the financial statement in the current reporting period of 2026-03-31 should be complete if the financial statement is to be mathematically accurate and complete. The comp"
+  },
+  {
+   "code": "DQC.US.0144.9866",
+   "rule": "DQC_0144",
+   "element_id": "9866",
+   "concept": "IncreaseDecreaseInDeferredIncomeOnShipmentsToDistributors",
+   "start": "",
+   "end": "",
+   "dims": {},
+   "value": "",
+   "decimals": "",
+   "message": "[DQC.US.0144.9866] The filing reports a value for the extension concept SCKT:IncreaseDecreaseInDeferredIncomeOnShipmentsToDistributors in the statement 00000006 - Statement - Condensed Statements of Cash Flows.  This monetary concept appears in the statement but does not have a balance type defined.  All monetary items defined in 00000006 - Statement - Condensed Statements of Cash Flows should have a balance type of debit or credit.\n\nConcept : SCKT:IncreaseDecreaseInDeferredIncomeOnShipmentsToDistributors\nPeriod :2025-01-01 to 2025-03-31\nDimensions : \n\nRule Element Id:9866\nRule version: 30.0.5"
+  },
+  {
+   "code": "DQC.US.0144.9866",
+   "rule": "DQC_0144",
+   "element_id": "9866",
+   "concept": "IncreaseDecreasePrepaidExpensesAndOtherCurrentAssets",
+   "start": "",
+   "end": "",
+   "dims": {},
+   "value": "",
+   "decimals": "",
+   "message": "[DQC.US.0144.9866] The filing reports a value for the extension concept SCKT:IncreaseDecreasePrepaidExpensesAndOtherCurrentAssets in the statement 00000006 - Statement - Condensed Statements of Cash Flows.  This monetary concept appears in the statement but does not have a balance type defined.  All monetary items defined in 00000006 - Statement - Condensed Statements of Cash Flows should have a balance type of debit or credit.\n\nConcept : SCKT:IncreaseDecreasePrepaidExpensesAndOtherCurrentAssets\nPeriod :2025-01-01 to 2025-03-31\nDimensions : \n\nRule Element Id:9866\nRule version: 30.0.5 - sckt-20"
+  },
+  {
+   "code": "DQC.US.0144.9866",
+   "rule": "DQC_0144",
+   "element_id": "9866",
+   "concept": "DeferredServiceRevenueCurrent",
+   "start": "",
+   "end": "",
+   "dims": {},
+   "value": "",
+   "decimals": "",
+   "message": "[DQC.US.0144.9866] The filing reports a value for the extension concept SCKT:DeferredServiceRevenueCurrent in the statement 00000003 - Statement - Condensed Balance Sheets.  This monetary concept appears in the statement but does not have a balance type defined.  All monetary items defined in 00000003 - Statement - Condensed Balance Sheets should have a balance type of debit or credit.\n\nConcept : SCKT:DeferredServiceRevenueCurrent\nPeriod :2026-03-31\nDimensions : \n\nRule Element Id:9866\nRule version: 30.0.5 - sckt-20260331.xsd 299"
+  },
+  {
+   "code": "DQC.US.0145.9867",
+   "rule": "DQC_0145",
+   "element_id": "9867",
+   "concept": "InterestPaidNet",
+   "start": "",
+   "end": "",
+   "dims": {},
+   "value": "",
+   "decimals": "",
+   "message": "[DQC.US.0145.9867] The company has reported the concept us-gaap:InterestPaidNet as a descendant of the presentation concept NetCashProvidedByUsedInFinancingActivitiesAbstract.  This concept is not a component of financing activities and should be presented outside of this group in the presentation linkbase.\n\nRule Element Id:9867\nRule version: 30.0.5 - https://xbrl.fasb.org/us-gaap/2026/elts/us-gaap-2026.xsd 2136"
+  },
+  {
+   "code": "DQC.US.0194.10621",
+   "rule": "DQC_0194",
+   "element_id": "10621",
+   "concept": "TreasuryStockRetiredCostMethodAmount",
+   "start": "2025-01-01",
+   "end": "2025-03-31",
+   "dims": {
+    "us-gaap:StatementEquityComponentsAxis": "us-gaap:CommonStockMember"
+   },
+   "value": "-74",
+   "decimals": "0",
+   "message": "[DQC.US.0194.10621] us-gaap:TreasuryStockRetiredCostMethodAmount has a value of -74 which is less than zero. This element should not have a negative value when used with the common stock [Member]. The preparer should consider if the value is input correctly for this assertion and, after considering the appropriateness of the input, if incorrect, input the amount as a positive (i.e., absolute) value and provide a negated label.\n\nThe properties of this us-gaap:TreasuryStockRetiredCostMethodAmount fact are:\nPeriod :2025-01-01 to 2025-03-31\nDimensions : us-gaap:StatementEquityComponentsAxis=us-gaa"
+  },
+  {
+   "code": "DQC.US.0194.10621",
+   "rule": "DQC_0194",
+   "element_id": "10621",
+   "concept": "TreasuryStockRetiredCostMethodAmount",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {
+    "us-gaap:StatementEquityComponentsAxis": "us-gaap:CommonStockMember"
+   },
+   "value": "-78",
+   "decimals": "0",
+   "message": "[DQC.US.0194.10621] us-gaap:TreasuryStockRetiredCostMethodAmount has a value of -78 which is less than zero. This element should not have a negative value when used with the common stock [Member]. The preparer should consider if the value is input correctly for this assertion and, after considering the appropriateness of the input, if incorrect, input the amount as a positive (i.e., absolute) value and provide a negated label.\n\nThe properties of this us-gaap:TreasuryStockRetiredCostMethodAmount fact are:\nPeriod :2026-01-01 to 2026-03-31\nDimensions : us-gaap:StatementEquityComponentsAxis=us-gaa"
+  },
+  {
+   "code": "DQC.US.0195.10624",
+   "rule": "DQC_0195",
+   "element_id": "10624",
+   "concept": "SharesOutstanding",
+   "start": "",
+   "end": "2024-12-31",
+   "dims": {
+    "us-gaap:StatementEquityComponentsAxis": "us-gaap:TreasuryStockCommonMember"
+   },
+   "value": "359,250",
+   "decimals": "INF",
+   "message": "[DQC.US.0195.10624] us-gaap:SharesOutstanding has a value of 359,250 and has been used with Treasury Stock Member on the StatementEquityComponentsAxis. This element should not have a value when used with Treasury Stock Member.  FASB FAQ guidance (https://xbrl.fasb.org/resources/taxonomyfaq.pdf) 2.16 requires that specific line item elements are used for treasury shares such as TreasuryStockCommonShares and TreasuryStockPreferredShares rather than us-gaap:SharesOutstanding.\n\nThe properties of this us-gaap:SharesOutstanding fact are:\nPeriod :2024-12-31\nDimensions : us-gaap:StatementEquityCompone"
+  },
+  {
+   "code": "DQC.US.0195.10624",
+   "rule": "DQC_0195",
+   "element_id": "10624",
+   "concept": "SharesOutstanding",
+   "start": "",
+   "end": "2025-03-31",
+   "dims": {
+    "us-gaap:StatementEquityComponentsAxis": "us-gaap:TreasuryStockCommonMember"
+   },
+   "value": "359,250",
+   "decimals": "INF",
+   "message": "[DQC.US.0195.10624] us-gaap:SharesOutstanding has a value of 359,250 and has been used with Treasury Stock Member on the StatementEquityComponentsAxis. This element should not have a value when used with Treasury Stock Member.  FASB FAQ guidance (https://xbrl.fasb.org/resources/taxonomyfaq.pdf) 2.16 requires that specific line item elements are used for treasury shares such as TreasuryStockCommonShares and TreasuryStockPreferredShares rather than us-gaap:SharesOutstanding.\n\nThe properties of this us-gaap:SharesOutstanding fact are:\nPeriod :2025-03-31\nDimensions : us-gaap:StatementEquityCompone"
+  },
+  {
+   "code": "DQC.US.0195.10624",
+   "rule": "DQC_0195",
+   "element_id": "10624",
+   "concept": "SharesOutstanding",
+   "start": "",
+   "end": "2026-03-31",
+   "dims": {
+    "us-gaap:StatementEquityComponentsAxis": "us-gaap:TreasuryStockCommonMember"
+   },
+   "value": "359,250",
+   "decimals": "INF",
+   "message": "[DQC.US.0195.10624] us-gaap:SharesOutstanding has a value of 359,250 and has been used with Treasury Stock Member on the StatementEquityComponentsAxis. This element should not have a value when used with Treasury Stock Member.  FASB FAQ guidance (https://xbrl.fasb.org/resources/taxonomyfaq.pdf) 2.16 requires that specific line item elements are used for treasury shares such as TreasuryStockCommonShares and TreasuryStockPreferredShares rather than us-gaap:SharesOutstanding.\n\nThe properties of this us-gaap:SharesOutstanding fact are:\nPeriod :2026-03-31\nDimensions : us-gaap:StatementEquityCompone"
+  },
+  {
+   "code": "DQC.US.0195.10624",
+   "rule": "DQC_0195",
+   "element_id": "10624",
+   "concept": "SharesOutstanding",
+   "start": "",
+   "end": "2025-12-31",
+   "dims": {
+    "us-gaap:StatementEquityComponentsAxis": "us-gaap:TreasuryStockCommonMember"
+   },
+   "value": "359,250",
+   "decimals": "INF",
+   "message": "[DQC.US.0195.10624] us-gaap:SharesOutstanding has a value of 359,250 and has been used with Treasury Stock Member on the StatementEquityComponentsAxis. This element should not have a value when used with Treasury Stock Member.  FASB FAQ guidance (https://xbrl.fasb.org/resources/taxonomyfaq.pdf) 2.16 requires that specific line item elements are used for treasury shares such as TreasuryStockCommonShares and TreasuryStockPreferredShares rather than us-gaap:SharesOutstanding.\n\nThe properties of this us-gaap:SharesOutstanding fact are:\nPeriod :2025-12-31\nDimensions : us-gaap:StatementEquityCompone"
+  },
+  {
+   "code": "DQC.US.0214.10741",
+   "rule": "DQC_0214",
+   "element_id": "10741",
+   "concept": "CommonStockValue",
+   "start": "",
+   "end": "2025-12-31",
+   "dims": {},
+   "value": "7,977",
+   "decimals": "0",
+   "message": "[DQC.US.0214.10741] A value of 7,977 has been reported for the concept CommonStockValue in the financial statements but it does not appear in the calculation relationships comprising equity  of the balance sheet defined in  00000003 - Statement - Condensed Balance Sheets. If CommonStockValue  is reported in the financial statements then it should also be reported in the balance sheet.  \n\n\nThe properties of this us-gaap:CommonStockValue fact are:\n\nPeriod: 2025-12-31\nUnit: USD\n\nRule Element Id:10741\nRule version: 30.0.5 - q1_2026.htm 1628"
+  },
+  {
+   "code": "DQC.US.0214.10741",
+   "rule": "DQC_0214",
+   "element_id": "10741",
+   "concept": "CommonStockValue",
+   "start": "",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "8,223",
+   "decimals": "0",
+   "message": "[DQC.US.0214.10741] A value of 8,223 has been reported for the concept CommonStockValue in the financial statements but it does not appear in the calculation relationships comprising equity  of the balance sheet defined in  00000003 - Statement - Condensed Balance Sheets. If CommonStockValue  is reported in the financial statements then it should also be reported in the balance sheet.  \n\n\nThe properties of this us-gaap:CommonStockValue fact are:\n\nPeriod: 2026-03-31\nUnit: USD\n\nRule Element Id:10741\nRule version: 30.0.5 - q1_2026.htm 1627"
+  }
+ ]
+}

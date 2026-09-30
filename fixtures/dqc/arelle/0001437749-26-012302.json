@@ -1,0 +1,44 @@
+{
+ "adsh": "0001437749-26-012302",
+ "ruleset": "dqc-us-2025-V30-ruleset.zip",
+ "runtime_s": 44.03,
+ "load_s": 0.7,
+ "findings": [
+  {
+   "code": "DQC.US.0211.10735",
+   "rule": "DQC_0211",
+   "element_id": "10735",
+   "concept": "BusinessCombinationSeparatelyRecognizedTransactionAcquisitionRelatedCostExpensedStatementOfIncomeOrComprehensiveIncomeExtensibleEnumeration",
+   "start": "2025-01-01",
+   "end": "2025-12-31",
+   "dims": {},
+   "value": "http://fasb.org/us-gaap/2025#GeneralAndAdministrativeExpense",
+   "decimals": "None",
+   "message": "[DQC.US.0211.10735] The filer has reported an extensible enumeration fact value of GeneralAndAdministrativeExpense using the concept us-gaap:BusinessCombinationSeparatelyRecognizedTransactionAcquisitionRelatedCostExpensedStatementOfIncomeOrComprehensiveIncomeExtensibleEnumeration that indicates the location of where the value for us-gaap:BusinessCombinationSeparatelyRecognizedTransactionsAdditionalDisclosuresAcquisitionCostExpensed is reported on the face financial statements. If the filer has reported  a fact value for us-gaap:BusinessCombinationSeparatelyRecognizedTransactionAcquisitionRelat"
+  },
+  {
+   "code": "DQC.US.0234.10930",
+   "rule": "DQC_0234",
+   "element_id": "10930",
+   "concept": "IncomeTaxReconciliationIncomeTaxExpenseBenefitAtFederalStatutoryIncomeTaxRate",
+   "start": "2025-01-01",
+   "end": "2025-12-31",
+   "dims": {},
+   "value": "-1,493,000",
+   "decimals": "-3",
+   "message": "[DQC.US.0234.10930] The filing is missing a value for the concept TaxJurisdictionOfDomicileExtensibleEnumeration.  When reporting a tax reconcilation, with a value reported for the concept IncomeTaxReconciliationIncomeTaxExpenseBenefitAtFederalStatutoryIncomeTaxRate (with a value of -1,493,000), then a value for TaxJurisdictionOfDomicileExtensibleEnumeration must also be provided to indicate the domestic tax jurisdiction. - crex20251231c_10k.htm 12871"
+  },
+  {
+   "code": "DQC.US.0234.10930",
+   "rule": "DQC_0234",
+   "element_id": "10930",
+   "concept": "IncomeTaxReconciliationIncomeTaxExpenseBenefitAtFederalStatutoryIncomeTaxRate",
+   "start": "2024-01-01",
+   "end": "2024-12-31",
+   "dims": {},
+   "value": "-732,000",
+   "decimals": "-3",
+   "message": "[DQC.US.0234.10930] The filing is missing a value for the concept TaxJurisdictionOfDomicileExtensibleEnumeration.  When reporting a tax reconcilation, with a value reported for the concept IncomeTaxReconciliationIncomeTaxExpenseBenefitAtFederalStatutoryIncomeTaxRate (with a value of -732,000), then a value for TaxJurisdictionOfDomicileExtensibleEnumeration must also be provided to indicate the domestic tax jurisdiction. - crex20251231c_10k.htm 12871"
+  }
+ ]
+}

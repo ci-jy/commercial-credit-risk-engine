@@ -1,0 +1,534 @@
+{
+ "adsh": "0001663577-26-000107",
+ "ruleset": "dqc-us-2026-V30-ruleset.zip",
+ "runtime_s": 25.98,
+ "load_s": 0.45,
+ "findings": [
+  {
+   "code": "DQC.US.0014.2695",
+   "rule": "DQC_0014",
+   "element_id": "2695",
+   "concept": "CostOfGoodsAndServicesSold",
+   "start": "2024-09-01",
+   "end": "2025-02-28",
+   "dims": {},
+   "value": "-730,050",
+   "decimals": "0",
+   "message": "[DQC.US.0014.2695] Cost of copyrights sold has a value of -730,050 which is less than zero. This element should not have a negative value. The preparer should consider if the value is input correctly for this assertion and, after considering the appropriateness of the input, if incorrect, input the amount as a positive (i.e., absolute) value and provide a negated label. \n\nThe properties of this us-gaap:CostOfGoodsAndServicesSold fact are:\nPeriod :2024-09-01 to 2025-02-28\nUnit : USD\nRule version: 30.0.5 - aera_10q022826.htm 3544"
+  },
+  {
+   "code": "DQC.US.0014.2695",
+   "rule": "DQC_0014",
+   "element_id": "2695",
+   "concept": "CostOfGoodsAndServicesSold",
+   "start": "2024-12-01",
+   "end": "2025-02-28",
+   "dims": {},
+   "value": "-450,166",
+   "decimals": "0",
+   "message": "[DQC.US.0014.2695] Cost of copyrights sold has a value of -450,166 which is less than zero. This element should not have a negative value. The preparer should consider if the value is input correctly for this assertion and, after considering the appropriateness of the input, if incorrect, input the amount as a positive (i.e., absolute) value and provide a negated label. \n\nThe properties of this us-gaap:CostOfGoodsAndServicesSold fact are:\nPeriod :2024-12-01 to 2025-02-28\nUnit : USD\nRule version: 30.0.5 - aera_10q022826.htm 3546"
+  },
+  {
+   "code": "DQC.US.0015.5685",
+   "rule": "DQC_0015",
+   "element_id": "5685",
+   "concept": "ImpairmentOfLeasehold",
+   "start": "2025-09-01",
+   "end": "2026-02-28",
+   "dims": {},
+   "value": "-23,317",
+   "decimals": "0",
+   "message": "[DQC.US.0015.5685] us-gaap:ImpairmentOfLeasehold has a value of -23,317 which is less than zero. This element should not have a negative value. The preparer should consider if the value is input correctly for this assertion and, after considering the appropriateness of the input, if incorrect, input the amount as a positive (i.e., absolute) value and provide a negated label.\n\nThe properties of this us-gaap:ImpairmentOfLeasehold fact are:\nPeriod :2025-09-01 to 2026-02-28\nDimensions : \nUnit : USD\nRule version: 30.0.5 - aera_10q022826.htm 4212"
+  },
+  {
+   "code": "DQC.US.0015.2050",
+   "rule": "DQC_0015",
+   "element_id": "2050",
+   "concept": "ProceedsFromRelatedPartyDebt",
+   "start": "2025-09-01",
+   "end": "2026-02-28",
+   "dims": {},
+   "value": "-2,475,231",
+   "decimals": "0",
+   "message": "[DQC.US.0015.2050] us-gaap:ProceedsFromRelatedPartyDebt has a value of -2,475,231 which is less than zero. This element should not have a negative value. The preparer should consider if the value is input correctly for this assertion and, after considering the appropriateness of the input, if incorrect, input the amount as a positive (i.e., absolute) value and provide a negated label.\n\nThe properties of this us-gaap:ProceedsFromRelatedPartyDebt fact are:\nPeriod :2025-09-01 to 2026-02-28\nDimensions : \nUnit : USD\nRule version: 30.0.5 - aera_10q022826.htm 4261"
+  },
+  {
+   "code": "DQC.US.0015.5685",
+   "rule": "DQC_0015",
+   "element_id": "5685",
+   "concept": "ImpairmentOfLeasehold",
+   "start": "2024-09-01",
+   "end": "2025-02-28",
+   "dims": {},
+   "value": "-20,918",
+   "decimals": "0",
+   "message": "[DQC.US.0015.5685] us-gaap:ImpairmentOfLeasehold has a value of -20,918 which is less than zero. This element should not have a negative value. The preparer should consider if the value is input correctly for this assertion and, after considering the appropriateness of the input, if incorrect, input the amount as a positive (i.e., absolute) value and provide a negated label.\n\nThe properties of this us-gaap:ImpairmentOfLeasehold fact are:\nPeriod :2024-09-01 to 2025-02-28\nDimensions : \nUnit : USD\nRule version: 30.0.5 - aera_10q022826.htm 4213"
+  },
+  {
+   "code": "DQC.US.0015.426",
+   "rule": "DQC_0015",
+   "element_id": "426",
+   "concept": "Capital",
+   "start": "",
+   "end": "2026-02-28",
+   "dims": {},
+   "value": "-1,600,000",
+   "decimals": "-5",
+   "message": "[DQC.US.0015.426] us-gaap:Capital has a value of -1,600,000 which is less than zero. This element should not have a negative value. The preparer should consider if the value is input correctly for this assertion and, after considering the appropriateness of the input, if incorrect, input the amount as a positive (i.e., absolute) value and provide a negated label.\n\nThe properties of this us-gaap:Capital fact are:\nPeriod :2026-02-28\nDimensions : \nUnit : USD\nRule version: 30.0.5 - aera_10q022826.htm 5704"
+  },
+  {
+   "code": "DQC.US.0018.34",
+   "rule": "DQC_0018",
+   "element_id": "34",
+   "concept": "DocumentType",
+   "start": "2025-09-01",
+   "end": "2026-02-28",
+   "dims": {},
+   "value": "10-Q",
+   "decimals": "None",
+   "message": "[DQC.US.0018.34] The element us-gaap:OperatingLeasesFutureMinimumPaymentsDueInThreeYears is a deprecated item.\nRule version: 30.0.5 - aera_10q022826.htm 2917"
+  },
+  {
+   "code": "DQC.US.0018.34",
+   "rule": "DQC_0018",
+   "element_id": "34",
+   "concept": "DocumentType",
+   "start": "2025-09-01",
+   "end": "2026-02-28",
+   "dims": {},
+   "value": "10-Q",
+   "decimals": "None",
+   "message": "[DQC.US.0018.34] The element us-gaap:AccruedRentNoncurrent is a deprecated item.\nRule version: 30.0.5 - aera_10q022826.htm 2917"
+  },
+  {
+   "code": "DQC.US.0018.34",
+   "rule": "DQC_0018",
+   "element_id": "34",
+   "concept": "DocumentType",
+   "start": "2025-09-01",
+   "end": "2026-02-28",
+   "dims": {},
+   "value": "10-Q",
+   "decimals": "None",
+   "message": "[DQC.US.0018.34] The element us-gaap:OperatingLeasesFutureMinimumPaymentsDueInTwoYears is a deprecated item.\nRule version: 30.0.5 - aera_10q022826.htm 2917"
+  },
+  {
+   "code": "DQC.US.0018.34",
+   "rule": "DQC_0018",
+   "element_id": "34",
+   "concept": "DocumentType",
+   "start": "2025-09-01",
+   "end": "2026-02-28",
+   "dims": {},
+   "value": "10-Q",
+   "decimals": "None",
+   "message": "[DQC.US.0018.34] The element us-gaap:ScheduleOfFutureMinimumLeasePaymentsForCapitalLeasesTableTextBlock is a deprecated item.\nRule version: 30.0.5 - aera_10q022826.htm 2917"
+  },
+  {
+   "code": "DQC.US.0018.34",
+   "rule": "DQC_0018",
+   "element_id": "34",
+   "concept": "DocumentType",
+   "start": "2025-09-01",
+   "end": "2026-02-28",
+   "dims": {},
+   "value": "10-Q",
+   "decimals": "None",
+   "message": "[DQC.US.0018.34] The element us-gaap:ShareBasedGoodsAndNonemployeeServicesTransactionQuantityOfSecuritiesIssued is a deprecated item.\nRule version: 30.0.5 - aera_10q022826.htm 2917"
+  },
+  {
+   "code": "DQC.US.0018.34",
+   "rule": "DQC_0018",
+   "element_id": "34",
+   "concept": "DocumentType",
+   "start": "2025-09-01",
+   "end": "2026-02-28",
+   "dims": {},
+   "value": "10-Q",
+   "decimals": "None",
+   "message": "[DQC.US.0018.34] The element us-gaap:OperatingLeasesRentExpenseNet is a deprecated item.\nRule version: 30.0.5 - aera_10q022826.htm 2917"
+  },
+  {
+   "code": "DQC.US.0018.34",
+   "rule": "DQC_0018",
+   "element_id": "34",
+   "concept": "DocumentType",
+   "start": "2025-09-01",
+   "end": "2026-02-28",
+   "dims": {},
+   "value": "10-Q",
+   "decimals": "None",
+   "message": "[DQC.US.0018.34] The element us-gaap:OperatingLeasesOfLesseeDisclosureTextBlock is a deprecated item.\nRule version: 30.0.5 - aera_10q022826.htm 2917"
+  },
+  {
+   "code": "DQC.US.0018.34",
+   "rule": "DQC_0018",
+   "element_id": "34",
+   "concept": "DocumentType",
+   "start": "2025-09-01",
+   "end": "2026-02-28",
+   "dims": {},
+   "value": "10-Q",
+   "decimals": "None",
+   "message": "[DQC.US.0018.34] The element us-gaap:OperatingLeasesFutureMinimumPaymentsNextRollingTwelveMonths is a deprecated item.\nRule version: 30.0.5 - aera_10q022826.htm 2917"
+  },
+  {
+   "code": "DQC.US.0081.9277",
+   "rule": "DQC_0081",
+   "element_id": "9277",
+   "concept": "CostOfGoodsAndServicesSold",
+   "start": "2024-09-01",
+   "end": "2025-02-28",
+   "dims": {},
+   "value": "-730,050",
+   "decimals": "0",
+   "message": "[DQC.US.0081.9277] The line item concept us-gaap:CostOfGoodsAndServicesSold with a value of -730,050 is represented as a child of us-gaap:OperatingExpenses with a value of -1,523,911 in the companies extension taxonomy role 00000004 - Statement - Consolidated Statements of Operations (Unaudited). The element us-gaap:CostOfGoodsAndServicesSold however, is not represented as a component of us-gaap:OperatingExpenses in the calculation relationships defined in the US GAAP taxonomy. The US-GAAP taxonomies include us-gaap:CostOfGoodsAndServicesSold as a sibling element (or child of that sibling) rel"
+  },
+  {
+   "code": "DQC.US.0081.9277",
+   "rule": "DQC_0081",
+   "element_id": "9277",
+   "concept": "CostOfGoodsAndServicesSold",
+   "start": "2024-12-01",
+   "end": "2025-02-28",
+   "dims": {},
+   "value": "-450,166",
+   "decimals": "0",
+   "message": "[DQC.US.0081.9277] The line item concept us-gaap:CostOfGoodsAndServicesSold with a value of -450,166 is represented as a child of us-gaap:OperatingExpenses with a value of -844,820 in the companies extension taxonomy role 00000004 - Statement - Consolidated Statements of Operations (Unaudited). The element us-gaap:CostOfGoodsAndServicesSold however, is not represented as a component of us-gaap:OperatingExpenses in the calculation relationships defined in the US GAAP taxonomy. The US-GAAP taxonomies include us-gaap:CostOfGoodsAndServicesSold as a sibling element (or child of that sibling) relat"
+  },
+  {
+   "code": "DQC.US.0099.9533",
+   "rule": "DQC_0099",
+   "element_id": "9533",
+   "concept": "DocumentType",
+   "start": "2025-09-01",
+   "end": "2026-02-28",
+   "dims": {},
+   "value": "10-Q",
+   "decimals": "None",
+   "message": "[DQC.US.0099.9533] \nThe following elements are in the presentation linkbase of 00000002 - Statement - Consolidated Balance Sheets (Unaudited) but are not included in any calculation relationship in the filing.\nus-gaap:LiabilitiesAndStockholdersEquity, \nus-gaap:PreferredStockValue\nAll elements appearing in the face of the financial statements should be included in a calculation relationship somewhere in the filing. Items not included in the financial statement calculations but included in the presentation are referred to as parenthetical items. These usually appear as a referenced item, or as a"
+  },
+  {
+   "code": "DQC.US.0109.9569",
+   "rule": "DQC_0109",
+   "element_id": "9569",
+   "concept": "ConcentrationRiskPercentage1",
+   "start": "2025-08-31",
+   "end": "2025-08-31",
+   "dims": {
+    "us-gaap:ConcentrationRiskByBenchmarkAxis": "AERA:AccountsReceivableTotalMember",
+    "us-gaap:ConcentrationRiskByTypeAxis": "AERA:AccountsReceivableCustomerThreeOfThreeMember"
+   },
+   "value": "0.17",
+   "decimals": "INF",
+   "message": "[DQC.US.0109.9569] The concept us-gaap:ConcentrationRiskPercentage1 with value 0.17 should always be used with the ConcentrationRiskByTypeAxis the ConcentrationRiskByBenchmarkAxis and a third axis to identify the risk area.  This element can only have a value of 1 when only the ConcentrationRiskByTypeAxis and ConcentrationRiskByBenchmarkAxis are used.  This fact needs another axis to identify the specific AERA:AccountsReceivableCustomerThreeOfThreeMember risk. If this value represents the Concentration Risk, Threshold Percentage then use the extension element ConcentrationRiskThresholdPercenta"
+  },
+  {
+   "code": "DQC.US.0109.9569",
+   "rule": "DQC_0109",
+   "element_id": "9569",
+   "concept": "ConcentrationRiskPercentage1",
+   "start": "2025-08-31",
+   "end": "2025-08-31",
+   "dims": {
+    "us-gaap:ConcentrationRiskByBenchmarkAxis": "AERA:AccountsReceivableTotalMember",
+    "us-gaap:ConcentrationRiskByTypeAxis": "AERA:AccountsReceivableCustomerOneOfThreeMember"
+   },
+   "value": "0.50",
+   "decimals": "INF",
+   "message": "[DQC.US.0109.9569] The concept us-gaap:ConcentrationRiskPercentage1 with value 0.5 should always be used with the ConcentrationRiskByTypeAxis the ConcentrationRiskByBenchmarkAxis and a third axis to identify the risk area.  This element can only have a value of 1 when only the ConcentrationRiskByTypeAxis and ConcentrationRiskByBenchmarkAxis are used.  This fact needs another axis to identify the specific AERA:AccountsReceivableCustomerOneOfThreeMember risk. If this value represents the Concentration Risk, Threshold Percentage then use the extension element ConcentrationRiskThresholdPercentage."
+  },
+  {
+   "code": "DQC.US.0109.9569",
+   "rule": "DQC_0109",
+   "element_id": "9569",
+   "concept": "ConcentrationRiskPercentage1",
+   "start": "2025-08-31",
+   "end": "2025-08-31",
+   "dims": {
+    "us-gaap:ConcentrationRiskByBenchmarkAxis": "AERA:AccountsReceivableTotalMember",
+    "us-gaap:ConcentrationRiskByTypeAxis": "AERA:AccountsReceivableCustomerTwoOfThreeMember"
+   },
+   "value": "0.28",
+   "decimals": "INF",
+   "message": "[DQC.US.0109.9569] The concept us-gaap:ConcentrationRiskPercentage1 with value 0.28 should always be used with the ConcentrationRiskByTypeAxis the ConcentrationRiskByBenchmarkAxis and a third axis to identify the risk area.  This element can only have a value of 1 when only the ConcentrationRiskByTypeAxis and ConcentrationRiskByBenchmarkAxis are used.  This fact needs another axis to identify the specific AERA:AccountsReceivableCustomerTwoOfThreeMember risk. If this value represents the Concentration Risk, Threshold Percentage then use the extension element ConcentrationRiskThresholdPercentage"
+  },
+  {
+   "code": "DQC.US.0109.9569",
+   "rule": "DQC_0109",
+   "element_id": "9569",
+   "concept": "ConcentrationRiskPercentage1",
+   "start": "2024-09-01",
+   "end": "2025-02-28",
+   "dims": {
+    "us-gaap:ConcentrationRiskByBenchmarkAxis": "AERA:TotalRevenueMember",
+    "us-gaap:ConcentrationRiskByTypeAxis": "AERA:RevenueCustomerThreeOfThreeMember"
+   },
+   "value": "0.20",
+   "decimals": "INF",
+   "message": "[DQC.US.0109.9569] The concept us-gaap:ConcentrationRiskPercentage1 with value 0.2 should always be used with the ConcentrationRiskByTypeAxis the ConcentrationRiskByBenchmarkAxis and a third axis to identify the risk area.  This element can only have a value of 1 when only the ConcentrationRiskByTypeAxis and ConcentrationRiskByBenchmarkAxis are used.  This fact needs another axis to identify the specific AERA:RevenueCustomerThreeOfThreeMember risk. If this value represents the Concentration Risk, Threshold Percentage then use the extension element ConcentrationRiskThresholdPercentage. \n\nThe pr"
+  },
+  {
+   "code": "DQC.US.0109.9569",
+   "rule": "DQC_0109",
+   "element_id": "9569",
+   "concept": "ConcentrationRiskPercentage1",
+   "start": "2024-09-01",
+   "end": "2025-02-28",
+   "dims": {
+    "us-gaap:ConcentrationRiskByBenchmarkAxis": "AERA:TotalRevenueMember",
+    "us-gaap:ConcentrationRiskByTypeAxis": "AERA:RevenueCustomerOneOfThreeMember"
+   },
+   "value": "0.48",
+   "decimals": "INF",
+   "message": "[DQC.US.0109.9569] The concept us-gaap:ConcentrationRiskPercentage1 with value 0.48 should always be used with the ConcentrationRiskByTypeAxis the ConcentrationRiskByBenchmarkAxis and a third axis to identify the risk area.  This element can only have a value of 1 when only the ConcentrationRiskByTypeAxis and ConcentrationRiskByBenchmarkAxis are used.  This fact needs another axis to identify the specific AERA:RevenueCustomerOneOfThreeMember risk. If this value represents the Concentration Risk, Threshold Percentage then use the extension element ConcentrationRiskThresholdPercentage. \n\nThe pro"
+  },
+  {
+   "code": "DQC.US.0109.9569",
+   "rule": "DQC_0109",
+   "element_id": "9569",
+   "concept": "ConcentrationRiskPercentage1",
+   "start": "2024-09-01",
+   "end": "2025-02-28",
+   "dims": {
+    "us-gaap:ConcentrationRiskByBenchmarkAxis": "AERA:SupplierTotalMember",
+    "us-gaap:ConcentrationRiskByTypeAxis": "AERA:SupplierTwoOfTwoMember"
+   },
+   "value": "0.27",
+   "decimals": "INF",
+   "message": "[DQC.US.0109.9569] The concept us-gaap:ConcentrationRiskPercentage1 with value 0.27 should always be used with the ConcentrationRiskByTypeAxis the ConcentrationRiskByBenchmarkAxis and a third axis to identify the risk area.  This element can only have a value of 1 when only the ConcentrationRiskByTypeAxis and ConcentrationRiskByBenchmarkAxis are used.  This fact needs another axis to identify the specific AERA:SupplierTwoOfTwoMember risk. If this value represents the Concentration Risk, Threshold Percentage then use the extension element ConcentrationRiskThresholdPercentage. \n\nThe properties o"
+  },
+  {
+   "code": "DQC.US.0109.9569",
+   "rule": "DQC_0109",
+   "element_id": "9569",
+   "concept": "ConcentrationRiskPercentage1",
+   "start": "2024-09-01",
+   "end": "2025-02-28",
+   "dims": {
+    "us-gaap:ConcentrationRiskByBenchmarkAxis": "AERA:TotalRevenueMember",
+    "us-gaap:ConcentrationRiskByTypeAxis": "AERA:RevenueCustomerTwoOfThreeMember"
+   },
+   "value": "0.22",
+   "decimals": "INF",
+   "message": "[DQC.US.0109.9569] The concept us-gaap:ConcentrationRiskPercentage1 with value 0.22 should always be used with the ConcentrationRiskByTypeAxis the ConcentrationRiskByBenchmarkAxis and a third axis to identify the risk area.  This element can only have a value of 1 when only the ConcentrationRiskByTypeAxis and ConcentrationRiskByBenchmarkAxis are used.  This fact needs another axis to identify the specific AERA:RevenueCustomerTwoOfThreeMember risk. If this value represents the Concentration Risk, Threshold Percentage then use the extension element ConcentrationRiskThresholdPercentage. \n\nThe pro"
+  },
+  {
+   "code": "DQC.US.0109.9569",
+   "rule": "DQC_0109",
+   "element_id": "9569",
+   "concept": "ConcentrationRiskPercentage1",
+   "start": "2024-09-01",
+   "end": "2025-02-28",
+   "dims": {
+    "us-gaap:ConcentrationRiskByBenchmarkAxis": "AERA:SupplierTotalMember",
+    "us-gaap:ConcentrationRiskByTypeAxis": "AERA:SupplierOneofTwoMember"
+   },
+   "value": "0.73",
+   "decimals": "INF",
+   "message": "[DQC.US.0109.9569] The concept us-gaap:ConcentrationRiskPercentage1 with value 0.73 should always be used with the ConcentrationRiskByTypeAxis the ConcentrationRiskByBenchmarkAxis and a third axis to identify the risk area.  This element can only have a value of 1 when only the ConcentrationRiskByTypeAxis and ConcentrationRiskByBenchmarkAxis are used.  This fact needs another axis to identify the specific AERA:SupplierOneofTwoMember risk. If this value represents the Concentration Risk, Threshold Percentage then use the extension element ConcentrationRiskThresholdPercentage. \n\nThe properties o"
+  },
+  {
+   "code": "DQC.US.0109.9569",
+   "rule": "DQC_0109",
+   "element_id": "9569",
+   "concept": "ConcentrationRiskPercentage1",
+   "start": "2025-09-01",
+   "end": "2026-02-28",
+   "dims": {
+    "us-gaap:ConcentrationRiskByBenchmarkAxis": "AERA:TotalRevenueMember",
+    "us-gaap:ConcentrationRiskByTypeAxis": "AERA:RevenueCustomerOneOfThreeMember"
+   },
+   "value": "0.29",
+   "decimals": "INF",
+   "message": "[DQC.US.0109.9569] The concept us-gaap:ConcentrationRiskPercentage1 with value 0.29 should always be used with the ConcentrationRiskByTypeAxis the ConcentrationRiskByBenchmarkAxis and a third axis to identify the risk area.  This element can only have a value of 1 when only the ConcentrationRiskByTypeAxis and ConcentrationRiskByBenchmarkAxis are used.  This fact needs another axis to identify the specific AERA:RevenueCustomerOneOfThreeMember risk. If this value represents the Concentration Risk, Threshold Percentage then use the extension element ConcentrationRiskThresholdPercentage. \n\nThe pro"
+  },
+  {
+   "code": "DQC.US.0109.9569",
+   "rule": "DQC_0109",
+   "element_id": "9569",
+   "concept": "ConcentrationRiskPercentage1",
+   "start": "2025-09-01",
+   "end": "2026-02-28",
+   "dims": {
+    "us-gaap:ConcentrationRiskByBenchmarkAxis": "AERA:TotalRevenueMember",
+    "us-gaap:ConcentrationRiskByTypeAxis": "AERA:RevenueCustomerTwoOfThreeMember"
+   },
+   "value": "0.27",
+   "decimals": "INF",
+   "message": "[DQC.US.0109.9569] The concept us-gaap:ConcentrationRiskPercentage1 with value 0.27 should always be used with the ConcentrationRiskByTypeAxis the ConcentrationRiskByBenchmarkAxis and a third axis to identify the risk area.  This element can only have a value of 1 when only the ConcentrationRiskByTypeAxis and ConcentrationRiskByBenchmarkAxis are used.  This fact needs another axis to identify the specific AERA:RevenueCustomerTwoOfThreeMember risk. If this value represents the Concentration Risk, Threshold Percentage then use the extension element ConcentrationRiskThresholdPercentage. \n\nThe pro"
+  },
+  {
+   "code": "DQC.US.0109.9569",
+   "rule": "DQC_0109",
+   "element_id": "9569",
+   "concept": "ConcentrationRiskPercentage1",
+   "start": "2025-09-01",
+   "end": "2026-02-28",
+   "dims": {
+    "us-gaap:ConcentrationRiskByBenchmarkAxis": "AERA:AccountsReceivableTotalMember",
+    "us-gaap:ConcentrationRiskByTypeAxis": "AERA:AccountsReceivableCustomerOneOfTwoMember"
+   },
+   "value": "0.75",
+   "decimals": "INF",
+   "message": "[DQC.US.0109.9569] The concept us-gaap:ConcentrationRiskPercentage1 with value 0.75 should always be used with the ConcentrationRiskByTypeAxis the ConcentrationRiskByBenchmarkAxis and a third axis to identify the risk area.  This element can only have a value of 1 when only the ConcentrationRiskByTypeAxis and ConcentrationRiskByBenchmarkAxis are used.  This fact needs another axis to identify the specific AERA:AccountsReceivableCustomerOneOfTwoMember risk. If this value represents the Concentration Risk, Threshold Percentage then use the extension element ConcentrationRiskThresholdPercentage. "
+  },
+  {
+   "code": "DQC.US.0109.9569",
+   "rule": "DQC_0109",
+   "element_id": "9569",
+   "concept": "ConcentrationRiskPercentage1",
+   "start": "2025-09-01",
+   "end": "2026-02-28",
+   "dims": {
+    "us-gaap:ConcentrationRiskByBenchmarkAxis": "AERA:SupplierTotalMember",
+    "us-gaap:ConcentrationRiskByTypeAxis": "AERA:SupplierOneOfOneMember"
+   },
+   "value": "0.93",
+   "decimals": "INF",
+   "message": "[DQC.US.0109.9569] The concept us-gaap:ConcentrationRiskPercentage1 with value 0.93 should always be used with the ConcentrationRiskByTypeAxis the ConcentrationRiskByBenchmarkAxis and a third axis to identify the risk area.  This element can only have a value of 1 when only the ConcentrationRiskByTypeAxis and ConcentrationRiskByBenchmarkAxis are used.  This fact needs another axis to identify the specific AERA:SupplierOneOfOneMember risk. If this value represents the Concentration Risk, Threshold Percentage then use the extension element ConcentrationRiskThresholdPercentage. \n\nThe properties o"
+  },
+  {
+   "code": "DQC.US.0109.9569",
+   "rule": "DQC_0109",
+   "element_id": "9569",
+   "concept": "ConcentrationRiskPercentage1",
+   "start": "2025-09-01",
+   "end": "2026-02-28",
+   "dims": {
+    "us-gaap:ConcentrationRiskByBenchmarkAxis": "AERA:TotalRevenueMember",
+    "us-gaap:ConcentrationRiskByTypeAxis": "AERA:RevenueCustomerThreeOfThreeMember"
+   },
+   "value": "0.20",
+   "decimals": "INF",
+   "message": "[DQC.US.0109.9569] The concept us-gaap:ConcentrationRiskPercentage1 with value 0.2 should always be used with the ConcentrationRiskByTypeAxis the ConcentrationRiskByBenchmarkAxis and a third axis to identify the risk area.  This element can only have a value of 1 when only the ConcentrationRiskByTypeAxis and ConcentrationRiskByBenchmarkAxis are used.  This fact needs another axis to identify the specific AERA:RevenueCustomerThreeOfThreeMember risk. If this value represents the Concentration Risk, Threshold Percentage then use the extension element ConcentrationRiskThresholdPercentage. \n\nThe pr"
+  },
+  {
+   "code": "DQC.US.0109.9569",
+   "rule": "DQC_0109",
+   "element_id": "9569",
+   "concept": "ConcentrationRiskPercentage1",
+   "start": "2025-09-01",
+   "end": "2026-02-28",
+   "dims": {
+    "us-gaap:ConcentrationRiskByBenchmarkAxis": "AERA:AccountsReceivableTotalMember",
+    "us-gaap:ConcentrationRiskByTypeAxis": "AERA:AccountsReceivableCustomerTwoOfTwoMember"
+   },
+   "value": "0.16",
+   "decimals": "INF",
+   "message": "[DQC.US.0109.9569] The concept us-gaap:ConcentrationRiskPercentage1 with value 0.16 should always be used with the ConcentrationRiskByTypeAxis the ConcentrationRiskByBenchmarkAxis and a third axis to identify the risk area.  This element can only have a value of 1 when only the ConcentrationRiskByTypeAxis and ConcentrationRiskByBenchmarkAxis are used.  This fact needs another axis to identify the specific AERA:AccountsReceivableCustomerTwoOfTwoMember risk. If this value represents the Concentration Risk, Threshold Percentage then use the extension element ConcentrationRiskThresholdPercentage. "
+  },
+  {
+   "code": "DQC.US.0118.9575",
+   "rule": "DQC_0118",
+   "element_id": "9575",
+   "concept": "StockholdersEquity",
+   "start": "",
+   "end": "2026-02-28",
+   "dims": {},
+   "value": "6,222,800",
+   "decimals": "0",
+   "message": "[DQC.US.0118.9575] The statement 00000002 - Statement - Consolidated Balance Sheets (Unaudited) includes an inconsistent calculation. The value of the concept us-gaap:StockholdersEquity of 6,222,800 in the default should be equal to the sum of its child components defined in the calculation linkbase. The sum of these child components is 6,222,700. The values of the addends is determined by adding the values of the child concepts with a decimal value of 0. All values in the financial statements should use the same decimal value. If a value is not available then the values associated with the me"
+  },
+  {
+   "code": "DQC.US.0118.9575",
+   "rule": "DQC_0118",
+   "element_id": "9575",
+   "concept": "LiabilitiesCurrent",
+   "start": "",
+   "end": "2026-02-28",
+   "dims": {},
+   "value": "2,825,933",
+   "decimals": "0",
+   "message": "[DQC.US.0118.9575] The statement 00000002 - Statement - Consolidated Balance Sheets (Unaudited) includes an inconsistent calculation. The value of the concept us-gaap:LiabilitiesCurrent of 2,825,933 in the default should be equal to the sum of its child components defined in the calculation linkbase. The sum of these child components is 55,571. The values of the addends is determined by adding the values of the child concepts with a decimal value of 0. All values in the financial statements should use the same decimal value. If a value is not available then the values associated with the membe"
+  },
+  {
+   "code": "DQC.US.0126.9590",
+   "rule": "DQC_0126",
+   "element_id": "9590",
+   "concept": "NetCashProvidedByUsedInOperatingActivities",
+   "start": "2025-09-01",
+   "end": "2026-02-28",
+   "dims": {},
+   "value": "1,543,600",
+   "decimals": "0",
+   "message": "[DQC.US.0126.9590] The statement 00000006 - Statement - Consolidated Statements of Cash Flows (Unaudited) includes an inconsistent calculation. The value of the concept us-gaap:NetCashProvidedByUsedInOperatingActivities of 1,543,600  should be equal to the sum of its child components defined in the calculation linkbase. The sum of these child components is 8,258,428. The values of the addends is determined by adding the values of the child concepts.  The values reported in the financial statement in the current reporting period of 2025-09-01 to 2026-02-28 should be complete if the financial st"
+  },
+  {
+   "code": "DQC.US.0126.9590",
+   "rule": "DQC_0126",
+   "element_id": "9590",
+   "concept": "OperatingIncomeLoss",
+   "start": "2025-09-01",
+   "end": "2026-02-28",
+   "dims": {},
+   "value": "2,754,871",
+   "decimals": "0",
+   "message": "[DQC.US.0126.9590] The statement 00000004 - Statement - Consolidated Statements of Operations (Unaudited) includes an inconsistent calculation. The value of the concept us-gaap:OperatingIncomeLoss of 2,754,871  should be equal to the sum of its child components defined in the calculation linkbase. The sum of these child components is 8,578,445. The values of the addends is determined by adding the values of the child concepts.  The values reported in the financial statement in the current reporting period of 2025-09-01 to 2026-02-28 should be complete if the financial statement is to be mathem"
+  },
+  {
+   "code": "DQC.US.0126.9590",
+   "rule": "DQC_0126",
+   "element_id": "9590",
+   "concept": "OperatingExpenses",
+   "start": "2025-09-01",
+   "end": "2026-02-28",
+   "dims": {},
+   "value": "-2,911,787",
+   "decimals": "0",
+   "message": "[DQC.US.0126.9590] The statement 00000004 - Statement - Consolidated Statements of Operations (Unaudited) includes an inconsistent calculation. The value of the concept us-gaap:OperatingExpenses of -2,911,787  should be equal to the sum of its child components defined in the calculation linkbase. The sum of these child components is 2,911,787. The values of the addends is determined by adding the values of the child concepts.  The values reported in the financial statement in the current reporting period of 2025-09-01 to 2026-02-28 should be complete if the financial statement is to be mathema"
+  },
+  {
+   "code": "DQC.US.0126.9590",
+   "rule": "DQC_0126",
+   "element_id": "9590",
+   "concept": "OtherOperatingIncomeExpenseNet",
+   "start": "2025-09-01",
+   "end": "2026-02-28",
+   "dims": {},
+   "value": "-154,693",
+   "decimals": "0",
+   "message": "[DQC.US.0126.9590] The statement 00000004 - Statement - Consolidated Statements of Operations (Unaudited) includes an inconsistent calculation. The value of the concept us-gaap:OtherOperatingIncomeExpenseNet of -154,693  should be equal to the sum of its child components defined in the calculation linkbase. The sum of these child components is 56,709. The values of the addends is determined by adding the values of the child concepts.  The values reported in the financial statement in the current reporting period of 2025-09-01 to 2026-02-28 should be complete if the financial statement is to be"
+  },
+  {
+   "code": "DQC.US.0197.10634",
+   "rule": "DQC_0197",
+   "element_id": "10634",
+   "concept": "OtherExpenses",
+   "start": "2025-09-01",
+   "end": "2026-02-28",
+   "dims": {
+    "us-gaap:StatementEquityComponentsAxis": "AERA:RestrictedCommonStockMember"
+   },
+   "value": "32,130",
+   "decimals": "0",
+   "message": "[DQC.US.0197.10634] us-gaap:OtherExpenses has a value of 32,130 and has been used with an inappropriate member on the StatementEquityComponentsAxis. This fact value has been used with the StatementEquityComponentsAxis. This element should not be used to represent movements in equity.  Please remove the member from this fact or consider using a different element to represent the movement of Equity.\n\nThe properties of this us-gaap:OtherExpenses fact are:\nPeriod :2025-09-01 to 2026-02-28\nDimensions : us-gaap:StatementEquityComponentsAxis=AERA:RestrictedCommonStockMember\nUnit : USD\nRule Element Id"
+  },
+  {
+   "code": "DQC.US.0197.10634",
+   "rule": "DQC_0197",
+   "element_id": "10634",
+   "concept": "OtherExpenses",
+   "start": "2025-12-01",
+   "end": "2026-02-28",
+   "dims": {
+    "us-gaap:StatementEquityComponentsAxis": "AERA:ThirdPartyConsultantsMember"
+   },
+   "value": "27,270",
+   "decimals": "0",
+   "message": "[DQC.US.0197.10634] us-gaap:OtherExpenses has a value of 27,270 and has been used with an inappropriate member on the StatementEquityComponentsAxis. This fact value has been used with the StatementEquityComponentsAxis. This element should not be used to represent movements in equity.  Please remove the member from this fact or consider using a different element to represent the movement of Equity.\n\nThe properties of this us-gaap:OtherExpenses fact are:\nPeriod :2025-12-01 to 2026-02-28\nDimensions : us-gaap:StatementEquityComponentsAxis=AERA:ThirdPartyConsultantsMember\nUnit : USD\nRule Element Id"
+  },
+  {
+   "code": "DQC.US.0221.10749",
+   "rule": "DQC_0221",
+   "element_id": "10749",
+   "concept": "DocumentType",
+   "start": "2025-09-01",
+   "end": "2026-02-28",
+   "dims": {},
+   "value": "10-Q",
+   "decimals": "None",
+   "message": "[DQC.US.0221.10749] The filing has reported values for segment facts, but has not reported a value for NumberOfReportableSegments. The filer should report a value for NumberOfReportableSegments even if it only has one segment. If the value is not reported the error can be removed by tagging a value to an extension concept called NumberOfReportableSegmentsNotDisclosedFlag or NumberOfReportableSegmentsDisclosedByDefinitionFlag with any value in any context.\n\nRule Element Id:10749\nRule version: 30.0.5 - aera_10q022826.htm 2917"
+  }
+ ]
+}

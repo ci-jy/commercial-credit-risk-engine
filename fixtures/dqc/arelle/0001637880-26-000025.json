@@ -1,0 +1,58 @@
+{
+ "adsh": "0001637880-26-000025",
+ "ruleset": "dqc-us-2026-V30-ruleset.zip",
+ "runtime_s": 27.49,
+ "load_s": 0.45,
+ "findings": [
+  {
+   "code": "DQC.US.0015.2188",
+   "rule": "DQC_0015",
+   "element_id": "2188",
+   "concept": "RegulatoryAssets",
+   "start": "",
+   "end": "2025-12-31",
+   "dims": {
+    "us-gaap:RegulatoryAssetAxis": "us-gaap:DeferredIncomeTaxChargesMember"
+   },
+   "value": "-254,000",
+   "decimals": "-3",
+   "message": "[DQC.US.0015.2188] us-gaap:RegulatoryAssets has a value of -254,000 which is less than zero. This element should not have a negative value. The preparer should consider if the value is input correctly for this assertion and, after considering the appropriateness of the input, if incorrect, input the amount as a positive (i.e., absolute) value and provide a negated label.\n\nThe properties of this us-gaap:RegulatoryAssets fact are:\nPeriod :2025-12-31\nDimensions : us-gaap:RegulatoryAssetAxis=us-gaap:DeferredIncomeTaxChargesMember\nUnit : USD\nRule version: 30.0.5 - tris-20260331.htm 8"
+  },
+  {
+   "code": "DQC.US.0015.2640",
+   "rule": "DQC_0015",
+   "element_id": "2640",
+   "concept": "DeferredIncomeTaxLiabilitiesNet",
+   "start": "",
+   "end": "2025-12-31",
+   "dims": {},
+   "value": "-254,000",
+   "decimals": "-3",
+   "message": "[DQC.US.0015.2640] us-gaap:DeferredIncomeTaxLiabilitiesNet has a value of -254,000 which is less than zero. This element should not have a negative value. The preparer should consider if the value is input correctly for this assertion and, after considering the appropriateness of the input, if incorrect, input the amount as a positive (i.e., absolute) value and provide a negated label.\n\nThe properties of this us-gaap:DeferredIncomeTaxLiabilitiesNet fact are:\nPeriod :2025-12-31\nDimensions : \nUnit : USD\nRule version: 30.0.5 - tris-20260331.htm 8"
+  },
+  {
+   "code": "DQC.US.0057.7494",
+   "rule": "DQC_0057",
+   "element_id": "7494",
+   "concept": "DocumentType",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "10-Q",
+   "decimals": "None",
+   "message": "[DQC.US.0057.7494] One of the following elements Cash, CashAndCashEquivalentsAtCarryingValue, CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsIncludingDisposalGroupAndDiscontinuedOperations, CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents, CashAndCashEquivalentsAtCarryingValueIncludingDiscontinuedOperations, CashAndDueFromBanks, CashEquivalentsAtCarryingValue, CashCashEquivalentsAndFederalFundsSold should appear as the opening and closing balance in the cash flow statement using the group http://www.tristategt.org/role/ConsolidatedStatementsofCashFlowsUnaudited.\n Ins"
+  },
+  {
+   "code": "DQC.US.0057.9728",
+   "rule": "DQC_0057",
+   "element_id": "9728",
+   "concept": "DocumentType",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "10-Q",
+   "decimals": "None",
+   "message": "[DQC.US.0057.9728] One of the following elements CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents, CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsIncludingDisposalGroupAndDiscontinuedOperations should appear as the opening and closing balance in the cash flow statement using the group http://www.tristategt.org/role/ConsolidatedStatementsofCashFlowsUnaudited.\n Instead the following balance items have been used in this statement CashCashEquivalentsRestrictedCashRestrictedCashEquivalentsAndInvestments. Due to the implementaion of ASU-2016-18 at least one of the opening "
+  }
+ ]
+}

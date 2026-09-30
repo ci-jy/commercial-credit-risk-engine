@@ -85,6 +85,11 @@ def pivot_concepts(num: pd.DataFrame, concepts: list[str], keys=("adsh", "ddate"
     for c in k:
         sub[c] = sub[c].astype(object).where(sub[c].notna(), "")
     sub["dec"] = sub.decimals.astype(int)
+    # Month-end rounding can merge distinct XBRL contexts (e.g. 2026-03-28 and
+    # 2026-03-31) into one key; when they disagree the value is ambiguous, so the
+    # concept is left out of that context rather than compared arbitrarily.
+    nvals = sub.groupby(k + ["tag"], observed=True).value.transform("nunique")
+    sub = sub[nvals == 1]
     wide = sub.pivot_table(index=k, columns="tag", values="value", aggfunc="first")
     dec = sub.pivot_table(index=k, columns="tag", values="dec", aggfunc="min")
     dec.columns = [f"{c}__dec" for c in dec.columns]

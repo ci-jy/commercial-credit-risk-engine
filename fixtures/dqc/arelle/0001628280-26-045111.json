@@ -1,0 +1,20 @@
+{
+ "adsh": "0001628280-26-045111",
+ "ruleset": "dqc-us-2025-V30-ruleset.zip",
+ "runtime_s": 32.0,
+ "load_s": 0.74,
+ "findings": [
+  {
+   "code": "DQC.US.0234.10930",
+   "rule": "DQC_0234",
+   "element_id": "10930",
+   "concept": "IncomeTaxReconciliationIncomeTaxExpenseBenefitAtFederalStatutoryIncomeTaxRate",
+   "start": "2025-05-01",
+   "end": "2026-04-30",
+   "dims": {},
+   "value": "45,168,000",
+   "decimals": "-3",
+   "message": "[DQC.US.0234.10930] The filing is missing a value for the concept TaxJurisdictionOfDomicileExtensibleEnumeration.  When reporting a tax reconcilation, with a value reported for the concept IncomeTaxReconciliationIncomeTaxExpenseBenefitAtFederalStatutoryIncomeTaxRate (with a value of 45,168,000), then a value for TaxJurisdictionOfDomicileExtensibleEnumeration must also be provided to indicate the domestic tax jurisdiction. - jwa-20260430.htm 8"
+  }
+ ]
+}

@@ -1,0 +1,32 @@
+{
+ "adsh": "0000049600-26-000029",
+ "ruleset": "dqc-us-2025-V30-ruleset.zip",
+ "runtime_s": 24.89,
+ "load_s": 0.44,
+ "findings": [
+  {
+   "code": "DQC.US.0015.5496",
+   "rule": "DQC_0015",
+   "element_id": "5496",
+   "concept": "LineOfCredit",
+   "start": "",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "-2,347,000",
+   "decimals": "-3",
+   "message": "[DQC.US.0015.5496] us-gaap:LineOfCredit has a value of -2,347,000 which is less than zero. This element should not have a negative value. The preparer should consider if the value is input correctly for this assertion and, after considering the appropriateness of the input, if incorrect, input the amount as a positive (i.e., absolute) value and provide a negated label.\n\nThe properties of this us-gaap:LineOfCredit fact are:\nPeriod :2026-03-31\nDimensions : \nUnit : USD\nRule version: 30.0.5 - egp-20260331.htm 8"
+  },
+  {
+   "code": "DQC.US.0145.9868",
+   "rule": "DQC_0145",
+   "element_id": "9868",
+   "concept": "IncreaseDecreaseInConstructionPayables",
+   "start": "",
+   "end": "",
+   "dims": {},
+   "value": "",
+   "decimals": "",
+   "message": "[DQC.US.0145.9868] The company has reported the concept us-gaap:IncreaseDecreaseInConstructionPayables as a descendant of the presentation concept NetCashProvidedByUsedInInvestingActivitiesAbstract.  This concept is not a component of investing activities and should be presented outside of this group in the presentation linkbase.\n\nRule Element Id:9868\nRule version: 30.0.5 - https://xbrl.fasb.org/us-gaap/2025/elts/us-gaap-2025.xsd 11077"
+  }
+ ]
+}

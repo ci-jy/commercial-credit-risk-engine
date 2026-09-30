@@ -1,0 +1,44 @@
+{
+ "adsh": "0001437749-26-019923",
+ "ruleset": "dqc-us-2026-V30-ruleset.zip",
+ "runtime_s": 40.28,
+ "load_s": 0.59,
+ "findings": [
+  {
+   "code": "DQC.US.0081.9278",
+   "rule": "DQC_0081",
+   "element_id": "9278",
+   "concept": "RepaymentsOfSeniorDebt",
+   "start": "2024-04-01",
+   "end": "2025-03-30",
+   "dims": {},
+   "value": "60,000,000",
+   "decimals": "-7",
+   "message": "[DQC.US.0081.9278] The line item concept us-gaap:RepaymentsOfSeniorDebt with a value of 60,000,000 and a calculation parent of us-gaap:NetCashProvidedByUsedInFinancingActivities is represented as a sibling of us-gaap:RepaymentsOfLongTermDebt with a value of 9,200,000 in the extension taxonomy role 006 - Statement - Consolidated Statements of Cash Flows, but us-gaap:RepaymentsOfSeniorDebt is represented as a descendent of us-gaap:RepaymentsOfLongTermDebt in the calculation relationships defined in the US GAAP taxonomies. Please review the element selection to determine that an appropriate eleme"
+  },
+  {
+   "code": "DQC.US.0234.10930",
+   "rule": "DQC_0234",
+   "element_id": "10930",
+   "concept": "IncomeTaxReconciliationIncomeTaxExpenseBenefitAtFederalStatutoryIncomeTaxRate",
+   "start": "2025-03-31",
+   "end": "2026-03-29",
+   "dims": {},
+   "value": "5,920,000",
+   "decimals": "-4",
+   "message": "[DQC.US.0234.10930] The filing is missing a value for the concept TaxJurisdictionOfDomicileExtensibleEnumeration.  When reporting a tax reconcilation, with a value reported for the concept IncomeTaxReconciliationIncomeTaxExpenseBenefitAtFederalStatutoryIncomeTaxRate (with a value of 5,920,000), then a value for TaxJurisdictionOfDomicileExtensibleEnumeration must also be provided to indicate the domestic tax jurisdiction. - nath20260329_10k.htm 12951"
+  },
+  {
+   "code": "DQC.US.0234.10930",
+   "rule": "DQC_0234",
+   "element_id": "10930",
+   "concept": "IncomeTaxReconciliationIncomeTaxExpenseBenefitAtFederalStatutoryIncomeTaxRate",
+   "start": "2024-04-01",
+   "end": "2025-03-30",
+   "dims": {},
+   "value": "6,880,000",
+   "decimals": "-4",
+   "message": "[DQC.US.0234.10930] The filing is missing a value for the concept TaxJurisdictionOfDomicileExtensibleEnumeration.  When reporting a tax reconcilation, with a value reported for the concept IncomeTaxReconciliationIncomeTaxExpenseBenefitAtFederalStatutoryIncomeTaxRate (with a value of 6,880,000), then a value for TaxJurisdictionOfDomicileExtensibleEnumeration must also be provided to indicate the domestic tax jurisdiction. - nath20260329_10k.htm 12959"
+  }
+ ]
+}

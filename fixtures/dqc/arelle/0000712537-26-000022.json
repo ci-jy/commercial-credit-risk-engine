@@ -1,0 +1,272 @@
+{
+ "adsh": "0000712537-26-000022",
+ "ruleset": "dqc-us-2025-V30-ruleset.zip",
+ "runtime_s": 35.78,
+ "load_s": 1.21,
+ "findings": [
+  {
+   "code": "DQC.US.0015.1088",
+   "rule": "DQC_0015",
+   "element_id": "1088",
+   "concept": "FederalHomeLoanBankAdvancesGeneralDebtObligationsDisclosuresRepaymentAndPenalties",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "-511,000",
+   "decimals": "-3",
+   "message": "[DQC.US.0015.1088] us-gaap:FederalHomeLoanBankAdvancesGeneralDebtObligationsDisclosuresRepaymentAndPenalties has a value of -511,000 which is less than zero. This element should not have a negative value. The preparer should consider if the value is input correctly for this assertion and, after considering the appropriateness of the input, if incorrect, input the amount as a positive (i.e., absolute) value and provide a negated label.\n\nThe properties of this us-gaap:FederalHomeLoanBankAdvancesGeneralDebtObligationsDisclosuresRepaymentAndPenalties fact are:\nPeriod :2026-01-01 to 2026-03-31\nDime"
+  },
+  {
+   "code": "DQC.US.0015.2570",
+   "rule": "DQC_0015",
+   "element_id": "2570",
+   "concept": "TransferOfLoansHeldForSaleToPortfolioLoans1",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "-25,170,000",
+   "decimals": "-3",
+   "message": "[DQC.US.0015.2570] us-gaap:TransferOfLoansHeldForSaleToPortfolioLoans1 has a value of -25,170,000 which is less than zero. This element should not have a negative value. The preparer should consider if the value is input correctly for this assertion and, after considering the appropriateness of the input, if incorrect, input the amount as a positive (i.e., absolute) value and provide a negated label.\n\nThe properties of this us-gaap:TransferOfLoansHeldForSaleToPortfolioLoans1 fact are:\nPeriod :2026-01-01 to 2026-03-31\nDimensions : \nUnit : USD\nRule version: 30.0.5 - fcf-20260331.htm 8"
+  },
+  {
+   "code": "DQC.US.0171.10104",
+   "rule": "DQC_0171",
+   "element_id": "10104",
+   "concept": "DocumentType",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "10-Q",
+   "decimals": "None",
+   "message": "[DQC.US.0171.10104] The element us-gaap:ScheduleOfTemporaryImpairmentLossesInvestmentsTableTextBlock with a value of  <div style=\"margin-top:9pt\"><span style=\"color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%\">The following table presents the gross unrealized losses and estimated fair values at March\u00a031, 2026, for available for sale securities for which an allowance for credit losses has not been recorded and held to maturity securities by investment category and time frame for which securities have been in a continuous unrealized loss position:<"
+  },
+  {
+   "code": "DQC.US.0181.10181",
+   "rule": "DQC_0181",
+   "element_id": "10181",
+   "concept": "DocumentType",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "10-Q",
+   "decimals": "None",
+   "message": "[DQC.US.0181.10181] The concept InterestExpense is a descendant of InterestIncomeExpenseNet.  This element InterestIncomeExpenseNet represents operating interest income expense net. The element InterestExpense represents non operating interest and should  not be included as a component of InterestIncomeExpenseNet.  Select the operating interest expense element InterestExpenseOperating instead of InterestExpense.\n\nRule Element Id:10181\nRule version: 30.0.5 - fcf-20260331.htm 8"
+  },
+  {
+   "code": "DQC.US.0196.10633",
+   "rule": "DQC_0196",
+   "element_id": "10633",
+   "concept": "AccumulatedOtherComprehensiveIncomeLossNetOfTax",
+   "start": "",
+   "end": "2024-12-31",
+   "dims": {
+    "us-gaap:StatementEquityComponentsAxis": "us-gaap:AccumulatedNetUnrealizedInvestmentGainLossMember"
+   },
+   "value": "-94,403,000",
+   "decimals": "-3",
+   "message": "[DQC.US.0196.10633] us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax has a value of -94,403,000 and has been used with the Accumulated Other Comprehensive Income Member. This fact value has been used with the StatementEquityComponentsAxis and the Accumulated Other Comprehensive Income Member. When an instant element is  used with the StatementEquityComponentsAxis it is typically used to represent the opening and closing balance in the changes of equity. The element  us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax  should not be used to represent an opening or closing balance in "
+  },
+  {
+   "code": "DQC.US.0196.10633",
+   "rule": "DQC_0196",
+   "element_id": "10633",
+   "concept": "AccumulatedOtherComprehensiveIncomeLossNetOfTax",
+   "start": "",
+   "end": "2024-12-31",
+   "dims": {
+    "us-gaap:StatementEquityComponentsAxis": "us-gaap:AccumulatedDefinedBenefitPlansAdjustmentMember"
+   },
+   "value": "339,000",
+   "decimals": "-3",
+   "message": "[DQC.US.0196.10633] us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax has a value of 339,000 and has been used with the Accumulated Other Comprehensive Income Member. This fact value has been used with the StatementEquityComponentsAxis and the Accumulated Other Comprehensive Income Member. When an instant element is  used with the StatementEquityComponentsAxis it is typically used to represent the opening and closing balance in the changes of equity. The element  us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax  should not be used to represent an opening or closing balance in the "
+  },
+  {
+   "code": "DQC.US.0196.10633",
+   "rule": "DQC_0196",
+   "element_id": "10633",
+   "concept": "AccumulatedOtherComprehensiveIncomeLossNetOfTax",
+   "start": "",
+   "end": "2024-12-31",
+   "dims": {
+    "us-gaap:StatementEquityComponentsAxis": "us-gaap:AccumulatedGainLossNetCashFlowHedgeParentMember"
+   },
+   "value": "-8,450,000",
+   "decimals": "-3",
+   "message": "[DQC.US.0196.10633] us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax has a value of -8,450,000 and has been used with the Accumulated Other Comprehensive Income Member. This fact value has been used with the StatementEquityComponentsAxis and the Accumulated Other Comprehensive Income Member. When an instant element is  used with the StatementEquityComponentsAxis it is typically used to represent the opening and closing balance in the changes of equity. The element  us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax  should not be used to represent an opening or closing balance in t"
+  },
+  {
+   "code": "DQC.US.0196.10633",
+   "rule": "DQC_0196",
+   "element_id": "10633",
+   "concept": "AccumulatedOtherComprehensiveIncomeLossNetOfTax",
+   "start": "",
+   "end": "2025-03-31",
+   "dims": {
+    "us-gaap:StatementEquityComponentsAxis": "us-gaap:AccumulatedNetUnrealizedInvestmentGainLossMember"
+   },
+   "value": "-76,837,000",
+   "decimals": "-3",
+   "message": "[DQC.US.0196.10633] us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax has a value of -76,837,000 and has been used with the Accumulated Other Comprehensive Income Member. This fact value has been used with the StatementEquityComponentsAxis and the Accumulated Other Comprehensive Income Member. When an instant element is  used with the StatementEquityComponentsAxis it is typically used to represent the opening and closing balance in the changes of equity. The element  us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax  should not be used to represent an opening or closing balance in "
+  },
+  {
+   "code": "DQC.US.0196.10633",
+   "rule": "DQC_0196",
+   "element_id": "10633",
+   "concept": "AccumulatedOtherComprehensiveIncomeLossNetOfTax",
+   "start": "",
+   "end": "2025-03-31",
+   "dims": {
+    "us-gaap:StatementEquityComponentsAxis": "us-gaap:AccumulatedDefinedBenefitPlansAdjustmentMember"
+   },
+   "value": "339,000",
+   "decimals": "-3",
+   "message": "[DQC.US.0196.10633] us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax has a value of 339,000 and has been used with the Accumulated Other Comprehensive Income Member. This fact value has been used with the StatementEquityComponentsAxis and the Accumulated Other Comprehensive Income Member. When an instant element is  used with the StatementEquityComponentsAxis it is typically used to represent the opening and closing balance in the changes of equity. The element  us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax  should not be used to represent an opening or closing balance in the "
+  },
+  {
+   "code": "DQC.US.0196.10633",
+   "rule": "DQC_0196",
+   "element_id": "10633",
+   "concept": "AccumulatedOtherComprehensiveIncomeLossNetOfTax",
+   "start": "",
+   "end": "2025-03-31",
+   "dims": {
+    "us-gaap:StatementEquityComponentsAxis": "us-gaap:AccumulatedGainLossNetCashFlowHedgeParentMember"
+   },
+   "value": "-4,676,000",
+   "decimals": "-3",
+   "message": "[DQC.US.0196.10633] us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax has a value of -4,676,000 and has been used with the Accumulated Other Comprehensive Income Member. This fact value has been used with the StatementEquityComponentsAxis and the Accumulated Other Comprehensive Income Member. When an instant element is  used with the StatementEquityComponentsAxis it is typically used to represent the opening and closing balance in the changes of equity. The element  us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax  should not be used to represent an opening or closing balance in t"
+  },
+  {
+   "code": "DQC.US.0196.10633",
+   "rule": "DQC_0196",
+   "element_id": "10633",
+   "concept": "AccumulatedOtherComprehensiveIncomeLossNetOfTax",
+   "start": "",
+   "end": "2025-12-31",
+   "dims": {
+    "us-gaap:StatementEquityComponentsAxis": "us-gaap:AccumulatedNetUnrealizedInvestmentGainLossMember"
+   },
+   "value": "-64,381,000",
+   "decimals": "-3",
+   "message": "[DQC.US.0196.10633] us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax has a value of -64,381,000 and has been used with the Accumulated Other Comprehensive Income Member. This fact value has been used with the StatementEquityComponentsAxis and the Accumulated Other Comprehensive Income Member. When an instant element is  used with the StatementEquityComponentsAxis it is typically used to represent the opening and closing balance in the changes of equity. The element  us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax  should not be used to represent an opening or closing balance in "
+  },
+  {
+   "code": "DQC.US.0196.10633",
+   "rule": "DQC_0196",
+   "element_id": "10633",
+   "concept": "AccumulatedOtherComprehensiveIncomeLossNetOfTax",
+   "start": "",
+   "end": "2025-12-31",
+   "dims": {
+    "us-gaap:StatementEquityComponentsAxis": "us-gaap:AccumulatedDefinedBenefitPlansAdjustmentMember"
+   },
+   "value": "381,000",
+   "decimals": "-3",
+   "message": "[DQC.US.0196.10633] us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax has a value of 381,000 and has been used with the Accumulated Other Comprehensive Income Member. This fact value has been used with the StatementEquityComponentsAxis and the Accumulated Other Comprehensive Income Member. When an instant element is  used with the StatementEquityComponentsAxis it is typically used to represent the opening and closing balance in the changes of equity. The element  us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax  should not be used to represent an opening or closing balance in the "
+  },
+  {
+   "code": "DQC.US.0196.10633",
+   "rule": "DQC_0196",
+   "element_id": "10633",
+   "concept": "AccumulatedOtherComprehensiveIncomeLossNetOfTax",
+   "start": "",
+   "end": "2025-12-31",
+   "dims": {
+    "us-gaap:StatementEquityComponentsAxis": "us-gaap:AccumulatedGainLossNetCashFlowHedgeParentMember"
+   },
+   "value": "-600,000",
+   "decimals": "-3",
+   "message": "[DQC.US.0196.10633] us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax has a value of -600,000 and has been used with the Accumulated Other Comprehensive Income Member. This fact value has been used with the StatementEquityComponentsAxis and the Accumulated Other Comprehensive Income Member. When an instant element is  used with the StatementEquityComponentsAxis it is typically used to represent the opening and closing balance in the changes of equity. The element  us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax  should not be used to represent an opening or closing balance in the"
+  },
+  {
+   "code": "DQC.US.0196.10633",
+   "rule": "DQC_0196",
+   "element_id": "10633",
+   "concept": "AccumulatedOtherComprehensiveIncomeLossNetOfTax",
+   "start": "",
+   "end": "2026-03-31",
+   "dims": {
+    "us-gaap:StatementEquityComponentsAxis": "us-gaap:AccumulatedNetUnrealizedInvestmentGainLossMember"
+   },
+   "value": "-68,700,000",
+   "decimals": "-3",
+   "message": "[DQC.US.0196.10633] us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax has a value of -68,700,000 and has been used with the Accumulated Other Comprehensive Income Member. This fact value has been used with the StatementEquityComponentsAxis and the Accumulated Other Comprehensive Income Member. When an instant element is  used with the StatementEquityComponentsAxis it is typically used to represent the opening and closing balance in the changes of equity. The element  us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax  should not be used to represent an opening or closing balance in "
+  },
+  {
+   "code": "DQC.US.0196.10633",
+   "rule": "DQC_0196",
+   "element_id": "10633",
+   "concept": "AccumulatedOtherComprehensiveIncomeLossNetOfTax",
+   "start": "",
+   "end": "2026-03-31",
+   "dims": {
+    "us-gaap:StatementEquityComponentsAxis": "us-gaap:AccumulatedDefinedBenefitPlansAdjustmentMember"
+   },
+   "value": "381,000",
+   "decimals": "-3",
+   "message": "[DQC.US.0196.10633] us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax has a value of 381,000 and has been used with the Accumulated Other Comprehensive Income Member. This fact value has been used with the StatementEquityComponentsAxis and the Accumulated Other Comprehensive Income Member. When an instant element is  used with the StatementEquityComponentsAxis it is typically used to represent the opening and closing balance in the changes of equity. The element  us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax  should not be used to represent an opening or closing balance in the "
+  },
+  {
+   "code": "DQC.US.0196.10633",
+   "rule": "DQC_0196",
+   "element_id": "10633",
+   "concept": "AccumulatedOtherComprehensiveIncomeLossNetOfTax",
+   "start": "",
+   "end": "2026-03-31",
+   "dims": {
+    "us-gaap:StatementEquityComponentsAxis": "us-gaap:AccumulatedGainLossNetCashFlowHedgeParentMember"
+   },
+   "value": "316,000",
+   "decimals": "-3",
+   "message": "[DQC.US.0196.10633] us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax has a value of 316,000 and has been used with the Accumulated Other Comprehensive Income Member. This fact value has been used with the StatementEquityComponentsAxis and the Accumulated Other Comprehensive Income Member. When an instant element is  used with the StatementEquityComponentsAxis it is typically used to represent the opening and closing balance in the changes of equity. The element  us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax  should not be used to represent an opening or closing balance in the "
+  },
+  {
+   "code": "DQC.US.0220.10748",
+   "rule": "DQC_0220",
+   "element_id": "10748",
+   "concept": "DocumentType",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "10-Q",
+   "decimals": "None",
+   "message": "[DQC.US.0220.10748] The filing has used the StatementTable in the notes in the role 9955566 - Disclosure - Revenue Recognition In-Scope and Out-of-Scope Revenue Streams (Details). The StatementTable is not intended to be used in the notes, it is intended to be used in the face financial statements. The filer should use the appropriate table name for the notes disclosure. If no table is appropriate for the note disclosure, the filer should create an extension table with a name that describes the information in the table.\n\nRule Element Id:10748\nRule version: 30.0.5 - fcf-20260331.htm 8"
+  },
+  {
+   "code": "DQC.US.0220.10748",
+   "rule": "DQC_0220",
+   "element_id": "10748",
+   "concept": "DocumentType",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "10-Q",
+   "decimals": "None",
+   "message": "[DQC.US.0220.10748] The filing has used the StatementTable in the notes in the role 9955541 - Disclosure - Investment Securities - Additional Information (Detail). The StatementTable is not intended to be used in the notes, it is intended to be used in the face financial statements. The filer should use the appropriate table name for the notes disclosure. If no table is appropriate for the note disclosure, the filer should create an extension table with a name that describes the information in the table.\n\nRule Element Id:10748\nRule version: 30.0.5 - fcf-20260331.htm 8"
+  },
+  {
+   "code": "DQC.US.0230.10923",
+   "rule": "DQC_0230",
+   "element_id": "10923",
+   "concept": "InterestExpense",
+   "start": "",
+   "end": "",
+   "dims": {},
+   "value": "",
+   "decimals": "",
+   "message": "[DQC.US.0230.10923] The calculation network 9952153 - Statement - Condensed Consolidated Statements of Income (Unaudited) has used the 'other' concept InterestExpenseOtherLongTermDebt.  The calculation relationship has a calculation concept total of  InterestExpense.  The 'other' concept in this calculation is expected to be only InterestExpenseOther. Each calculated concept should only have 'other' concepts that can comprise it.\n\nReplace the other concept InterestExpenseOtherLongTermDebt with InterestExpenseOther.\n   \nRule Element Id:10923\nRule version: 30.0.5 - https://xbrl.fasb.org/us-gaap/"
+  },
+  {
+   "code": "DQC.US.0238.10937",
+   "rule": "DQC_0238",
+   "element_id": "10937",
+   "concept": "DocumentType",
+   "start": "2026-01-01",
+   "end": "2026-03-31",
+   "dims": {},
+   "value": "10-Q",
+   "decimals": "None",
+   "message": "[DQC.US.0238.10937] The filer has used the table text block ScheduleOfSegmentReportingInformationBySegmentTextBlock in the filing, but has not reported any facts with the StatementBusinessSegmentsAxis. A segment member is required to be reported with the StatementBusinessSegmentsAxis even if there is only one reportable segment. (see FASB Taxonomy Implementation guide at https://www.fasb.org/projects/fasb-taxonomies/resources/taxonomy-implementation-guides ) The filer should report facts with the StatementBusinessSegmentsAxis if using the ScheduleOfSegmentReportingInformationBySegmentTextBlock"
+  }
+ ]
+}

@@ -16,6 +16,7 @@ over is reported as ``unexplained``.
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 import pandas as pd
@@ -78,9 +79,15 @@ def load_arelle(adshs: list[str] | None = None, rules: list[str] | None = None,
         for f in d["findings"]:
             if f["rule"] not in rules:
                 continue
+            concept, ddate, segments = f["concept"], month_end(f["end"]), normalise_dims(f["dims"])
+            if f["rule"] == "DQC_0001":
+                # one bulk finding per (axis, member); Arelle reports each fact using it
+                m = re.search(r"the (\w+?)Axis and the unallowable member (\w+?)Member", f["message"])
+                if m:
+                    axis = m.group(1)[len("Statement"):] if m.group(1).startswith("Statement") else m.group(1)
+                    concept, ddate, segments = f"{axis}={m.group(2)}", 0, ""
             rows.append({"adsh": d["adsh"], "rule": f["rule"], "element_id": f["element_id"],
-                         "concept": f["concept"], "ddate": month_end(f["end"]),
-                         "segments": normalise_dims(f["dims"]), "value": f["value"],
+                         "concept": concept, "ddate": ddate, "segments": segments, "value": f["value"],
                          "message": f["message"]})
     cols = ["adsh", "rule", "element_id", "concept", "ddate", "segments", "value", "message"]
     return pd.DataFrame(rows, columns=cols), pd.DataFrame(runs)
