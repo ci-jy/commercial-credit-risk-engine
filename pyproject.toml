@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "commercial-credit-risk-engine"
 version = "0.1.0"
-description = "XBRL financial spreading, covenant stress tests, bankruptcy PD scorecard vs Altman Z'', and Merton distance-to-default"
+description = "XBRL financial spreading, covenant stress tests, bankruptcy PD scorecard vs Altman Z'', Merton distance-to-default and a bulk XBRL US DQC data-quality screen"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
@@ -25,6 +25,9 @@ credit-engine = "credit_engine.cli:main"
 
 [tool.setuptools.packages.find]
 include = ["credit_engine*"]
+
+[tool.setuptools.package-data]
+"credit_engine.dqc" = ["resources/*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

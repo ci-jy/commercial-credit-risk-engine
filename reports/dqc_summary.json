@@ -1,0 +1,16 @@
+{
+ "quarter": "2026q2",
+ "n_filings": 7714,
+ "n_screened": 7421,
+ "n_facts": 3194213,
+ "load_s": 8.15,
+ "screen_s": 13.74,
+ "arelle_median_s": 27.15,
+ "n_sample": 45,
+ "matched": 39,
+ "total": 43,
+ "findings": 447,
+ "ratio_hits": 6,
+ "ratio_changed": 0,
+ "lev_cov_changed": 0
+}

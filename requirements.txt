@@ -7,3 +7,6 @@ matplotlib>=3.7
 pytest>=7
 # System dependency for Excel formula recalculation: LibreOffice Calc
 #   sudo apt-get install -y --no-install-recommends libreoffice-calc
+# Reference implementation for the DQC differential harness only (scripts/dqc_arelle_harness.py),
+# installed in a separate venv: pip install arelle-release, plus the XULE plugin (github.com/xbrlus/xule)
+# and the EDGAR plugin (github.com/Arelle/EDGAR) copied into arelle/plugin.

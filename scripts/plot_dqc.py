@@ -32,8 +32,9 @@ def main() -> None:
     ax.set_xlabel("DQC rule")
     ax.set_ylabel("findings on the sample filings")
     ax.set_title(f"Bulk screen vs Arelle + XULE on {meta['n_sample']} filings "
-                 f"(labels: filing-level agreement)")
-    ax.legend(frameon=False)
+                 f"(labels: filing-level agreement)", fontsize=11)
+    ax.set_ylim(0, bottom.max() * 1.3 + 1)
+    ax.legend(frameon=False, loc="upper center")
 
     ax = axes[1]
     per_quarter_bulk = meta["load_s"] + meta["screen_s"]
