@@ -196,6 +196,9 @@ def test_0194_negative_repurchase_on_common_stock_member():
              segments="ClassOfStock=CommonClassA;EquityComponents=CommonStock;"),
         fact("StockRepurchasedDuringPeriodValue", -900_000, qtrs=4, segments="EquityComponents=TreasuryStockCommon;"),
         fact("MinorityInterestDecreaseFromRedemptions", -10_000, qtrs=4, segments="EquityComponents=NoncontrollingInterest;"),
+        # a filer's own NCI member is not in the DQC member list
+        fact("MinorityInterestDecreaseFromRedemptions", -10_000, qtrs=4,
+             segments="EquityComponents=RedeemableNoncontrollingInterest;"),
     ])
     assert sorted(zip(f.element_id, f.concept)) == [("10621", "StockRepurchasedDuringPeriodShares"),
                                                     ("10637", "MinorityInterestDecreaseFromRedemptions")]
