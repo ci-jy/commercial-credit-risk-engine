@@ -113,14 +113,7 @@ def run_one(row: dict) -> str:
     dest = OUT / f"{adsh}.json"
     if dest.exists():
         return f"{adsh} cached"
-    FILINGS.mkdir(parents=True, exist_ok=True)
-    zpath = FILINGS / f"{adsh}.zip"
-    if not zpath.exists():
-        url = ZIP_URL.format(cik=cik, nodash=adsh.replace("-", ""), adsh=adsh)
-        req = urllib.request.Request(url, headers={"User-Agent": user_agent()})
-        with urllib.request.urlopen(req, timeout=120) as resp:
-            zpath.write_bytes(resp.read())
-        time.sleep(0.2)
+    zpath = _download(adsh, cik)
     ruleset = _ruleset_for(row.get("gaap_version", ""))
     log_path = REPO / "data" / "arelle" / f"{adsh}.log.json"
     env = dict(os.environ, XDG_CONFIG_HOME=str(REPO / "data" / "arelle" / "config"))
@@ -164,6 +157,43 @@ def cmd_run(args) -> None:
             print(msg, flush=True)
 
 
+def _download(adsh: str, cik: int) -> Path:
+    FILINGS.mkdir(parents=True, exist_ok=True)
+    zpath = FILINGS / f"{adsh}.zip"
+    if not zpath.exists():
+        url = ZIP_URL.format(cik=cik, nodash=adsh.replace("-", ""), adsh=adsh)
+        req = urllib.request.Request(url, headers={"User-Agent": user_agent()})
+        with urllib.request.urlopen(req, timeout=120) as resp:
+            zpath.write_bytes(resp.read())
+        time.sleep(0.2)
+    return zpath
+
+
+def cmd_inspect(args) -> None:
+    """Print every fact of a concept in a filing's inline XBRL with its exact context (for root-causing)."""
+    import zipfile
+
+    sample = pd.read_csv(SAMPLE, dtype=str).set_index("adsh")
+    z = zipfile.ZipFile(_download(args.adsh, int(sample.loc[args.adsh, "cik"])))
+    for name in z.namelist():
+        if not name.endswith(".htm"):
+            continue
+        text = z.read(name).decode("utf-8", "replace")
+        contexts = {m.group(1): m.group(2) for m in
+                    re.finditer(r'<xbrli:context id="([^"]*)">(.*?)</xbrli:context>', text, re.S)}
+        for m in re.finditer(r"<ix:nonFraction[^>]*>", text):
+            tag = m.group(0)
+            if f':{args.concept}"' not in tag:
+                continue
+            ref = re.search(r'contextRef="([^"]*)"', tag).group(1)
+            ctx = contexts.get(ref, "")
+            dates = re.findall(r"<xbrli:(startDate|endDate|instant)>([^<]*)<", ctx)
+            dims = re.findall(r'dimension="([^"]*)">([^<]*)<', ctx)
+            sign = "-" if 'sign="-"' in tag else ""
+            value = text[m.end(): text.find("<", m.end())]
+            print(name, ref, dates, dims, sign + value)
+
+
 def cmd_reparse(args) -> None:
     """Rebuild the compact fixtures from the raw Arelle logs in data/arelle/ (keeps runtimes)."""
     for path in sorted(OUT.glob("*.json")):
@@ -198,6 +228,10 @@ def main() -> None:
     r.add_argument("--workers", type=int, default=3)
     r.set_defaults(func=cmd_run)
     sub.add_parser("reparse").set_defaults(func=cmd_reparse)
+    i = sub.add_parser("inspect")
+    i.add_argument("adsh")
+    i.add_argument("concept")
+    i.set_defaults(func=cmd_inspect)
     f = sub.add_parser("fixtures")
     f.add_argument("--quarter", default="2026q2")
     f.set_defaults(func=cmd_fixtures)

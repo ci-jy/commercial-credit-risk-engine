@@ -79,11 +79,13 @@ def test_0005_cover_shares_dated_before_period_end():
 
 
 def test_0005_subsequent_events_and_forecasts_must_be_after_period_end():
-    f = run("DQC_0005", [fact("DebtInstrumentFaceAmount", 5e6, ddate=20251231, segments="SubsequentEventType=SubsequentEvent;"),
+    f = run("DQC_0005", [fact("DebtInstrumentFaceAmount", 5e6, ddate=20250930, segments="SubsequentEventType=SubsequentEvent;"),
+                         # on the (rounded) period end: may be a date a few days later, so not flagged
+                         fact("DebtInstrumentFaceAmount", 6e6, ddate=20251231, segments="SubsequentEventType=SubsequentEvent;"),
                          fact("DebtInstrumentFaceAmount", 5e6, ddate=20260228, segments="SubsequentEventType=SubsequentEvent;"),
                          fact("Revenues", 1, ddate=20250630, qtrs=2, segments="Scenario=ScenarioForecast;"),
                          fact("Revenues", 1, ddate=20261231, qtrs=4, segments="Scenario=ScenarioForecast;")])
-    assert sorted(zip(f.element_id, f.ddate)) == [("48", 20251231), ("49", 20250630)]
+    assert sorted(zip(f.element_id, f.ddate)) == [("48", 20250930), ("49", 20250630)]
 
 
 # DQC_0009 ---------------------------------------------------------------------------------------
