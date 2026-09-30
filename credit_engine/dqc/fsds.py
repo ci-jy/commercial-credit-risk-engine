@@ -13,10 +13,11 @@ context to:
 Filings that use the IFRS taxonomy are dropped from ``num``: the DQC US rules
 do not apply to them.
 
-There is no ``decimals`` column, so :func:`normalise_num` estimates it: the
-trailing zeros of a value give an upper bound on its ``decimals``, and filers
-tag (almost) every amount in one unit at the same precision, so the estimate is
-``min(own bound, most common bound for that filing and unit)``. These flattening choices are the main sources of disagreement
+There is no ``decimals`` column, so :func:`normalise_num` estimates it. A value
+reported with ``decimals = d`` is a multiple of ``10**-d``, so its trailing zeros
+give a lower bound on ``d``; filers tag (almost) every amount in one unit at the
+same precision, so the estimate is ``max(own bound, most common bound for that
+filing and unit)``. These flattening choices are the main sources of disagreement
 with a full XBRL processor and are documented in ``reports/dqc_results.md``.
 """
 
@@ -93,13 +94,16 @@ def load_quarter(source: Path, tables=("sub", "num", "pre", "tag"), adsh: set[st
 
 
 def infer_decimals(values: np.ndarray) -> np.ndarray:
-    """Largest ``d`` in [-9, 4] such that the value is a multiple of 10**-d (0 -> 4)."""
+    """Largest ``d`` in [-6, 4] such that the value is a multiple of 10**-d (0 -> 4).
+
+    Filers report in units, thousands or millions, so ``d`` is capped at -6.
+    """
     v = np.abs(np.asarray(values, dtype=float))
     out = np.full(v.shape, 4, dtype=np.int8)
     scaled = np.round(v * 1e4)
     nz = scaled > 0
     out[~nz] = 4
-    for d in range(3, -10, -1):
+    for d in range(3, -7, -1):
         step = 10.0 ** (4 - d)
         ok = nz & (np.fmod(scaled, step) == 0)
         out[ok] = d
@@ -143,7 +147,7 @@ def normalise_num(num: pd.DataFrame, sub: pd.DataFrame) -> pd.DataFrame:
     num["inferred_decimals"] = infer_decimals(num.value.to_numpy())
     mode = num.groupby(["adsh", "uom"], observed=True).inferred_decimals.agg(lambda s: s.mode().iat[0])
     filing_dec = pd.MultiIndex.from_frame(num[["adsh", "uom"]]).map(mode.to_dict())
-    num["decimals"] = np.minimum(num.inferred_decimals.to_numpy(), np.asarray(filing_dec, dtype=float)).astype(int)
+    num["decimals"] = np.maximum(num.inferred_decimals.to_numpy(), np.asarray(filing_dec, dtype=float)).astype(int)
     meta = sub.set_index("adsh")
     num["doc_period"] = pd.to_datetime(num.adsh.astype(str).map(meta.period), format="%Y%m%d", errors="coerce")
     num["form"] = num.adsh.astype(str).map(meta.form)

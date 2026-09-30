@@ -49,8 +49,8 @@ def empty() -> pd.DataFrame:
 def decimal_tolerance(decimals, factor: float = 2.0):
     """DQC ``tolerance_for_decimals``: values agree if |a - b| <= factor * 10**-decimals.
 
-    The data sets carry no ``decimals``; callers pass the inferred precision (the
-    minimum over the compared facts), which is never finer than the true one.
+    The data sets carry no ``decimals``; callers pass the estimated precision
+    (the minimum over the compared facts, see :mod:`credit_engine.dqc.fsds`).
     """
     return factor * np.power(10.0, -np.asarray(decimals, dtype=float))
 

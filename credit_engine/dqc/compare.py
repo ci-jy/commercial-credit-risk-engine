@@ -6,10 +6,11 @@ are first normalised to the data-set form: the period end is rounded to the
 nearest month end and ``us-gaap:StatementEquityComponentsAxis =
 us-gaap:CommonStockMember`` becomes ``EquityComponents=CommonStock``.
 
-Every finding reported by only one side is a *disagreement* and gets a root
-cause from :data:`ROOT_CAUSES` (automatic checks) or from the reviewed
-``fixtures/dqc/root_causes.json`` (one entry per disagreement key). Anything
-left over is reported as ``unexplained``.
+Every finding reported by only one side is a *disagreement*. Each one gets a
+root cause from the reviewed ``fixtures/dqc/root_causes.json``: a list of
+``{"match": {column: value, ...}, "category": ..., "root_cause": ...}`` entries
+(first match wins; ``category`` is one of :data:`CATEGORIES`). Anything left
+over is reported as ``unexplained``.
 """
 
 from __future__ import annotations
@@ -57,7 +58,7 @@ def normalise_dims(dims: dict[str, str]) -> str:
         a = _strip(axis, "Axis")
         if a == "StatementEquityComponents":
             a = "EquityComponents"
-        if a.startswith("Statement") and a != "StatementScenario":
+        if a.startswith("Statement"):
             a = a[len("Statement"):]
         parts.append(f"{a}={_strip(member, 'Member')}")
     return "".join(f"{p};" for p in sorted(parts))
@@ -104,24 +105,36 @@ def align(bulk: pd.DataFrame, arelle: pd.DataFrame) -> pd.DataFrame:
     return m.drop(columns="_merge")
 
 
-def load_root_causes(path: Path = ROOT_CAUSE_FILE) -> dict[str, dict]:
+def load_root_causes(path: Path = ROOT_CAUSE_FILE) -> list[dict]:
     if not Path(path).exists():
-        return {}
+        return []
     return json.loads(Path(path).read_text())
 
 
-def explain(aligned: pd.DataFrame, root_causes: dict[str, dict] | None = None) -> pd.DataFrame:
+def _matches(row: dict, match: dict) -> bool:
+    for col, want in match.items():
+        have = str(row.get(col, ""))
+        if col.endswith("_contains"):
+            if want not in str(row.get(col[: -len("_contains")], "")):
+                return False
+        elif have != str(want):
+            return False
+    return True
+
+
+def explain(aligned: pd.DataFrame, root_causes: list[dict] | None = None) -> pd.DataFrame:
     """Attach ``category`` and ``root_cause`` to each one-sided finding."""
     root_causes = load_root_causes() if root_causes is None else root_causes
     out = aligned.copy()
     cats, causes = [], []
-    for r in out.itertuples():
-        if r.side == "both":
+    for row in out.to_dict("records"):
+        if row["side"] == "both":
             cats.append("")
             causes.append("")
             continue
-        rc = root_causes.get(r.key) or root_causes.get(f"{r.rule}|{r.side}|*")
+        rc = next((r for r in root_causes if _matches(row, r["match"])), None)
         if rc:
+            assert rc["category"] in CATEGORIES, rc
             cats.append(rc["category"])
             causes.append(rc["root_cause"])
         else:

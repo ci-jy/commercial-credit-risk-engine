@@ -42,7 +42,7 @@ def check(q) -> pd.DataFrame:
         df["seg_k"] = df.segments.astype(object).where(df.segments.notna(), "")
         df["adsh_k"] = df.adsh.astype(str)
     m = e.merge(c[["adsh_k", "seg_k", "value", "end"]], on=["adsh_k", "seg_k"], suffixes=("", "_c"))
-    m = m[~m.adsh_k.isin(skip) & (m.end_c + pd.Timedelta(days=90) > m.end)]
+    m = m[~m.adsh_k.isin(skip) & (pd.to_datetime(m.end_c) + pd.Timedelta(days=90) > pd.to_datetime(m.end))]
     m["factor"] = m.value / m.value_c
     m = m[(m.factor > 99) | (m.factor < 0.099)].drop_duplicates(["adsh_k", "seg_k", "ddate", "value"])
     if m.empty:
