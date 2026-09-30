@@ -160,4 +160,4 @@ The suite checks:
   Each case found in the sample is listed with its cause in `reports/dqc_results.md`.
 - **US GAAP only.** Filings tagged with IFRS are skipped, since XBRL US publishes separate IFRS rules.
 
-Project period: 2026-08-24 to 2026-08-30.
+Project period: 2026-08-24 to 2026-10-02.
