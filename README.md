@@ -1,6 +1,6 @@
 # Commercial Credit Risk Engine
 
-Gives commercial-banking and credit analysts a first-pass credit memo for a public borrower (spread SEC XBRL filings, stress covenants, estimate default risk) and a bulk XBRL data-quality screen that flags bad filing values first. The bankruptcy scorecard reaches a **held-out AUC of 0.749 vs 0.690 for Altman Z''** on 43,405 real firm-years. The screen checks **all 7,421 US GAAP filings of an SEC quarter in 22 s**; Arelle needs a median 27 s *per filing*. On 45 filings it matched Arelle on 39 of 43 findings, and every disagreement is root-caused.
+Gives commercial-banking and credit analysts a first-pass credit memo for a public borrower (spread SEC XBRL filings, stress covenants, estimate default risk) and a bulk XBRL data-quality screen that flags bad filing values first. The bankruptcy scorecard reaches a **held-out AUC of 0.749 vs 0.690 for Altman Z''** on 43,405 real firm-years. The screen checks **all 7,421 US GAAP filings of an SEC quarter in 23 s**; Arelle needs a median 27 s *per filing*. On 45 filings it matched Arelle on 40 of 44 findings, and every disagreement is root-caused.
 
 ![PD model benchmark](docs/benchmark.png)
 
@@ -17,11 +17,11 @@ Full tables with CIs for every metric and decile calibration: [reports/benchmark
 
 | DQC data-quality screen, SEC Financial Statement Data Set 2026q2 | Result |
 |---|---|
-| Whole quarter (7,421 US GAAP filings, 3.19 M facts), 12 rules | 8.2 s load + 13.7 s screen; 447 findings in the [Excel exceptions report](reports/dqc_exceptions_2026q2.xlsx) |
+| Whole quarter (7,421 US GAAP filings, 3.19 M facts), 14 rules | 8.2 s load + 14.6 s screen; 451 findings in the [Excel exceptions report](reports/dqc_exceptions_2026q2.xlsx) |
 | Arelle + XULE + official DQC v30 ruleset | median 27.1 s per filing (≈ 56 CPU-hours per quarter) |
-| Agreement with Arelle on 45 filings (findings matched) | 39 of 43; filing-level agreement 97.8–100% per rule |
+| Agreement with Arelle on 45 filings (findings matched) | 40 of 44; filing-level agreement 97.8–100% per rule |
 | Disagreements | 4, all root-caused as data-set flattening limits (2 facts missing from `num`, 1 month-end merge of two dates, 1 member hierarchy the data sets drop); 0 unexplained |
-| Flagged values that move a leverage or coverage ratio | 6 of 447 hit a spread input; none changes a ratio by more than 0.5% |
+| Flagged values that move a leverage or coverage ratio | 6 of 451 hit a spread input; none changes a ratio by more than 0.5% |
 
 Per-rule agreement, root causes, the bugs the comparison exposed and the runtime method are in [reports/dqc_results.md](reports/dqc_results.md).
 
@@ -41,7 +41,7 @@ Each run writes `out/<borrower>_memo.md` and `out/<borrower>_spread.xlsx`. Finis
 
 A credit analyst spreads a borrower's statements into a standard template, computes leverage and coverage, checks covenant headroom, and judges default risk. This is usually done by hand in spreadsheets, and the default judgment is rarely checked against outcomes. This engine automates the spread from public XBRL data, finds the exact shock that breaks each covenant, and backs its PD with a model measured against real bankruptcies and the Altman Z'' baseline.
 
-The spread is only as good as the filing behind it. XBRL filings contain sign flips, wrong periods and totals that don't match their components. XBRL US's Data Quality Committee publishes [rules that catch these errors](https://xbrl.us/home/priorities/data-quality/rules-guidance/) and [tracks how often filings break them](https://xbrl.us/data-quality/center/), but the rules run one filing at a time inside an XBRL processor such as Arelle. An analyst who loads thousands of filings into pandas for peer comps has no equivalent screen, so bad values go straight into leverage and coverage ratios. The `dqc` command runs 12 frequently triggered DQC rules over a whole quarter of the SEC's flattened Financial Statement Data Sets at once.
+The spread is only as good as the filing behind it. XBRL filings contain sign flips, wrong periods and totals that don't match their components. XBRL US's Data Quality Committee publishes [rules that catch these errors](https://xbrl.us/home/priorities/data-quality/rules-guidance/) and [tracks how often filings break them](https://xbrl.us/data-quality/center/), but the rules run one filing at a time inside an XBRL processor such as Arelle. An analyst who loads thousands of filings into pandas for peer comps has no equivalent screen, so bad values go straight into leverage and coverage ratios. The `dqc` command runs 14 frequently triggered DQC rules over a whole quarter of the SEC's flattened Financial Statement Data Sets at once.
 
 ## Screening a quarter for data-quality errors
 
@@ -65,7 +65,8 @@ How to read the suggested correction:
 | A ≤ B checks (0009) | The B value. |
 | Percentages over 1,000% (0091) | The value ÷ 100. |
 | Share scale (0095) | The cover-page shares, rescaled by a power of 1,000. |
-| Member checks (0001, 0195) and dates (0005) | None: someone has to decide where the fact belongs. |
+| Document period (0036) | The period the statements actually report. |
+| Member checks (0001, 0195), dates (0005) and reversed calculations (0008) | None: someone has to decide where the fact belongs. |
 
 Before a covenant test, check the filings of the borrower and its peers. A flagged `LongTermDebtNoncurrent`, `InterestExpense…` or `OperatingIncomeLoss` value feeds the spread directly. [reports/dqc_results.md](reports/dqc_results.md) measures how often that happens.
 
@@ -100,9 +101,11 @@ In the Excel spread, blue cells on `Spread` are inputs. `Ratios` and `Covenants`
   | 0001 | Axis members |
   | 0004 | Assets = liabilities + equity, plus 11 other accounting identities |
   | 0005 | Dates of cover-page shares, subsequent events and forecasts |
+  | 0008 | Calculations reversed against the US GAAP calculation linkbase (needs a `cal` table, see below) |
   | 0009 | A ≤ B pairs, e.g. shares outstanding ≤ issued |
   | 0013 | Tax-rate items when pre-tax income is positive |
   | 0014, 0015 | Negative values; 0015 uses the official 6,400-concept list and its member exclusions |
+  | 0036 | Period of report vs the period the face statements report (approximation, see below) |
   | 0091 | Percentages > 10 |
   | 0095 | Share scale |
   | 0125 | Negative lease cost |
@@ -125,7 +128,7 @@ In the Excel spread, blue cells on `Spread` are inputs. `Ratios` and `Covenants`
 ## Tests
 
 ```bash
-python3 -m pytest -q                                              # 116 tests, ~7 s
+python3 -m pytest -q                                              # 118 tests, ~7 s
 python3 -m pytest -q tests/dqc                                    # the data-quality screen alone
 python3 -m credit_engine benchmark --offline-fixtures --quick     # benchmark on the committed sample
 python3 -m credit_engine memo --fixture sample_borrower --out out/
@@ -137,7 +140,7 @@ The suite checks:
 - WoE/IV against a hand-computed two-bin case, plus binning monotonicity.
 - The Merton round-trip on 40 random synthetic firms to 1e-6, and the Hull textbook example.
 - Excel formula parity after LibreOffice recalculation; these tests are skipped only if `soffice` is not installed.
-- Each of the 12 DQC rules on hand-built filings with planted errors and the near-misses it must not flag. These cover tolerances, member exclusions, dimension handling, stock-split skips and the 10% materiality test.
+- Each of the 14 DQC rules on hand-built filings with planted errors and the near-misses it must not flag. These cover tolerances, member exclusions, dimension handling, stock-split skips and the 10% materiality test.
 - Bulk vs Arelle on the 45 committed reference filings: there must be at least 40 runs, every disagreement must have a reviewed root cause, and every root-cause entry must still be used.
 - Ratio impact for a sign-flipped debt value (leverage goes from −2.5x to 2.5x), and for 10-Q annualisation.
 - Every hyperlink in the exceptions workbook resolves, both in a generated workbook and in the committed 2026q2 report.
@@ -150,7 +153,11 @@ The suite checks:
 - **Stress simplifications.** Stress holds cash taxes, capex and the balance sheet at base values. The floating-rate share of debt is an input, not something read from filings.
 - **Spreading coverage.** Spreading covers common commercial and industrial filers. Banks, insurers and REITs use different statement structures and are out of scope.
 - **Illustrative scale.** The 10-grade master scale and default covenant thresholds are illustrative and are not any institution's methodology.
-- **12 of about 200 DQC rules.** The screen covers frequently triggered rules that a flat table can express. Rules that need the calculation linkbase (e.g. DQC_0008 reversed calculations, the 0043–0048 cash-flow checks) or text facts (DQC_0033 and 0036 compare the `DocumentPeriodEndDate` value) cannot be evaluated from `sub`/`num`/`pre`. Within a rule, a few element IDs are left out and documented in the module, such as 0004.9285 and 0195.10625.
+- **14 of about 200 DQC rules.** The screen covers frequently triggered rules that a flat table can express. Two need data the quarterly data sets lack:
+  - **DQC_0008** (reversed calculations) runs on a `cal.txt` calculation table, as shipped in the SEC's monthly *Financial Statement and Notes* data sets. The quarterly sets have none, so it finds nothing on the 2026q2 run. For the 45 reference filings, `scripts/dqc_arelle_harness.py cal` builds that table from each filing's calculation linkbase, and the rule matches Arelle's one finding exactly.
+  - **DQC_0036** compares the `DocumentPeriodEndDate` value with its context, and the data sets carry neither. The module checks the same "not rolled forward" error one step removed: the period of report (`sub.period`) against the latest balance-sheet instant and current-period flows. Gaps under a month are invisible after month-end rounding.
+
+  Other calculation and text rules (0043–0048 cash-flow checks, DQC_0033) are not implemented. Within a rule, a few element IDs are left out and documented in the module, such as 0004.9285 and 0195.10625.
 - **What the data sets flatten away**, and the disagreements it causes:
   - Dates are rounded to the nearest month end, so DQC_0005 only flags dates clearly before the period end.
   - There is no `decimals` column, so tolerances use an estimated precision.

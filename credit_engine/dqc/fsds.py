@@ -10,6 +10,11 @@ context to:
                  suffixes and namespace prefixes removed
 * ``coreg``    - co-registrant (a legal-entity dimension), blank if none
 
+The quarterly data sets have no calculation linkbase. When a ``cal.txt`` table
+is present (the SEC's monthly "Financial Statement and Notes" data sets ship
+one, in the same ``adsh grp arc negative ptag pversion ctag cversion`` layout)
+it is loaded into ``Quarter.cal`` for DQC_0008; otherwise ``cal`` is None.
+
 Filings that use the IFRS taxonomy are dropped from ``num``: the DQC US rules
 do not apply to them.
 
@@ -39,6 +44,7 @@ NUM_DTYPES = {"adsh": "category", "tag": "category", "version": "category", "uom
 NUM_COLS = ["adsh", "tag", "version", "ddate", "qtrs", "uom", "segments", "coreg", "value"]
 PRE_COLS = ["adsh", "report", "line", "stmt", "inpth", "tag", "version", "plabel", "negating"]
 TAG_COLS = ["tag", "version", "custom", "datatype"]
+CAL_COLS = ["adsh", "grp", "arc", "negative", "ptag", "pversion", "ctag", "cversion"]
 SUB_COLS = ["adsh", "cik", "name", "sic", "afs", "fye", "form", "period", "fy", "fp", "filed", "instance"]
 
 
@@ -48,6 +54,7 @@ class Quarter:
     num: pd.DataFrame | None = None
     pre: pd.DataFrame | None = None
     tag: pd.DataFrame | None = None
+    cal: pd.DataFrame | None = None
 
 
 FSDS_URL = "https://www.sec.gov/files/dera/data/financial-statement-data-sets/{quarter}.zip"
@@ -84,6 +91,13 @@ def _open(source: Path, name: str):
     raise FileNotFoundError(f"{name} not found in {source}")
 
 
+def _has(source: Path, name: str) -> bool:
+    source = Path(source)
+    if source.suffix == ".zip":
+        return name in zipfile.ZipFile(source).namelist()
+    return (source / f"{name}.gz").exists() or (source / name).exists()
+
+
 def _read(source: Path, name: str, **kw) -> pd.DataFrame:
     return pd.read_csv(_open(source, name), sep="\t", quoting=3, encoding="utf-8",
                        encoding_errors="replace", compression="infer" if not str(source).endswith(".zip") else None,
@@ -110,6 +124,9 @@ def load_quarter(source: Path, tables=("sub", "num", "pre", "tag"), adsh: set[st
         q.pre = pre.reset_index(drop=True)
     if "tag" in tables:
         q.tag = _read(source, "tag.txt", dtype=str, usecols=TAG_COLS)
+    if _has(source, "cal.txt"):
+        cal = _read(source, "cal.txt", dtype=str, usecols=CAL_COLS)
+        q.cal = cal[cal.adsh.isin(adsh)] if adsh is not None else cal
     return q
 
 

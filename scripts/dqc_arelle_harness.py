@@ -5,6 +5,7 @@ Steps (each is idempotent, so an interrupted run can be resumed):
     python scripts/dqc_arelle_harness.py select --quarter 2026q2 --n 30 --seed 7
     python scripts/dqc_arelle_harness.py run --workers 3
     python scripts/dqc_arelle_harness.py fixtures --quarter 2026q2
+    python scripts/dqc_arelle_harness.py cal
 
 ``select`` samples 10-K/10-Q filings from a downloaded Financial Statement Data
 Set quarter (``--add`` appends specific accession numbers). ``run`` downloads
@@ -194,6 +195,41 @@ def cmd_inspect(args) -> None:
             print(name, ref, dates, dims, sign + value)
 
 
+def cmd_cal(args) -> None:
+    """Write fixtures/dqc/fsds_sample/cal.txt.gz from each sample filing's calculation linkbase.
+
+    Same layout as the cal table of the SEC "Financial Statement and Notes" data sets:
+    one row per calculation arc; ``negative`` = 1 for weight -1; ``*version`` is
+    ``us-gaap/YYYY`` for base concepts and the accession number for extensions.
+    """
+    import xml.etree.ElementTree as ET
+    import zipfile
+
+    lb, xl = "{http://www.xbrl.org/2003/linkbase}", "{http://www.w3.org/1999/xlink}"
+    sample = pd.read_csv(SAMPLE, dtype=str)
+    versions = json.loads((REPO / "fixtures" / "dqc" / "gaap_versions.json").read_text())
+    rows = []
+    for r in sample.itertuples():
+        z = zipfile.ZipFile(_download(r.adsh, int(r.cik)))
+        for name in [n for n in z.namelist() if n.endswith("_cal.xml")]:
+            root = ET.fromstring(z.read(name))
+            for grp, link in enumerate(root.iter(f"{lb}calculationLink"), start=1):
+                locs = {}
+                for loc in link.iter(f"{lb}loc"):
+                    frag = loc.get(f"{xl}href", "").split("#")[-1]
+                    prefix, _, local = frag.partition("_")
+                    ver = versions.get(r.adsh, "us-gaap/2025") if prefix == "us-gaap" else (
+                        f"{prefix}/" if prefix in ("srt", "dei") else r.adsh)
+                    locs[loc.get(f"{xl}label")] = (local, ver)
+                for arc_no, arc in enumerate(link.iter(f"{lb}calculationArc"), start=1):
+                    (pt, pv), (ct, cv) = locs[arc.get(f"{xl}from")], locs[arc.get(f"{xl}to")]
+                    rows.append((r.adsh, grp, arc_no, int(float(arc.get("weight")) < 0), pt, pv, ct, cv))
+    out = REPO / "fixtures" / "dqc" / "fsds_sample" / "cal.txt.gz"
+    pd.DataFrame(rows, columns=["adsh", "grp", "arc", "negative", "ptag", "pversion", "ctag", "cversion"]) \
+        .to_csv(out, sep="\t", index=False)
+    print(f"{len(rows)} calculation arcs -> {out}")
+
+
 def cmd_reparse(args) -> None:
     """Rebuild the compact fixtures from the raw Arelle logs in data/arelle/ (keeps runtimes)."""
     for path in sorted(OUT.glob("*.json")):
@@ -228,6 +264,7 @@ def main() -> None:
     r.add_argument("--workers", type=int, default=3)
     r.set_defaults(func=cmd_run)
     sub.add_parser("reparse").set_defaults(func=cmd_reparse)
+    sub.add_parser("cal").set_defaults(func=cmd_cal)
     i = sub.add_parser("inspect")
     i.add_argument("adsh")
     i.add_argument("concept")

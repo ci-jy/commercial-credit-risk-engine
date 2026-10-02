@@ -2,7 +2,7 @@
 
 Sample: **45 10-K/10-Q filings** from the SEC Financial Statement Data Set 2026q2 (15 10-K, 30 10-Q). Most were drawn at random (seed 7); the rest were added because the bulk screen flagged them, so that every rule that fires has real cases to compare. Reference: Arelle (`arelle-release`) with the XULE plugin and the official DQC v30 compiled ruleset for each filing's US GAAP year. Findings are aligned on (filing, rule, concept, period end, dimensions).
 
-**Overall: 39 of 43 findings matched (90.7%); 0 unexplained disagreements.**
+**Overall: 40 of 44 findings matched (90.9%); 0 unexplained disagreements.**
 
 ## Agreement per rule
 
@@ -11,10 +11,12 @@ Sample: **45 10-K/10-Q filings** from the SEC Financial Statement Data Set 2026q
 | DQC_0001 | Axis with inappropriate members | 2 | 1 | 0 | 66.7% | 97.8% |
 | DQC_0004 | Element values are equal (e.g. assets = liabilities + equity) | 11 | 0 | 0 | 100.0% | 100.0% |
 | DQC_0005 | Context dates after period end (cover shares, subsequent events, forecasts) | 0 | 0 | 0 | 100.0% | 100.0% |
+| DQC_0008 | Reversed calculation relative to the US GAAP taxonomy | 1 | 0 | 0 | 100.0% | 100.0% |
 | DQC_0009 | Element A must be <= element B (e.g. shares outstanding <= issued) | 2 | 1 | 0 | 66.7% | 97.8% |
 | DQC_0013 | Negative tax-rate reconciliation items when pre-tax income is positive | 0 | 0 | 0 | 100.0% | 100.0% |
 | DQC_0014 | Negative values with no dimensions (goodwill, revenue, cost of revenue...) | 1 | 0 | 0 | 100.0% | 100.0% |
 | DQC_0015 | Negative values for elements that cannot be negative | 8 | 0 | 2 | 80.0% | 100.0% |
+| DQC_0036 | Document period end date vs the period the statements report | 0 | 0 | 0 | 100.0% | 100.0% |
 | DQC_0091 | Percentage items greater than 1,000% (value > 10) | 0 | 0 | 0 | 100.0% | 100.0% |
 | DQC_0095 | Scale of cover-page shares outstanding vs balance-sheet shares | 0 | 0 | 0 | 100.0% | 100.0% |
 | DQC_0125 | Lease cost cannot be negative (unless sublease income is reported) | 0 | 0 | 0 | 100.0% | 100.0% |
@@ -48,31 +50,35 @@ Every disagreement, with filing and concept: [dqc_disagreements.csv](dqc_disagre
 ## Runtime
 
 - Arelle + XULE + DQC ruleset: **median 27.1 s per filing** (mean 32.1 s, min 20.2 s, max 97.9 s, 45 filings, one process, warm taxonomy cache). This runs all ~200 DQC rules on the full XBRL instance.
-- Bulk screen, whole quarter: **8.2 s to load + 13.7 s to screen = 21.9 s for 7,421 US GAAP filings** (3,194,213 facts), i.e. 3.0 ms per filing.
-- At Arelle's median, the same quarter would take about **56 CPU-hours** (9,202x the bulk time). The bulk screen only runs 12 rules, so this compares workflows, not rule-for-rule speed.
+- Bulk screen, whole quarter: **8.2 s to load + 14.6 s to screen = 22.8 s for 7,421 US GAAP filings** (3,194,213 facts), i.e. 3.1 ms per filing.
+- At Arelle's median, the same quarter would take about **56 CPU-hours** (8,823x the bulk time). The bulk screen only runs 14 rules, so this compares workflows, not rule-for-rule speed.
 
 ## Whole-quarter findings (2026q2)
 
 | Rule | Findings | Filings flagged | Screen time (s) |
 |---|---|---|---|
-| DQC_0001 | 14 | 11 | 0.54 |
-| DQC_0004 | 40 | 22 | 1.23 |
-| DQC_0005 | 0 | 0 | 5.65 |
-| DQC_0009 | 19 | 13 | 0.40 |
-| DQC_0013 | 0 | 0 | 0.53 |
-| DQC_0014 | 2 | 1 | 0.18 |
-| DQC_0015 | 126 | 53 | 0.19 |
-| DQC_0091 | 0 | 0 | 2.68 |
-| DQC_0095 | 0 | 0 | 0.75 |
-| DQC_0125 | 0 | 0 | 0.04 |
-| DQC_0194 | 47 | 24 | 0.39 |
-| DQC_0195 | 199 | 67 | 1.16 |
+| DQC_0001 | 14 | 11 | 0.57 |
+| DQC_0004 | 40 | 22 | 1.27 |
+| DQC_0005 | 0 | 0 | 5.72 |
+| DQC_0008 | 0 | 0 | 0.00 |
+| DQC_0009 | 19 | 13 | 0.42 |
+| DQC_0013 | 0 | 0 | 0.54 |
+| DQC_0014 | 2 | 1 | 0.22 |
+| DQC_0015 | 126 | 53 | 0.24 |
+| DQC_0036 | 4 | 4 | 1.44 |
+| DQC_0091 | 0 | 0 | 1.77 |
+| DQC_0095 | 0 | 0 | 0.76 |
+| DQC_0125 | 0 | 0 | 0.05 |
+| DQC_0194 | 47 | 24 | 0.42 |
+| DQC_0195 | 199 | 67 | 1.18 |
+
+DQC_0008 needs a calculation table; the quarterly data sets have none, so it reports nothing here (on the reference filings it runs on calculation tables built from each filing's linkbase). DQC_0036 is an approximation: period of report vs the period the face statements report.
 
 Excel exceptions workbook: [dqc_exceptions_2026q2.xlsx](dqc_exceptions_2026q2.xlsx) (summary sheet linking to one sheet per rule; each accession number links to the filing on EDGAR).
 
 ## Impact on the engine's credit ratios
 
-Of 447 findings, **6 flag a value the engine's spread actually uses** (dimensionless, current period, with a suggested correction) in 6 filings. Applying the suggested correction changes at least one ratio by more than 0.5% for **0** of them, and a leverage or coverage ratio for **0**.
+Of 451 findings, **6 flag a value the engine's spread actually uses** (dimensionless, current period, with a suggested correction) in 6 filings. Applying the suggested correction changes at least one ratio by more than 0.5% for **0** of them, and a leverage or coverage ratio for **0**.
 
 | Ratio | Findings hitting the spread | Ratio changed | Median abs. change | Max abs. change |
 |---|---|---|---|---|

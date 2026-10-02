@@ -15,8 +15,8 @@ import pandas as pd
 from credit_engine.dqc.base import FINDING_COLS
 from credit_engine.dqc.fsds import Quarter
 
-RULE_IDS = ["DQC_0001", "DQC_0004", "DQC_0005", "DQC_0009", "DQC_0013", "DQC_0014", "DQC_0015",
-            "DQC_0091", "DQC_0095", "DQC_0125", "DQC_0194", "DQC_0195"]
+RULE_IDS = ["DQC_0001", "DQC_0004", "DQC_0005", "DQC_0008", "DQC_0009", "DQC_0013", "DQC_0014", "DQC_0015",
+            "DQC_0036", "DQC_0091", "DQC_0095", "DQC_0125", "DQC_0194", "DQC_0195"]
 
 
 def rule_module(rule_id: str):

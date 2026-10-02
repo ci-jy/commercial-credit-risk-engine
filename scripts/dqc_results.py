@@ -153,7 +153,10 @@ def write_report(cmp: dict, full: dict | None, quarter: str) -> None:
                   "| Rule | Findings | Filings flagged | Screen time (s) |", "|---|---|---|---|"]
         for r in full["counts"].itertuples():
             lines.append(f"| {r.rule} | {r.findings:,} | {r.filings_flagged:,} | {r.screen_s:.2f} |")
-        lines += ["", f"Excel exceptions workbook: [{full['xlsx'].name}]({full['xlsx'].name}) "
+        lines += ["", "DQC_0008 needs a calculation table; the quarterly data sets have none, so it reports nothing "
+                  "here (on the reference filings it runs on calculation tables built from each filing's linkbase). "
+                  "DQC_0036 is an approximation: period of report vs the period the face statements report.",
+                  "", f"Excel exceptions workbook: [{full['xlsx'].name}]({full['xlsx'].name}) "
                   "(summary sheet linking to one sheet per rule; each accession number links to the filing on EDGAR).", ""]
         imp = full["impact"]
         summ = summarise_impact(imp)

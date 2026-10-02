@@ -86,6 +86,11 @@ def load_arelle(adshs: list[str] | None = None, rules: list[str] | None = None,
                 if m:
                     axis = m.group(1)[len("Statement"):] if m.group(1).startswith("Statement") else m.group(1)
                     concept, ddate, segments = f"{axis}={m.group(2)}", 0, ""
+            if f["rule"] == "DQC_0008":
+                # message: "... from {target} to {source} in {network} ..." -> filed parent->child
+                m = re.search(r"from (\w+) to (\w+) in ", f["message"])
+                if m:
+                    concept, ddate, segments = f"{m.group(2)}->{m.group(1)}", 0, ""
             rows.append({"adsh": d["adsh"], "rule": f["rule"], "element_id": f["element_id"],
                          "concept": concept, "ddate": ddate, "segments": segments, "value": f["value"],
                          "message": f["message"]})

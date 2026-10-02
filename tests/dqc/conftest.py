@@ -28,7 +28,7 @@ BACKGROUND = [
 
 
 def build_quarter(facts: list[dict], form: str = "10-K", period: int = 20251231, extra_subs=(), tags=None,
-                  background: bool = True) -> Quarter:
+                  background: bool = True, pre=None, cal=None) -> Quarter:
     """A one-filing quarter from planted facts, normalised like a real data set."""
     if background:
         facts = list(facts) + [fact(b["tag"], b["value"], ddate=b["ddate"], qtrs=4, uom=b["uom"]) for b in BACKGROUND]
@@ -39,7 +39,12 @@ def build_quarter(facts: list[dict], form: str = "10-K", period: int = 20251231,
     num = pd.DataFrame(facts)
     num = num.astype({k: v for k, v in NUM_DTYPES.items() if k in num})
     tag = pd.DataFrame(tags or [], columns=["tag", "version", "custom", "datatype"]).astype(str)
-    return Quarter(sub=sub, num=normalise_num(num, sub), pre=None, tag=tag)
+    pre_df = None if pre is None else pd.DataFrame(
+        [{"adsh": ADSH, "stmt": st, "tag": t} for t, st in pre]).astype(str)
+    cal_df = None if cal is None else pd.DataFrame(
+        [{"adsh": ADSH, "grp": "1", "arc": str(i), "negative": str(int(w < 0)), "ptag": p, "pversion": pv,
+          "ctag": c, "cversion": cv} for i, (p, pv, c, cv, w) in enumerate(cal, start=1)])
+    return Quarter(sub=sub, num=normalise_num(num, sub), pre=pre_df, tag=tag, cal=cal_df)
 
 
 @pytest.fixture

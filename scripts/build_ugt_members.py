@@ -7,6 +7,8 @@ writes ``credit_engine/dqc/resources/ugt_2025_axis_members.json`` with:
 * ``axes``: data-set axis name -> sorted member names (all domain-member
   descendants of the axis across every network, plus the domain itself)
 * ``base_members``: every us-gaap/srt element whose name ends in ``Member``
+* ``calc``: every US GAAP calculation relationship ``[parent, child, weight]``
+  from the ``*-cal-2025.xml`` linkbases (used by DQC_0008)
 
 Names use the data-set form (no prefix, no ``Axis``/``Member`` suffix).
 """
@@ -65,8 +67,19 @@ def main() -> None:
             name = el.get("name", "")
             if name.endswith("Member"):
                 base.add(short(name, "Member"))
-    OUT.write_text(json.dumps({"taxonomy": "us-gaap 2025", "axes": axes, "base_members": sorted(base)}, indent=0))
-    print({k: len(v) for k, v in axes.items()}, len(base))
+    calc = set()
+    for path in CACHE.glob("us-gaap/2025/**/*-cal-2025.xml"):
+        root = ET.parse(path).getroot()
+        for link in root.iter("{http://www.xbrl.org/2003/linkbase}calculationLink"):
+            locs = {}
+            for loc in link.iter("{http://www.xbrl.org/2003/linkbase}loc"):
+                href = loc.get(f"{XLINK}href", "")
+                locs[loc.get(f"{XLINK}label")] = re.sub(r"^[a-z-]+_", "", href.split("#")[-1])
+            for arc in link.iter("{http://www.xbrl.org/2003/linkbase}calculationArc"):
+                calc.add((locs[arc.get(f"{XLINK}from")], locs[arc.get(f"{XLINK}to")], float(arc.get("weight"))))
+    OUT.write_text(json.dumps({"taxonomy": "us-gaap 2025", "axes": axes, "base_members": sorted(base),
+                               "calc": sorted(list(c) for c in calc)}, indent=0))
+    print({k: len(v) for k, v in axes.items()}, len(base), len(calc))
 
 
 if __name__ == "__main__":

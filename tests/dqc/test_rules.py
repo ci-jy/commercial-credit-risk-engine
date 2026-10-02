@@ -12,7 +12,7 @@ def run(rule, facts, **kw):
 
 
 def test_every_rule_module_cites_its_rule_and_returns_the_schema():
-    assert len(RULE_IDS) == 12
+    assert len(RULE_IDS) == 14
     for rid in RULE_IDS:
         mod = rule_module(rid)
         assert mod.RULE_ID == rid and rid in mod.__doc__ and "Rule text" in mod.__doc__
@@ -88,6 +88,21 @@ def test_0005_subsequent_events_and_forecasts_must_be_after_period_end():
     assert sorted(zip(f.element_id, f.ddate)) == [("48", 20250930), ("49", 20250630)]
 
 
+# DQC_0008 ---------------------------------------------------------------------------------------
+
+def test_0008_calculation_reversed_against_us_gaap():
+    g = "us-gaap/2025"
+    cal = [("OperatingLeaseLiabilityNoncurrent", g, "OperatingLeaseLiability", g, 1.0),   # reversed
+           ("OperatingLeaseLiability", g, "OperatingLeaseLiabilityCurrent", g, 1.0),      # correct direction
+           ("abc_Custom", ADSH, "Assets", g, 1.0)]                                        # extension parent
+    f = run("DQC_0008", [fact("Assets", 1)], cal=cal)
+    assert f.concept.tolist() == ["OperatingLeaseLiabilityNoncurrent->OperatingLeaseLiability"]
+    assert f.element_id.tolist() == ["6819"]
+    # same pair with the opposite weight is not the US GAAP relationship
+    assert run("DQC_0008", [fact("Assets", 1)], cal=[cal[0][:4] + (-1.0,)]).empty
+    assert run("DQC_0008", [fact("Assets", 1)]).empty  # no calculation table: nothing to check
+
+
 # DQC_0009 ---------------------------------------------------------------------------------------
 
 def test_0009_outstanding_greater_than_issued():
@@ -148,6 +163,17 @@ def test_0015_negative_non_negative_concept_and_exclusions():
     assert sorted(f.segments.fillna("")) == ["", "ProductOrService=Widgets;"]
     assert set(f.suggested) == {2_000_000, 100_000}
     assert (f.element_id != "").all()
+
+
+# DQC_0036 ---------------------------------------------------------------------------------------
+
+def test_0036_period_of_report_not_rolled_forward():
+    pre = [("Assets", "BS"), ("Liabilities", "BS")]
+    facts = [fact("Assets", 5_000_000, ddate=20260331), fact("Liabilities", 2_000_000, ddate=20260331),
+             fact("Assets", 4_000_000, ddate=20251231), fact("Revenues", 1_000_000, ddate=20260331, qtrs=1)]
+    f = run("DQC_0036", facts, form="10-Q", period=20251231, pre=pre)
+    assert f.ddate.tolist() == [20260331] and f.value.tolist() == [20251231] and f.suggested.tolist() == [20260331]
+    assert run("DQC_0036", facts, form="10-Q", period=20260331, pre=pre).empty
 
 
 # DQC_0091 ---------------------------------------------------------------------------------------
