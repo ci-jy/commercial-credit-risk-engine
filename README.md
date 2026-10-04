@@ -1,8 +1,31 @@
 # Commercial Credit Risk Engine
 
-Gives commercial-banking and credit analysts a first-pass credit memo for a public borrower (spread SEC XBRL filings, stress covenants, estimate default risk) and a bulk XBRL data-quality screen that flags bad filing values first. The bankruptcy scorecard reaches a **held-out AUC of 0.749 vs 0.690 for Altman Z''** on 43,405 real firm-years. The screen checks **all 7,421 US GAAP filings of an SEC quarter in 23 s**; Arelle needs a median 27 s *per filing*. On 45 filings it matched Arelle on 40 of 44 findings, and every disagreement is root-caused.
+A first-pass credit memo for a public borrower, built from its SEC XBRL filings (spread, covenant stress tests, default risk), plus a bulk XBRL data-quality screen that flags bad filing values first. For commercial-banking and credit analysts.
+
+## Results
+
+- **Default-risk scorecard beat Altman Z'': AUC 0.749 vs 0.690** on held-out data (43,405 real firm-years), inside a Python credit engine that turns SEC XBRL filings into credit memos with covenant stress tests and Merton distance-to-default.
+- **Screened all 7,421 filings of an SEC quarter for XBRL data errors in 23 s**, where Arelle needs 27 s per filing, by porting 14 XBRL US DQC rules to vectorised pandas over SEC flat files.
+- **Matched Arelle/XULE on 40 of 44 findings across 45 real filings**, with every disagreement traced to a cause, via a differential test harness and planted-error tests.
+- **Generated an Excel exceptions report of 451 flagged values** for a full quarter, with suggested corrections and linked summary and rule sheets.
 
 ![PD model benchmark](docs/benchmark.png)
+
+**Stack:** Python, pandas, scikit-learn, SciPy, openpyxl (Excel), LibreOffice (headless recalculation), SEC EDGAR XBRL API, Arelle/XULE (reference runs), pytest
+
+## Quickstart
+
+```bash
+python3 -m venv .venv && . .venv/bin/activate && pip install -e ".[test]"
+CREDIT_ENGINE_USER_AGENT="Your Name you@example.com" credit-engine memo --cik 106640 --out out/   # Whirlpool, live from EDGAR
+credit-engine dqc --quarter 2026q2 --out out/dqc                                                  # screen a whole SEC quarter
+```
+
+For the Excel recalculation check, install LibreOffice Calc: `sudo apt-get install -y --no-install-recommends libreoffice-calc`. Without it, the memo is still written and the workbook simply calculates when opened.
+
+Each run writes `out/<borrower>_memo.md` and `out/<borrower>_spread.xlsx`. Finished examples for Hasbro, Whirlpool, Kohl's, Mattel and Macy's (plus an illustrative private borrower) are in [examples/](examples/).
+
+## Results in detail
 
 | Model (held-out 30%, 627 bankruptcies) | AUC [95% CI] | KS | Brier | ECE |
 |---|---|---|---|---|
@@ -24,18 +47,6 @@ Full tables with CIs for every metric and decile calibration: [reports/benchmark
 | Flagged values that move a leverage or coverage ratio | 6 of 451 hit a spread input; none changes a ratio by more than 0.5% |
 
 Per-rule agreement, root causes, the bugs the comparison exposed and the runtime method are in [reports/dqc_results.md](reports/dqc_results.md).
-
-## Quickstart
-
-```bash
-python3 -m venv .venv && . .venv/bin/activate && pip install -e ".[test]"
-CREDIT_ENGINE_USER_AGENT="Your Name you@example.com" credit-engine memo --cik 106640 --out out/   # Whirlpool, live from EDGAR
-credit-engine dqc --quarter 2026q2 --out out/dqc                                                  # screen a whole SEC quarter
-```
-
-For the Excel recalculation check, install LibreOffice Calc: `sudo apt-get install -y --no-install-recommends libreoffice-calc`. Without it, the memo is still written and the workbook simply calculates when opened.
-
-Each run writes `out/<borrower>_memo.md` and `out/<borrower>_spread.xlsx`. Finished examples for Hasbro, Whirlpool, Kohl's, Mattel and Macy's (plus an illustrative private borrower) are in [examples/](examples/).
 
 ## Why
 
@@ -145,7 +156,7 @@ The suite checks:
 - Ratio impact for a sign-flipped debt value (leverage goes from −2.5x to 2.5x), and for 10-Q annualisation.
 - Every hyperlink in the exceptions workbook resolves, both in a generated workbook and in the committed 2026q2 report.
 
-## Design notes and limitations
+## Limitations and next steps
 
 - **Population mismatch.** The scorecard learns from Polish (mostly manufacturing) firms, so its PD is a relative-risk signal for US borrowers, not a calibrated 1-year US PD. The memo grade therefore takes the more conservative of the scorecard and Merton PDs.
 - **Gradient boosting on 64 ratios scores far higher**, but it uses ratios a GAAP spread cannot supply. The Polish files also repeat firms across horizons without IDs, so a random split likely flatters flexible models. The scorecard is kept for transparency and portability.
